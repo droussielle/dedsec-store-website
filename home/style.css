@@ -156,6 +156,7 @@
     height: 15px;  
     border: 1px solid #000;
     /* background: #000; */
+    transition: 0.5s ease;
 }
 
 .pg-nav-arrow-l {
@@ -238,4 +239,55 @@
     font-style: normal;
     font-weight: 400;
     line-height: 16px; /* 114.286% */
+}
+
+/* Footer Font */
+.footer-font-1-header {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 150%; /* 24px */
+    letter-spacing: -0.16px;
+}
+
+.footer-font-1-inside {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    letter-spacing: -0.16px;
+}
+
+.footer-font-2-submit {
+    color: var(--light-foreground-foreground-on-brand, #FFF);
+    /* font-family: Inconsolata; */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.footer-font-2-place {
+    color: var(--dark-foreground-foreground-4, #999);
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+
+.footer-font-3-ending {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.footer-input-layout {
+    border-radius: 4px;
+    border: 1px solid #666;
+    background: #292929;
 }
