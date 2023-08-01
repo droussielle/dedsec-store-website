@@ -124,6 +124,10 @@
     fill: white;
 }
 
+.big-navigation input:focus {
+    outline: none;
+}
+
 /* Slider */
 .slide-container {
     height: 400px;

@@ -128,32 +128,6 @@
     outline: none;
 }
 
-/* Latest news */
-.latest-news-content{
-    color: #000;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 150%; /* 48px */
-    letter-spacing: -0.32px;
-    text-decoration-line: underline;
-}
-
-.card-head {
-    color: #000;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 16px; /* 80% */
-}
-
-.card-description {
-    color: #000;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px; /* 114.286% */
-}
 
 /* Footer Font */
 .footer-font-1-header {
@@ -205,3 +179,67 @@
     border: 1px solid #666;
     background: #292929;
 }
+
+
+
+/* Sign in-up */
+.sign-header-font {
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 36px */
+    letter-spacing: -0.24px;
+}
+
+.sign-title-font {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+
+.sign-input-layout{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 4px;
+    padding: 0.3rem;
+    color: #000;
+}
+
+.sign-holder-font {
+    color: var(--light-foreground-foreground-4, #707070);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+
+.sign-btn-font {
+    color: var(--light-foreground-foreground-on-brand, #FFF);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.sign-footer-font {
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 166.667% */
+}
+
+.form-container{
+    padding: 50px 110px;
+}
+
+@media only screen and (max-width: 384px) {
+    .form-container{
+        padding: 50px 20px;
+    }
+  }
+

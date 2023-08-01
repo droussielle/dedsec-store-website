@@ -13,7 +13,7 @@ function get_visible_header() {
 
 // Function to handle navbar position based on header visibility
 function handleNavbarPosition() {
-    const navbar = document.getElementsByClassName('navbar')[0];
+    const navbar = document.getElementsByClassName('big-navigation')[0];
     const isHeaderVisible = !isHeaderOutOfView();
     const length = get_visible_header();
     

@@ -127,32 +127,80 @@
 
         
 
-        <!-- Latest news -->
-        <div class="px-5 py-5" style="background: #DDD;">
+        <!-- Sign in/up -->
+        <div class="form-container d-flex flex-column align-items-center">
+            <div class="gap-5">
+                <!-- Sign in section -->
+                <form class="sign-in-form d-flex flex-column align-items-start gap-3 mb-4 p-4 shadow rounded-3" action="">
+                    
+                    <!-- Header form -->
+                    <div class="sign-header-font">Sign in</div>
 
-            <a href="#">
-                <div class="latest-news-content mb-5">Latest news ></div>
-            </a>
-            
-            <div class="d-flex justify-content-between row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 latest-news">
+                    <!-- label and input -->
+                    <label class="sign-title-font d-block" for="sign-in-email">Email</label>
+                    <input class="sign-input-layout" type="email" id="sign-in-email" name="sign-in-email" placeholder="Placeholder text">
 
-                <!-- Card 1 -->
-                <!-- <div class="card pe-5 mb-5 border-0" style="background: #DDD;">
-                    <img src="./img/products-img.jfif" class="card-img-top" alt="...">
-                    <div class="card-body p-0">
-                        <div class="card-head my-2">Phone news</div>
-                        <div class="card-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Nam id rhoncus augue, id bibendum magna. Nulla urna nibh, 
-                            ornare sit amet lacinia vel, accumsan non diam.
-                        </div>
+                    <label class="sign-title-font d-block" for="sign-in-password">Password</label>
+                    <input class="sign-input-layout" type="password" id="sign-in-password" name="sign-in-password" placeholder="Placeholder text">
+                    
+                    <!-- button submit -->
+                    <div>
+                        <button class="btn btn-primary sign-btn-font" type="submit">Sign in</button>
                     </div>
-                </div> -->
+                </form>
 
-                
+                <!-- Sign up section -->
+                <form class="sign-up-form d-flex flex-column align-items-start gap-3 mb-4 p-4 shadow rounded-3" action="">
+                    
+                    <!-- Header form -->
+                    <div class="sign-header-font">Don't have an account? Sign up instead</div>
+
+                    <!-- label and input -->
+
+                    <label class="sign-title-font d-block" for="sign-up-name">Name</label>
+                    <input class="sign-input-layout" type="text" id="sign-up-name" name="sign-up-name" placeholder="Placeholder text">
+
+                    <label class="sign-title-font d-block" for="sign-up-email">Email</label>
+                    <input class="sign-input-layout" type="email" id="sign-up-email" name="sign-up-email" placeholder="Placeholder text">
+
+                    <label class="sign-title-font d-block" for="sign-up-password">Password</label>
+                    <input class="sign-input-layout" type="password" id="sign-up-password" name="sign-up-password" placeholder="Placeholder text">
+                    
+                    <label class="sign-title-font d-block" for="sign-up-password-confirm">Password</label>
+                    <input class="sign-input-layout" type="password" id="sign-up-password-confirm" name="sign-up-password-confirm" placeholder="Placeholder text">
+
+                    <!-- Terms and Policy -->
+                    <div class="sign-footer-font">
+                        By creating an account you are agreeing to 
+                        <a class="sign-footer-font" href="https://www.iubenda.com/terms-and-conditions/28927739">Terms of Service</a> and 
+                        <a class="sign-footer-font" href="https://www.iubenda.com/privacy-policy/28927739">Privacy Policy</a>
+                    </div>
+                    <!-- button submit -->
+                    <div>
+                        <button class="btn btn-primary sign-btn-font" type="submit">Sign up</button>
+                    </div>
+                </form>
+
+                <!-- Sign in section -->
+                <form class="sign-forgot-form d-flex flex-column align-items-start gap-3 mb-4 p-4 shadow rounded-3" action="">
+                    
+                    <!-- Header form -->
+                    <div class="sign-header-font">Forgot password?</div>
+
+                    <!-- label and input -->
+                    <label class="sign-title-font d-block" for="sign-forgot-email">Type your email to get started</label>
+                    <input class="sign-input-layout" type="email" id="sign-forgot-email" name="sign-forgot-email" placeholder="Placeholder text">
+
+                    <label class="sign-title-font d-block" for="sign-forgot-password">Password</label>
+                    <input class="sign-input-layout" type="password" id="sign-forgot-password" name="sign-forgot-password" placeholder="Placeholder text">
+                    
+                    <!-- button submit -->
+                    <div>
+                        <button class="btn btn-primary sign-btn-font" type="submit">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
-
 
 
     </div>
