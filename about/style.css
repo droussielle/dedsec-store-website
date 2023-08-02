@@ -6,6 +6,9 @@
     text-justify: inter-word;
 }
 
+a:hover{
+    cursor: pointer;
+}
 
 /* Start CSS */
 
@@ -53,6 +56,10 @@
 
 .search-icon:hover {
     fill: white;
+}
+
+.big-navigation input:focus {
+    outline: none;
 }
 
 
