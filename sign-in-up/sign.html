@@ -20,8 +20,17 @@
         <!-- header -->
         <div class="header d-flex align-items-center p-2">
             <div class="header-content text-lg-center col-lg-10 col-md-10 d-md-block d-none">Free shipping on orders above 200$ (US only)</div>
-            <div class="header-content col-md-1 col-6 me-md-2 me-lg-0">User1234</div>
-            <div class="header-content col-md-1 col-6 text-end text-md-start">Log out</div>
+            
+            <!--User-->
+            <div class="header-content col-md-1 col-6 me-md-2 me-lg-0">
+                <a id="user" class="text-decoration-none header-content" href="#"></a>
+            </div> 
+
+            <!--Log-->
+            <div class="header-content col-md-1 col-6 text-end text-md-start">
+                <a id="log" class="text-decoration-none header-content" href=""></a>
+            </div> 
+
         </div>
 
         <!-- Navigation bar -->
@@ -166,7 +175,7 @@
                     <label class="sign-title-font d-block" for="sign-up-password">Password</label>
                     <input class="sign-input-layout" type="password" id="sign-up-password" name="sign-up-password" placeholder="Placeholder text">
                     
-                    <label class="sign-title-font d-block" for="sign-up-password-confirm">Password</label>
+                    <label class="sign-title-font d-block" for="sign-up-password-confirm">Password confirmation</label>
                     <input class="sign-input-layout" type="password" id="sign-up-password-confirm" name="sign-up-password-confirm" placeholder="Placeholder text">
 
                     <!-- Terms and Policy -->
@@ -191,9 +200,6 @@
                     <label class="sign-title-font d-block" for="sign-forgot-email">Type your email to get started</label>
                     <input class="sign-input-layout" type="email" id="sign-forgot-email" name="sign-forgot-email" placeholder="Placeholder text">
 
-                    <label class="sign-title-font d-block" for="sign-forgot-password">Password</label>
-                    <input class="sign-input-layout" type="password" id="sign-forgot-password" name="sign-forgot-password" placeholder="Placeholder text">
-                    
                     <!-- button submit -->
                     <div>
                         <button class="btn btn-primary sign-btn-font" type="submit">Submit</button>
@@ -290,7 +296,8 @@
     <script src="./src/handle_menu.js"></script>
     <!-- Adding script for news change -->
     <script src="./src/news_loader.js"></script>
-
+    <!-- Handle sign in-up -->
+    <script src="../user_data/handle_sign.js"></script>
     
 </body>
 </html>
