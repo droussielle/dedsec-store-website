@@ -137,14 +137,51 @@
         <div class="container row p-5 bg-light" id="display-area">
             <div class="col-lg-2 bg-light" >
                 <div class="card border-0 bg-light" style="width: 18rem;">
-                    <div class="card-header bg-light dropdown-menu-md-start" data-bs-toggle="dropdown" href="#catergories-dropdown">Categories</div>
-                    <ul class="list-group list-group-flush">
+                    <div class="card-header bg-light" >Categories 
+                        <span class="d-md-none">
+                            <a class="btn" data-bs-toggle="collapse" href="#categories-dropdown" aria-expanded="false" aria-controls="categories-dropdown" >
+                                <img src="img/dropdown_icon.png" alt="dropdown-icon">
+                            </a>
+                        </span>
+                    </div>
+                    <ul class="list-group list-group-flush d-md-flex collapse" id="categories-dropdown">
                         <li class="list-group-item">All</li>
                         <li class="list-group-item">Laptops</li>
-                        <li class="list-group-item">Pentesting</li>
+                        <li class="list-group-item">Pentesting/li>
                         <li class="list-group-item">Microcontrollers</li>
                         <li class="list-group-item">Tiny computers</li>
                     </ul>
+                    <br>
+
+                    <div class="card-header bg-light" >Sort by 
+                        <span class="d-md-none">
+                            <a class="btn" data-bs-toggle="collapse" href="#sortby-dropdown" aria-expanded="false" aria-controls="categories-dropdown" >
+                                <img src="img/dropdown_icon.png" alt="dropdown-icon">
+                            </a>
+                        </span>
+                    </div>
+                    <ul class="list-group list-group-flush d-md-flex collapse" id="sortby-dropdown">
+                        <li class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="default" checked>
+                            <label class="form-check-label" for="default">
+                              Default 
+                            </label>
+                        </li>
+                        <li class="form-check" >
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="price-low-high">
+                            <label class="form-check-label" for="price-low-high">
+                              Price (low-high)
+                            </label>
+                        </li>
+                        <li class="form-check" >
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="price-high-low">
+                            <label class="form-check-label" for="price-high-low">
+                              Price (high-low)
+                            </label>
+                        </li>
+
+                    </ul>
+
                 </div>
 
             </div>
