@@ -1,6 +1,6 @@
 function generateItem(name='laptop', price=9999, description='flexible|reasonable price|best price/performance|good battery life'){
     
-    var container=document.getElementById('display-area');
+    var container=document.getElementById('items');
     //product name
     var title=name+'<span id="price" style="float:right">$'+price+'</span>';
 
@@ -14,7 +14,7 @@ function generateItem(name='laptop', price=9999, description='flexible|reasonabl
     }
 
     var cardBlock=document.createElement('div');
-    cardBlock.className="col-lg-9 col-sm-12 card border-0 bg-light";
+    cardBlock.className="col-lg-10 col-sm-12 card border-0 bg-light";
     var cardBlockHTML =`
         <div class="row">
             <div class="col-4"><img src="img/navbar_logo.png" alt="img" class="rounded float-start" style="width: 10rem;"></div>
