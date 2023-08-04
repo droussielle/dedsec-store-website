@@ -120,8 +120,8 @@
             </div>
 
             <!-- Search fields -->
-            <div class="search-fields collapse my-0 mx-auto position-relative" id="search-fields" >
-                <input class="w-100 bg-black border-0 p-3" type="text" placeholder="Searching on my website..." style="color: white;">
+            <div class="search-fields collapse my-0 mx-auto position-relative" id="search-fields">
+                <input class="w-100 bg-black border-0 p-3" type="text" placeholder="Searching on my website..."  style="color:white">
             </div>
 
             <!-- Cart fields -->
@@ -134,61 +134,163 @@
 
     <!-- BODY -->
     <div class="bg-light row p-5" >
-        <div class="container row p-5 pt-2 bg-light" id="display-area">
-            <div class="col-lg-2 bg-light pe-2" >
-                <div class="card border-0 bg-light p-2" style="width: max-content;">
-                    <div class="card-header bg-light" style="font-weight: bolder;">Categories 
-                        <span class="d-lg-none">
-                            <a class="btn align-content-end align-items-end" data-bs-toggle="collapse" href="#categories-dropdown" aria-expanded="false" aria-controls="categories-dropdown"  >
-                                <img src="img/dropdown_icon.png" alt="dropdown-icon">
-                            </a>
-                        </span>
-                    </div>
-                    <ul class="list-group list-group-flush d-lg-flex collapse bg-light" id="categories-dropdown">
-                        <li class="list-group-item border-0  bg-light">All</li>
-                        <li class="list-group-item border-0  bg-light">Laptops</li>
-                        <li class="list-group-item border-0  bg-light">Pentesting/li>
-                        <li class="list-group-item border-0  bg-light">Microcontrollers</li>
-                        <li class="list-group-item border-0  bg-light">Tiny computers</li>
-                    </ul>
-                    <br>
+        <div class="container" >
+            <div class="row">
+                <a class="" href="../product/index.html"><img src="img/back_icon.png" alt="back_icon"> Back to products</a>
+            </div>
+            <br>
 
-                    <div class="card-header bg-light" style="font-weight: bolder;">Sort by 
-                        <span class="d-lg-none">
-                            <a class="btn" data-bs-toggle="collapse" href="#sortby-dropdown" aria-expanded="false" aria-controls="categories-dropdown" >
-                                <img src="img/dropdown_icon.png" alt="dropdown-icon">
-                            </a>
-                        </span>
-                    </div>
-                    <ul class="list-group list-group-flush d-lg-flex collapse  bg-light" id="sortby-dropdown">
-                        <li class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="default" checked>
-                            <label class="form-check-label" for="default">
-                              Default 
-                            </label>
-                        </li>
-                        <li class="form-check" >
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="price-low-high">
-                            <label class="form-check-label" for="price-low-high">
-                              Price (low-high)
-                            </label>
-                        </li>
-                        <li class="form-check" >
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="price-high-low">
-                            <label class="form-check-label" for="price-high-low">
-                              Price (high-low)
-                            </label>
-                        </li>
+            <!-- Slider -->
+            <div id="mySlider" class="carousel slide" data-bs-ride="carousel">
 
-                    </ul>
+                <!-- Slide inner -->
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <!-- <div class="d-md-flex">
+        
+                            <img class="img-fluid col-md-8" height="100%"  src="./img/slide-img1.png" alt="">
+            
+                            <div class="d-flex align-items-center p-5 col-md-4" style="background: rgba(0, 0, 0, 0.67);">
+                                <div>
+                                    <div class="my-font-basic font-type-1">1 Multi-tool device for geeks</div>
+                                    <div class="my-font-basic font-type-2">DEDSEC Zero</div>
+                                    <div class="my-font-basic font-type-3"><div class="my-font-basic font-type-4 d-inline-block">DEDSEC</div> Zero is a portable multi-tool for pentesters and 
+                                        geeks in a toy-like body. It loves hacking digital stuff, 
+                                        such as radio protocols, access control systems, hardware and more. 
+                                        It's fully open-source and customizable, so you can extend it in whatever way you like.
+                                    </div>
+            
+                                    <a href="#">
+                                        <div class="my-href">Buy now ></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="d-md-flex">
+                            <div class="row">
+                                <!-- <div class="col-lg-8">
+                                    <h5 id="product-name">Product Name</h5>
+                                    <h5 id="product-price">Price</h5>
+                                </div>
+                                <div class="col-lg-4 align-self-end">
+                                    <div class="btn btn-primary">Add to cart</div>
+                                </div> -->
+                                <div class="btn btn-primary">Add to cart</div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    
+        
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="d-md-flex">
+        
+                            <img class="img-fluid col-md-8" height="100%"  src="./img/slide-img1.png" alt="">
+            
+                            <div class="d-flex align-items-center p-5 col-md-4" style="background: rgba(0, 0, 0, 0.67);">
+                                <div>
+                                    <div class="my-font-basic font-type-1">2 Multi-tool device for geeks</div>
+                                    <div class="my-font-basic font-type-2">DEDSEC Zero</div>
+                                    <div class="my-font-basic font-type-3"><div class="my-font-basic font-type-4 d-inline-block">DEDSEC</div> Zero is a portable multi-tool for pentesters and 
+                                        geeks in a toy-like body. It loves hacking digital stuff, 
+                                        such as radio protocols, access control systems, hardware and more. 
+                                        It's fully open-source and customizable, so you can extend it in whatever way you like.
+                                    </div>
+            
+                                    <a href="#">
+                                        <div class="my-href">Buy now ></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="d-md-flex">
+        
+                            <img class="img-fluid col-md-8" height="100%"  src="./img/slide-img1.png" alt="">
+            
+                            <div class="d-flex align-items-center p-5 col-md-4" style="background: rgba(0, 0, 0, 0.67);">
+                                <div>
+                                    <div class="my-font-basic font-type-1">3 Multi-tool device for geeks</div>
+                                    <div class="my-font-basic font-type-2">DEDSEC Zero</div>
+                                    <div class="my-font-basic font-type-3"><div class="my-font-basic font-type-4 d-inline-block">DEDSEC</div> Zero is a portable multi-tool for pentesters and 
+                                        geeks in a toy-like body. It loves hacking digital stuff, 
+                                        such as radio protocols, access control systems, hardware and more. 
+                                        It's fully open-source and customizable, so you can extend it in whatever way you like.
+                                    </div>
+            
+                                    <a href="#">
+                                        <div class="my-href">Buy now ></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="carousel-item">
+                        <div class="d-md-flex">
+        
+                            <img class="img-fluid col-md-8" height="100%"  src="./img/slide-img1.png" alt="">
+            
+                            <div class="d-flex align-items-center p-5 col-md-4" style="background: rgba(0, 0, 0, 0.67);">
+                                <div>
+                                    <div class="my-font-basic font-type-1">4 Multi-tool device for geeks</div>
+                                    <div class="my-font-basic font-type-2">DEDSEC Zero</div>
+                                    <div class="my-font-basic font-type-3"><div class="my-font-basic font-type-4 d-inline-block">DEDSEC</div> Zero is a portable multi-tool for pentesters and 
+                                        geeks in a toy-like body. It loves hacking digital stuff, 
+                                        such as radio protocols, access control systems, hardware and more. 
+                                        It's fully open-source and customizable, so you can extend it in whatever way you like.
+                                    </div>
+            
+                                    <a href="#">
+                                        <div class="my-href">Buy now ></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of slide -->
+                </div>
+            
+        </div>
+        
+            <!-- Page navigation -->
+            <div class="d-flex pg-nav align-content-center justify-content-center">
+                <div class="pg-nav-main">
+                    <!-- Arrow left -->
+                    <button class="btn btn-light m-0" data-bs-target="#mySlider" data-bs-slide="prev">
+                        <!-- <div class="pg-nav-arrow-l"></div> -->
+                        <img src="img/prev_icon.png" alt="previous">
+                    </button>
+                    
+                    <!-- Box -->
+                    <div class="pg-nav-box-container">
+                        <div class="pg-nav-box bg-black" data-bs-target="#mySlider" data-bs-slide-to="0"></div>
+                        <div class="pg-nav-box" data-bs-target="#mySlider" data-bs-slide-to="1"></div>
+                        <div class="pg-nav-box" data-bs-target="#mySlider" data-bs-slide-to="2"></div>
+                        <div class="pg-nav-box" data-bs-target="#mySlider" data-bs-slide-to="3"></div>
+                    </div>
+
+                    <!-- Arrow right -->
+                    <button class="btn btn-light m-0" data-bs-target="#mySlider" data-bs-slide="next">
+                        <!-- <div class="pg-nav-arrow-r" ></div> -->
+                        <img src="img/forw_icon.png" alt="forward">
+
+                    </button>
 
                 </div>
+            </div>
 
-            </div>
-            <!-- <div class="w-100 d-none d-md-block"></div> -->
-            <div class="col-lg-9 ps-5" id="items">
-                <button type="button" class="btn btn-primary" onclick="generateItem()">Generate Items for testing purposes</button>
-            </div>
+
         </div>
     </div>
 
@@ -271,6 +373,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="src/script.js"></script>
-    <script src="src/product.js"></script>
+    <script src="src/product_details.js"></script>
+    <script src="src/for_slider.js"></script>
 </body>
 </html>
