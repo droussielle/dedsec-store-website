@@ -71,7 +71,7 @@ const user_name = document.getElementById('user');
 const log = document.getElementById('log');
 
 if(!isLoggedIn()){
-    user_name.textContent = 'Public'
+    user_name.textContent = ''
     log.textContent = 'Log in'
 } else{
     
@@ -88,40 +88,16 @@ const logInLink = document.getElementById('log');
 logInLink.addEventListener('click', function(event) {
     event.preventDefault(); // Prevent the default behavior of navigating to the empty href
   
-    if (!isLoggedIn()){
-        // Change the href of the anchor element to the target page
-        logInLink.href = '../sign-in-up/sign.html';
-
-        // Redirect to the new target page
-        window.location.href = logInLink.href;
-    }
-    else{
+    if (isLoggedIn()){
         logout();
-        user_name.textContent = 'Public'
+        user_name.textContent = ''
         log.textContent = 'Log in'
     }
+    
+    // Redirect to the new target page
+    window.location.href = '../sign-in-up/sign.html';
   
 });
-
-// document.addEventListener('DOMContentLoaded', function () {
-
-//     const user_name = document.getElementById('user');
-//     const log = document.getElementById('log');
-
-//     if(!isLoggedIn()){
-//         user_name.textContent = 'Public'
-//         log.textContent = 'Log in'
-//     } else{
-        
-//         const global_email = get_global_email();
-//         const userDataString = localStorage.getItem(global_email);
-//         const userData = JSON.parse(userDataString);
-
-//         user_name.textContent = userData['name']
-//         log.textContent = 'Log out'
-//     }
-// });
-
 
 // Handle form
 function ValidateEmail(email) 
