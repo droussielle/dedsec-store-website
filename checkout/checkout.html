@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- My css -->
     <link rel="stylesheet" href="style.css">
-    <title>Products</title>
+    <title>Checkout</title>
 </head>
 <body class="bg-light">
 
@@ -72,7 +72,7 @@
 
                         <!-- Products -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#products">Products</a>
+                            <a class="nav-link" href="../products/product.html">Products</a>
                         </li>
 
                         <!-- News -->
@@ -133,120 +133,189 @@
 
     </div>
 
-    <!-- BODY -->
-    <div class="p-5 row row-cols-lg-2 row-cols-1">
-        
-        <!-- Categories + Sort by -->
-        <div class="col col-lg-3 d-flex flex-column align-items-md-start align-items-center mb-5">
+    <!-- BODY OF CHECKOUT -->
+    <div class="checkout-container p-5">
 
-            <div style="width: 200px;">
-                <!-- Categories -->
-                <div class="mb-lg-5 mb-1">
+        <!-- Header -->
+        <h1 class="fw-bolder fb">Checkout</h1>
 
-                    <!-- Header + Button dropdown -->
-                    <div class="pb-1 border-bottom border-dark d-flex justify-content-between">
-                        <div class="fw-bolder fb bg-light">Categories</div>
-                        <span class="d-lg-none">
-                            <a class="btn p-0 m-0" data-bs-toggle="collapse" href="#categories-dropdown" aria-expanded="false" aria-controls="categories-dropdown" >
-                                <img src="img/dropdown_icon.png" alt="dropdown-icon">
-                            </a>
-                        </span>
+        <!-- Information -->
+        <div class="customer-information-payment">
+
+            <!-- Customer information -->
+            <div class="d-flex align-items-start border-bottom border-dark mb-3">
+                <!-- Header -->
+                <h2 class="fw-bolder fb">1</h2>
+
+                <form class="sign-up-form col-11 d-flex flex-column align-items-start gap-3 mb-4 ps-4" id="customer-infor" action="">
+
+                    <!-- Header remain -->
+                    <h2 class="fw-bolder fb">Customer information</h2>
+                    <!-- Logged or not -->
+                    <div class="mb-2">Already have an account? <a class="fb" href="../sign-in-up/sign.html">Sign in instead</a></div>
+
+                    <!-- Email -->
+                    <div class="w-100">
+                        <label class="d-block" for="customer-infor-email">Email</label>
+                        <input class="form-control p-1" type="email" name="email" id="customer-infor-email" placeholder="example@gmail.com" required>
+                        <hr class="m-0">
                     </div>
 
-                    <!-- Content -->
-                    <div>
-                        <ul class="p-0 m-0 list-group list-group-flush d-lg-flex collapse" id="categories-dropdown">
-                            <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb fw-bolder text-decoration-none" href="#">All</a></li>
-                            <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Laptops</a></li>
-                            <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Pentesting</a></li>
-                            <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Microcontrollers</a></li>
-                            <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Tiny computers</a></li>
-                        </ul>
+                    <!-- Name -->
+                    <div class="w-100">
+                        <label class="d-block" for="customer-infor-name">Name</label>
+                        <input class="form-control p-1" type="text" name="name" id="customer-infor-name" placeholder="Your Name" required>
+                        <hr class="m-0">
                     </div>
-                </div>
 
-                <!-- Sort by -->
-                <div>
-                    <!-- Header + Button dropdown -->
-                    <div class="pb-1 border-bottom border-dark d-flex justify-content-between">
-                        <div class="fw-bolder fb">Sort by</div>
-                        <span class="d-lg-none">
-                            <a class="btn p-0 m-0" data-bs-toggle="collapse" href="#sortby-dropdown" aria-expanded="false" aria-controls="categories-dropdown" >
-                                <img src="img/dropdown_icon.png" alt="dropdown-icon">
-                            </a>
-                        </span>
+                    <!-- Country -->
+                    <div class="w-100">
+                        <label class="d-block" for="customer-infor-country">Country</label>
+                        <select class="form-select p-1" name="country" id="customer-infor-country" required>
+                            <option disabled selected>Choose your Country</option>
+                            <option value="1">Viet Nam</option>
+                            <option value="2">Indonesia</option>
+                            <option value="3">America</option>
+                        </select>
+                        <hr class="m-0">
                     </div>
-                    <!-- Content -->
-                    <ul class="list-group list-group-flush d-lg-flex collapse" id="sortby-dropdown">
+
+                    <!-- State/Province -->
+                    <div class="w-100">
+                        <label class="d-block" for="customer-infor-state-province">State/Province</label>
+                        <select class="form-select p-1" name="state-province" id="customer-infor-state-province" required>
+                            <option disabled selected>Choose your State/Province</option>
+                            <option value="1">Binh Dinh</option>
+                            <option value="2">Khanh Hoa</option>
+                            <option value="3">Quang Ngai</option>
+                        </select>
+                        <hr class="m-0">
+                    </div>
+
+                    <!-- City -->
+                    <div class="w-100">
+                        <label class="d-block" for="customer-infor-city">City</label>
+                        <select class="form-select p-1" name="city" id="customer-infor-city" required>
+                            <option disabled selected>Choose your City</option>
+                            <option value="1">Ho Chi Minh</option>
+                            <option value="2">Hai Phong</option>
+                            <option value="3">Nha Trang</option>
+                        </select>
+                        <hr class="m-0">
+                    </div>
+
+                    <!-- Zip code -->
+                    <div class="w-100">
+                        <label class="d-block" for="customer-infor-zip">Zip code</label>
+                        <input class="form-control p-1" type="text" name="zip" id="customer-infor-zip" placeholder="Your zip code" required>
+                        <hr class="m-0">
+                    </div>
+
+                    <!-- Address -->
+                    <div class="w-100">
+                        <label class="d-block" for="customer-infor-address">Address</label>
+                        <input class="form-control p-1" type="text" name="address" id="customer-infor-address" placeholder="Your address" required>
+                        <hr class="m-0">
+                    </div>
+
+                    <!-- Phone number -->
+                    <div class="w-100">
+                        <label class="d-block" for="customer-infor-phone">Phone number</label>
+                        <input class="form-control p-1" type="text" name="phone" id="customer-infor-phone" placeholder="Your phone number" required>
+                        <hr class="m-0">
+                    </div>
+                </form>
+
+            </div>
+            
+            <!-- Payment method -->
+            <div class="d-flex align-items-start border-bottom border-dark mb-3 gap-4">
+                <!-- Header -->
+                <h2 class="fw-bolder fb">2</h2>
+
+                <div class="col-11">
+
+                    <!-- Header remain -->
+                    <h2 class="fw-bolder fb">Payment method</h2>
+
+                    <!-- Check list -->
+                    <ul class="list-group list-group-flush d-lg-flex" id="payment-method">
+
+                        <!-- Credit card -->
                         <li class="form-check bg-light">
-                            <input class="form-check-input rounded-0 shadow-none" type="radio" name="flexCheck-payment" id="default" checked>
-                            <label class="form-check-label fb" for="default">Default</label>
+
+                            <input class="form-check-input rounded-0 shadow-none" type="radio" name="flexCheckIndeterminate" id="payment-method-credit-card" checked>
+                            <div>
+                                <label class="form-check-label mb-2" for="payment-method-credit-card">Credit card / Debit card</label>
+                                <img class="d-block mb-4" src="./img/credit-cards.png" alt="credit-cards-thumb">
+                                <!-- Form -->
+                                <form class="sign-up-form col-11 d-flex flex-column align-items-start gap-3 mb-4" id="payment-form" action="">
+
+                                    <!-- Name on card -->
+                                    <div class="w-100">
+                                        <label class="d-block" for="payment-form-name">Name on card</label>
+                                        <input class="form-control p-1" type="text" id="payment-form-name" placeholder="Your Name on the Credit/Debit card" required>
+                                        <hr class="m-0">
+                                    </div>
+
+                                    <!-- Card number -->
+                                    <div class="w-100">
+                                        <label class="d-block" for="payment-form-number">Card number</label>
+                                        <input class="form-control p-1" type="number" id="payment-form-name" placeholder="Your Card number" required>
+                                        <hr class="m-0">
+                                    </div>
+
+                                    <!-- Expiration date -->
+                                    <div class="w-100">
+                                        <label class="d-block" for="payment-form-exp">Card number</label>
+                                        <input class="form-control p-1" type="text" id="payment-form-exp" placeholder="Expiration date" required>
+                                        <hr class="m-0">
+                                    </div>
+
+                                    <!-- CVV -->
+                                    <div class="w-100">
+                                        <label class="d-block" for="payment-form-cvv">CVV</label>
+                                        <input class="form-control p-1" type="number" id="payment-form-cvv" placeholder="CVV" required>
+                                        <hr class="m-0">
+                                    </div>
+                
+                                    
+                                </form>
+                            </div>
+                            
                         </li>
-                        <li class="form-check bg-light" >
-                            <input class="form-check-input rounded-0 shadow-none" type="radio" name="flexCheck-payment" id="price-low-high">
-                            <label class="form-check-label fb" for="price-low-high">Price (low-high)</label>
+
+                        <!-- PayPal -->
+                        <li class="form-check bg-light">
+                            <input class="form-check-input rounded-0 shadow-none" type="radio" name="flexCheckIndeterminate" id="payment-method-paypal">
+                            <div>
+                                <label class="form-check-label mb-2" for="payment-method-paypal">PayPal</label>
+                                <img class="d-block mb-3" src="./img/PayPal-logo.png" alt="PayPal-logo">
+                            </div>
+                            
                         </li>
-                        <li class="form-check bg-light" >
-                            <input class="form-check-input rounded-0 shadow-none" type="radio" name="flexCheck-payment" id="price-high-low">
-                            <label class="form-check-label fb" for="price-high-low">Price (high-low)</label>
+
+                        <!-- Google Pay -->
+                        <li class="form-check bg-light">
+                            <input class="form-check-input rounded-0 shadow-none" type="radio" name="flexCheckIndeterminate" id="payment-method-googlepay">
+                            <div>
+                                <label class="form-check-label mb-2" for="payment-method-googlepay">Google Pay</label>
+                                <img class="d-block mb-3" src="./img/GooglePay-logo.png" alt="GooglePay-logo">
+                            </div>
                         </li>
                     </ul>
 
                 </div>
 
             </div>
-            
         </div>
 
-        <!-- Products displayment -->
-        <div class="col col-lg-9">
-
-            <!-- Header -->
-            <div class="d-flex flex-column align-items-md-start align-items-center">
-                <!-- Results -->
-                <div class="fb">20 results</div>
+        <!-- Order summary -->
+        <div>
+            <div>
+                
             </div>
-
-            <!-- Loading Products -->
-            <div id="Products-Container">
-                <button type="button" class="btn btn-primary my-3" onclick="generateItem()">Generate Items for testing purposes</button>
-
-                <!-- Template -->
-                <div class="col-lg-10 col-sm-12 card border-0 border-bottom border-dark rounded-0 bg-light mb-3" id="laptop14">
-                    <div class="row">
-
-                        <!-- Product's img -->
-                        <div class="col-md-2 col-4">
-                            <img src='./img/Laptop13.png' alt="img" class="rounded">
-                        </div>
-
-                        <!-- Product's content -->
-                        <div class="col-md-10 col-8">
-                            <div class="card-body pt-0">
-                                <div class="d-md-flex justify-content-md-between">
-                                    <h5 class="card-titles fb" id="product-name-price">DEDSEC Laptop 13 (DMA Ryzen™ 7040 Series)</h5>
-                                    <span class="fb fw-bolder">$9999.00</span>
-                                </div>
-                                
-                                <ul class="features">
-                                    <li class="fb">Extremely modular design with upgradable components</li>
-                                    <li class="fb">Comes with DMA Ryzen™ 7040 Series and 13th Gen ENTEL®</li>
-                                    <li class="fb">Out-of-box compatibility with most Linux distros</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="align-self-end  align-content-end p-0 m-0"><button type="button" class="btn btn-primary m-0 mb-3 align-content-end align-self-end">Add to cart</button></div>
-                    <!-- <hr> -->
-                </div>
-
-
-            </div>
-
         </div>
-
     </div>
     <!-- END OF BODY -->
 
@@ -333,12 +402,8 @@
     <script src="./src/fixed_navbar.js"></script>
     <!-- Handle menu bar -->
     <script src="./src/handle_menu.js"></script>
-    <!-- Adding script for slider change -->
-    <script src="./src/for_slider.js"></script>
     <!-- Handle sign in-up -->
     <script src="../user_data/handle_sign.js"></script>
-    <!-- Loading Products -->
-    <script src="./src/product_loader.js"></script>
 
 </body>
 </html>
