@@ -17,17 +17,17 @@ function generateItem(name='laptop', price=9999, description='flexible|reasonabl
     cardBlock.className="col-lg-10 col-sm-12 card border-0 bg-light";
     var cardBlockHTML =`
         <div class="row">
-            <div class="col-4"><img src="img/laptop-image.png" alt="img" class="rounded float-start" style="width: 9rem;"></div>
-            <div class="col-8">
+            <div class="col-2"><img src="img/laptop-image.png" alt="img" class="rounded" style="width: 9rem;"></div>
+            <div class="col-9">
                 <div class="card-body ">
                     <h5 class="card-title" id="product-name-price">`+title+`</h5>
                     <ul id="descriptions">
                     `+descriptions+`
                     </ul>
                 </div>
+                <button type="button" class="btn btn-primary" style="float:right;">Add to cart</button>
             </div>
         </div>
-        <div class="col-3 align-self-end  align-content-end p-0 m-0"><button type="button" class="btn btn-primary m-0 align-content-end align-self-end">Add to cart</button></div>
         <hr>
 
     `;
