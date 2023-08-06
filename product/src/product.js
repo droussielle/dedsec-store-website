@@ -17,8 +17,8 @@ function generateItem(name='laptop', price=9999, description='flexible|reasonabl
     cardBlock.className="col-lg-10 col-sm-12 card border-0 bg-light";
     var cardBlockHTML =`
         <div class="row">
-            <div class="col-2"><img src="img/laptop-image.png" alt="img" class="rounded" style="width: 9rem;"></div>
-            <div class="col-9">
+            <div class="col-md-2 "><img src="img/laptop-image.png" alt="img" class="rounded" style="width: max-content;"></div>
+            <div class="col-md-9 ">
                 <div class="card-body ">
                     <h5 class="card-title" id="product-name-price">`+title+`</h5>
                     <ul id="descriptions">
