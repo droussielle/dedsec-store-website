@@ -86,7 +86,7 @@ class CartItem
     {
         global $connection;
 
-        $query = "DELETE FROM CART_ITEM WHERE cart_id='$cart_id' AND product_id='$product_id";
+        $query = "DELETE FROM CART_ITEM WHERE cart_id='$cart_id' AND product_id='$product_id'";
 
         try {
             $result = $connection->prepare($query);

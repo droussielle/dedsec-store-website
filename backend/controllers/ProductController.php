@@ -43,7 +43,7 @@ class ProductController
     {
         try {
             $product = new Product();
-            $category = new Category();
+            $productCategory = new ProductCategory();
             $productRating = new ProductRating();
             $productComment = new ProductComment();
 
@@ -57,7 +57,7 @@ class ProductController
             $row = $result->fetch(PDO::FETCH_ASSOC);
 
             // Get product category
-            $result = $category->get(['product_id' => $param['id']], ['product_id']);
+            $result = $productCategory->get(['product_id' => $param['id']], ['product_id'], ['CATEGORY.id', 'CATEGORY.name']);
             $row['categories'] = $result->fetchAll(PDO::FETCH_ASSOC);
 
             // Get product comment
@@ -329,6 +329,14 @@ class ProductController
             if ($result->rowCount() == 0) {
                 http_response_code(400);
                 echo json_encode(["message" => "Category does not exist"]);
+                die();
+            }
+
+            // Check if product already have this category
+            $result = $productCategory->get(['product_id' => $param['id'], 'category_id' => $data['category_id']], ['product_id', 'category_id']);
+            if ($result->rowCount() != 0) {
+                http_response_code(400);
+                echo json_encode(["message" => "Product already have this category"]);
                 die();
             }
 

@@ -397,13 +397,6 @@ class CartController
     /////////////////////////////////////////////////////////////////////////////////////
     public function deletePromotionInCart($param, $data)
     {
-        // Checking body data
-        if (!isset($data['code'])) {
-            http_response_code(400);
-            echo json_encode(['message' => 'Promotion code is required']);
-            die();
-        }
-
         try {
             $cart = new Cart();
             $promotion = new Promotion();
@@ -426,7 +419,7 @@ class CartController
 
             // Get promotion
             $result = $promotion->get(
-                ['code' => $data['code']],
+                ['code' => $param['code']],
                 []
             );
             if ($result->rowCount() == 0) {
@@ -470,7 +463,7 @@ class CartController
     public function checkoutCart($param, $data)
     {
         // Check body data
-        if (!isset($data['ship_address'])) {
+        if (!isset($data['ship_address']) || isset($data['status'])) {
             echo json_encode(['message' => 'Address is required']);
             die();
         }
@@ -501,7 +494,7 @@ class CartController
 
             http_response_code(200);
             echo json_encode([
-                "message" => "Order is being delivered"
+                "message" => "Checkout success, order is being delivered"
             ]);
         } catch (PDOException $e) {
             echo "Unknown error in CART::checkoutCart: " . $e->getMessage();

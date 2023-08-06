@@ -5,7 +5,7 @@ $connection = Database::getInstance()->getConnection();
 
 class ProductCategory
 {
-    public function get($queryParams, $allowedKeys = [])
+    public function get($queryParams, $allowedKeys = [], $select = [])
     {
         global $connection;
 
@@ -20,7 +20,10 @@ class ProductCategory
             $conditions[] = "$key='$value'";
         }
         $whereClause = !empty($conditions) ? 'WHERE ' . implode(' AND ', $conditions) : '';
-        $query = "SELECT $selectClause FROM PRODUCT_CATEGORY $whereClause";
+        
+        $query = "  SELECT $selectClause 
+                    FROM PRODUCT_CATEGORY JOIN CATEGORY ON PRODUCT_CATEGORY.category_id = CATEGORY.id
+                    $whereClause";
 
         try {
             $result = $connection->prepare($query);
@@ -81,7 +84,8 @@ class ProductCategory
         }
     }
 
-    public function delete($product_id, $category_id) {
+    public function delete($product_id, $category_id)
+    {
         global $connection;
 
         $query = "DELETE FROM PRODUCT_CATEGORY WHERE product_id='$product_id' AND category_id='$category_id'";

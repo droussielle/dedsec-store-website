@@ -25,6 +25,7 @@ class Middleware
             $token = str_replace('Bearer ', '', $token);
             // Decode token from request
             $decoded = JWT::decode($token, new Key($key, 'HS256'));
+            
 
             // Get email, role
             $user = new User();

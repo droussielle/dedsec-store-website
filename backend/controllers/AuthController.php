@@ -7,9 +7,7 @@ use Firebase\JWT\JWT;
 
 class AuthController
 {
-    /////////////////////////////////////////////////////////////////////////////////////
-    // Register
-    /////////////////////////////////////////////////////////////////////////////////////
+
     public function register($param, $data)
     {
         // Checking body data
@@ -185,7 +183,7 @@ class AuthController
     {
         // Checking body data
         if (
-            !isset($data['newPassword']) || !isset($data['newPassword'])
+            !isset($data['newPassword']) || !isset($data['oldPassword'])
         ) {
             http_response_code(400);
             echo json_encode(["message" => "Missing old password or new password"]);
@@ -193,7 +191,7 @@ class AuthController
         }
 
         if (
-            strlen($data['newPassword']) < 6 || strlen($data['newPassword']) < 6
+            strlen($data['newPassword']) < 6 || strlen($data['oldPassword']) < 6
         ) {
             http_response_code(400);
             echo json_encode(["message" => "Old or new password must be at least 6 characters"]);

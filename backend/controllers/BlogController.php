@@ -24,7 +24,11 @@ class BlogController
             $blog = new Blog();
 
             // Get blogs by author or title if exist
-            $result = $blog->get($queryParams, ['author_id', 'author_name', 'title']);
+            $result = $blog->get(
+                $queryParams,
+                ['author_id', 'author_name', 'title'],
+                ['BLOG.id', 'title', 'author_id', 'content', 'BLOG.image_url', 'USER_INFO.name as author_name']
+            );
             $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
             http_response_code(200);
@@ -133,7 +137,7 @@ class BlogController
             $blog = new Blog();
 
             // Check if blog exist
-            $result = $blog->get(['id' => $param['id']], ['id'], ['id']);
+            $result = $blog->get(['id' => $param['id']], ['id'], ['BLOG.id']);
             if ($result->rowCount() == 0) {
                 http_response_code(400);
                 echo json_encode(["message" => "Blog does not exist"]);
@@ -164,7 +168,7 @@ class BlogController
             $blog = new Blog();
 
             // Check if blog exist
-            $result = $blog->get(['id' => $param['id']], ['id'], ['id']);
+            $result = $blog->get(['id' => $param['id']], ['id'], ['BLOG.id']);
             if ($result->rowCount() == 0) {
                 http_response_code(400);
                 echo json_encode(["message" => "Blog does not exist"]);

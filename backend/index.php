@@ -53,7 +53,6 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) 
     // Product Group
     $r->addGroup('/{group:product}', function (FastRoute\RouteCollector $r) {
         $r->addRoute('GET', '', 'getProducts');
-        $r->addRoute('GET', '/category/{id:\d+}', 'getProductByCategory');
         $r->addRoute('GET', '/{id:\d+}', 'getSingleProduct');
         $r->addRoute('POST', '', ['requireAdmin', 'addProduct']);
         $r->addRoute('PATCH', '/{id:\d+}', ['requireAdmin', 'updateProduct']);
@@ -97,7 +96,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) 
         $r->addRoute('PATCH', '/product/{product_id:\d+}', ['requireLogin', 'updateProductInCart']);
         $r->addRoute('DELETE', '/product/{product_id:\d+}', ['requireLogin', 'deleteProductInCart']);
         $r->addRoute('POST', '/promotion', ['requireLogin', 'addPromotionToCart']);
-        $r->addRoute('DELETE', '/promotion', ['requireLogin', 'deletePromotionInCart']);
+        $r->addRoute('DELETE', '/promotion/{code:\w+}', ['requireLogin', 'deletePromotionInCart']);
         $r->addRoute('POST', '/checkout', ['requireLogin', 'checkoutCart']);
         $r->addRoute('PATCH', '/order/{id:\d+}', ['requireAdmin', 'updateOrderStatus']);
     });

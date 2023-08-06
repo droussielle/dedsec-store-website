@@ -21,8 +21,8 @@ class Blog
                 case 'author_name':
                     $conditions[] = "USER_INFO.name LIKE '%$value%'";
                     break;
-                case 'author_id':
-                    $conditions[] = "BLOG.author_id='$value'";
+                case 'title':
+                    $conditions[] = "BLOG.title LIKE '%$value%'";
                     break;
                 default:
                     $conditions[] = "BLOG.$key='$value'";    
@@ -30,7 +30,7 @@ class Blog
         }
         $whereClause = !empty($conditions) ? 'WHERE ' . implode(' AND ', $conditions) : '';
 
-        $query = "SELECT $selectClause, USER_INFO.name as author_name, USER_INFO.image_url as author_avatar
+        $query = "SELECT $selectClause
                     FROM BLOG LEFT JOIN USER_INFO ON BLOG.author_id = USER_INFO.id
                     $whereClause";
 
