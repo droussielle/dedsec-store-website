@@ -1,0 +1,207 @@
+* {
+    font-family: 'Inconsolata', monospace;
+    color: white;
+
+    /* padding: 0;
+    margin: 0; */
+}
+/* Adjust font */
+.wf {
+    color: white;
+    background-color: black;
+}
+
+.bf {
+    color: black;
+}
+
+.bg-black {
+    background-color: #000;
+}
+
+.my-font-basic {
+    color: #FFF;
+    /* font-size: 14px; */
+    font-style: normal;
+    /* font-weight: 700; */
+    line-height: 150%; /* 21px */
+    /* letter-spacing: -0.14px; */
+}
+
+.font-type-1 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.16px;
+}
+
+.font-type-2 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.32px;
+}
+
+.font-type-3 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.14px;
+}
+
+.font-type-4 {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.14px;
+}
+
+.my-href {
+    color: #FFF;
+    font-family: Inconsolata;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 150%; /* 30px */
+    letter-spacing: -0.2px;
+    text-decoration-line: underline;
+}
+
+.my-href-type-2 {
+    color: #FFF;
+    font-family: Inconsolata;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 30px */
+    letter-spacing: -0.2px;
+    text-decoration-line: underline;
+}
+
+
+
+/* Start CSS */
+
+/* header */
+.header {
+    /* width: 1280px; */
+    height: 30px;
+    flex-shrink: 0;
+
+    background: #212121;
+}
+
+.header-content {
+    color: #FFF;
+    font-family: Inconsolata;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+    letter-spacing: -0.14px;
+}
+
+/* Navigation bar */
+.navigation {
+    /* width: 1280px; */
+    /* height: 65px; */
+    flex-shrink: 0;
+
+    background: #000;
+}
+
+.nav-img {
+    /* background: url('./img/nav-img.png'), lightgray 50% / cover no-repeat; */
+    height: 65px;
+    width: 70.508px;
+}
+
+.nav-icons {
+    width: 99px;
+}
+
+.search-icon{
+    transition: 0.5s ease;
+}
+
+.search-icon:hover {
+    fill: white;
+}
+
+.big-navigation input:focus {
+    outline: none;
+}
+
+/* Latest news */
+.latest-news-content{
+    color: #000;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 150%; /* 48px */
+    letter-spacing: -0.32px;
+    text-decoration-line: underline;
+}
+
+.card-head {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px; /* 80% */
+}
+
+.card-description {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 114.286% */
+}
+
+/* Footer Font */
+.footer-font-1-header {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 150%; /* 24px */
+    letter-spacing: -0.16px;
+}
+
+.footer-font-1-inside {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    letter-spacing: -0.16px;
+}
+
+.footer-font-2-submit {
+    color: var(--light-foreground-foreground-on-brand, #FFF);
+    /* font-family: Inconsolata; */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.footer-font-2-place {
+    color: var(--dark-foreground-foreground-4, #999);
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+
+.footer-font-3-ending {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.footer-input-layout {
+    border-radius: 4px;
+    border: 1px solid #666;
+    background: #292929;
+}
