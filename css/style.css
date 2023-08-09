@@ -7,8 +7,12 @@
 }
 
 /* BODY THEME */
-.body-theme-fw *{
+.body-theme-fw, .big-navigation {
     color: white;
+}
+
+.big-navigation *{
+    color: inherit;
 }
 
 /* Adjust font */
@@ -304,6 +308,7 @@
     border-radius: 4px;
     border: 1px solid #666;
     background: #292929;
+    color: white;
 }
 
 /* BODY-PRODUCTS */
