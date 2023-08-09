@@ -1,0 +1,1012 @@
+{
+	"info": {
+		"_postman_id": "77de5ba0-9700-4d67-92cd-536a2d97975f",
+		"name": "All Routes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24655004"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"client2@gmail.com\",\r\n    \"password\": \"kietclient2\",\r\n    \"name\": \"Kiet Client 2\",\r\n    \"image_url\": \"https://images.unsplash.com/photo-1683129384918-684af5f77d6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHVtYmF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60\",\r\n    \"birth_date\": \"2002-10-09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"register"
+					]
+				},
+				"description": "Description: Register and receive token and user data\n\nConstraint: None\n\nField:\n\n- email: Email (required)\n- password: String (required)\n- name: String (required)\n- image_url: URL\n- phone: String(prefer 10 number character)\n- birth_date: yyyy-mm-dd\n- address: string\n    \n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"kietadmin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "Description: Login to receive token and user data\n\nConstraint: None\n\nField:\n\n- email: Email (required)\n- password: String (required)\n    \n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"oldPassword\": \"091002\",\r\n    \"newPassword\": \"kietadmin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/auth/password",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"password"
+					]
+				},
+				"description": "Description: Change current user'password\n\nConstraint: Must be login\n\nField:\n\n- newPassword: String (required)\n- oldPassword: String (required)\n    \n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Profile",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Kiet Admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/auth/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"profile"
+					]
+				},
+				"description": "Description: Change current user's profile\n\nConstraint: Must be login\n\nField:\n\n- name: String\n- image_url: URL\n- phone: String(prefer 10 number character)\n- birth_date: yyyy-mm-dd\n- address: string\n    \n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Self",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NCwiZW1haWwiOiJjbGllbnQyQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIn0._YzMKtdQno7-GQofI9xjH7AmCxZLk9RpD75z684Qz0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/auth",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth"
+					]
+				},
+				"description": "Description: Delete current user out of database\n\nConstraint: Must be login, this request should carefully hide behind many alert\n\nField: None\n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user"
+					]
+				},
+				"description": "Description: Get user list\n\nConstraint: Must be admin\n\nField: None\n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/user/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"1"
+					]
+				},
+				"description": "Description: Get single user by id in URL\n\nConstraint: Must be login, unless you are admin, you can only access your own account's profile\n\nField: None\n\nQueries: None\n\nExample:\n\nStartFragment\n\n- localhost:8000/user/1\n- localhost:8000/user/2\n- localhost:8000/user/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Blog List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/blog?title=Test+Blog&author_name=K",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"blog"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Test+Blog"
+						},
+						{
+							"key": "author_name",
+							"value": "K"
+						}
+					]
+				},
+				"description": "Description: Get blog list\n\nConstraint: None\n\nField: None\n\nQueries:\n\n- author_id: int\n- author_name: String\n- title: String\n    \n\nExample:\n\nlocalhost:8000/blog?author_id=2\n\nlocalhost:8000/blog?author_name=Kiet+A\n\nlocalhost:8000/blog?title=Test+Blog&author_name=K"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Blog",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/blog/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"blog",
+						"1"
+					]
+				},
+				"description": "Description: Get single blog and comments\n\nConstraint: None\n\nField: None\n\nQueries: None\n\nExample:\n\nlocalhost:8000/blog/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Blog",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Third Blog\",\r\n    \"content\": \"iujwahjafhjawhjwjcaiidQWDJoda  dasda\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/blog",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"blog"
+					]
+				},
+				"description": "Description: Add Blog\n\nConstraint: Admin only\n\nField:\n\n- title: String (required)\n- content: String (required)\n- image_url: URL\n    \n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Blog",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"dadsa \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/blog/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"blog",
+						"4"
+					]
+				},
+				"description": "Description: Edit Blog\n\nConstraint: Admin only\n\nField:\n\n- title: String\n- content: String\n- image_url: URL\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/blog/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Blog",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/blog/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"blog",
+						"4"
+					]
+				},
+				"description": "Description: Delete Blog\n\nConstraint: Admin only, carefull\n\nField: None\n\nQueries: None\n\nExample:\n\n- localhost:8000/blog/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Comment Blog",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/blog/1/comment",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"blog",
+						"1",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Category List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/category",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"category"
+					]
+				},
+				"description": "Description: Get category list\n\nConstraint: None\n\nField: None\n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/product?name=new&max_price=500.50",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "new"
+						},
+						{
+							"key": "max_price",
+							"value": "500.50"
+						}
+					]
+				},
+				"description": "Description: Get product list\n\nConstraint: Must be admin\n\nField: None\n\nQueries:\n\n- name: String\n- max_price: Float\n- min_price: Float\n- category_id: int\n    \n\nExample:\n\nlocalhost:8000/product?name=new&&max_price=500.50\n\nlocalhost:8000/product?min_price=200\n\nlocalhost:8000/product?category_id=1"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/product/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product",
+						"1"
+					]
+				},
+				"description": "Description: Get single product detail\n\nConstraint: None\n\nField: None\n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ipad\",\r\n    \"description\": \"Whole new ipad\",\r\n    \"price\": \"999.99\",\r\n    \"quantity\": \"15\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/product",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product"
+					]
+				},
+				"description": "Description: Add product\n\nConstraint: Admin only\n\nField:\n\n- name: String (required)\n- description: String (required)\n- price: Float (required)\n- quantity: int (required)\n- image_url: URL\n    \n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"image_url\": \"https://images.unsplash.com/photo-1683129384918-684af5f77d6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/product/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product",
+						"5"
+					]
+				},
+				"description": "Description: Update product\n\nConstraint: Admin only\n\nField:\n\n- name: String\n- description: String\n- price: Float\n- quantity: int\n- image_url: URL\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/product/5"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/product/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product",
+						"5"
+					]
+				},
+				"description": "Description: Update product\n\nConstraint: Admin only, carefull\n\nField: None\n\nQueries: None\n\nExample:\n\n- localhost:8000/product/5"
+			},
+			"response": []
+		},
+		{
+			"name": "Comment Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"Iphone mlem\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/product/1/comment",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product",
+						"1",
+						"comment"
+					]
+				},
+				"description": "Description: Comment on product\n\nConstraint: Must be login\n\nField:\n\n- content: String (required)\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/product/5/comment"
+			},
+			"response": []
+		},
+		{
+			"name": "Rate Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\": \"3.5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/product/1/rate",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product",
+						"1",
+						"rate"
+					]
+				},
+				"description": "Description: Rate on product\n\nConstraint: Must be login, once per account\n\nField:\n\n- rating: float (x%0.5==0 && x <= 5)(required)\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/product/1/rate"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product to Category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"category_id\": 1 \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/product/2/category",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product",
+						"2",
+						"category"
+					]
+				},
+				"description": "Description: Add product to a cateogry for easier search\n\nConstraint: Admin only\n\nField:\n\n- category_id: int {required)\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/product/1/category"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Product from Category",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/product/2/category",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product",
+						"2",
+						"category"
+					]
+				},
+				"description": "Description: Add product to a cateogry for easier search\n\nConstraint: Admin only\n\nField:\n\n- category_id: int {required)\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/product/1/category"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Phone mlem\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/category",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"category"
+					]
+				},
+				"description": "Description: Add category\n\nConstraint: Admin only\n\nField:\n\n- name: String (required)\n    \n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Category",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/category/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"category",
+						"3"
+					]
+				},
+				"description": "Description: Delete category\n\nConstraint: Admin only, very carefull, its relation with product will also be deleted\n\nField: None\n\nQueries: None\n\nExample:\n\nlocalhost:8000/category/4"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Promotion List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/promotion",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"promotion"
+					]
+				},
+				"description": "Description: Get promotion list\n\nConstraint: Admin only\n\nField: None\n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Promotion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\": \"RANDOMSALE\",\r\n    \"discount\": \"20\",\r\n    \"start_date\": \"2023-07-06\",\r\n    \"end_date\": \"2024-07-06\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/promotion",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"promotion"
+					]
+				},
+				"description": "Description: Add promotion\n\nConstraint: Admin only\n\nField:\n\n- code: String (required)\n- discount: INT < 100 (required)\n- start_date: yyyy-mm-dd (required)\n- end_date: yyyy-mm-dd (required)\n    \n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Promotion",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/promotion/RANDOMSALE",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"promotion",
+						"RANDOMSALE"
+					]
+				},
+				"description": "Description: Delete promotion\n\nConstraint: Admin only, carefull\n\nField: None\n\nQueries: None\n\nExample:\n\n- localhost:8000/promotion/RANDOMSALE"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Current Cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/cart",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cart"
+					]
+				},
+				"description": "Description: Get current cart\n\nConstraint: Must be login\n\nField: None\n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/cart/order",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cart",
+						"order"
+					]
+				},
+				"description": "Description: Get past order list\n\nConstraint: Must be login\n\nField: None\n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/cart/order/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cart",
+						"order",
+						"1"
+					]
+				},
+				"description": "Description: Get detail of a single order\n\nConstraint: Must be login\n\nField: None\n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product to Cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/cart/product/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cart",
+						"product",
+						"1"
+					]
+				},
+				"description": "Description: Add product to current cart, if product already exist, increase its quantity\n\nConstraint: Must be login\n\nField:\n\n- quantity: int (required)\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/cart/product/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product Quantity in Cart",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/cart/product/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cart",
+						"product",
+						"1"
+					]
+				},
+				"description": "Description: Update product in cart, straight up replace its quantity\n\nConstraint: Must be login\n\nField:\n\n- quantity: int (required)\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/cart/product/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product in Cart",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/cart/product/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cart",
+						"product",
+						"1"
+					]
+				},
+				"description": "Description: Delete product in cart\n\nConstraint: Must be login\n\nField: None\n\nQueries: None\n\nExample:\n\n- localhost:8000/cart/product/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Apply Promotion to Cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\": \"FIRSTSALE50\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/cart/promotion",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cart",
+						"promotion"
+					]
+				},
+				"description": "Description: Apply promotion to cart\n\nConstraint: Must be login\n\nField:\n\n- code: String (required)\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/cart/promotion"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Promotion from Cart",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/cart/promotion/FIRSTSALE50",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cart",
+						"promotion",
+						"FIRSTSALE50"
+					]
+				},
+				"description": "Description: Remove promotion to cart\n\nConstraint: Must be login\n\nField: None\n\nQueries: None\n\nExample:\n\n- localhost:8000/cart/promotion/FIRSTSALE50"
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout Cart(convert cart to order)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ship_address\": \"Saigon\",\r\n    \"note\": \"ship faster !!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/cart/checkout",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cart",
+						"checkout"
+					]
+				},
+				"description": "Description: Checkout current cart (or \"confirm purchase)\n\nConstraint: Must be login\n\nField:\n\n- ship_address: String (required)\n- note: String\n    \n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Order's shipping progress",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"REJECTED\",\r\n    \"note\": \"customer acting bratty, need correction\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/cart/order/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cart",
+						"order",
+						"1"
+					]
+				},
+				"description": "Description: Update some order's field, usually for updating ship progress\n\nConstraint: Admin\n\nField:\n\n- ship_address: String\n- status: \\['SHIPPING', \"DELIVERED', 'REJECTED' \\]\n- note: String\n    \n\nQueries: None\n\nExample: No need"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{admin_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
