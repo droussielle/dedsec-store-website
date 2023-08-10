@@ -10,28 +10,20 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- My css -->
-    <link rel="stylesheet" href="../css/search.css">
-    <!-- jQuery -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            $("#header").load("header.html");
-            $("#navbar").load("navbar.html");
-            $("#footer").load("footer.html");
-
-        });
-    </script>
-
+    <link rel="stylesheet" href="../css/style.css">
     <title>Search</title>
 </head>
 <body class="bg-light">
 
-        <!-- header -->
-        <div id="header"></div>
+    <!-- header -->
+    <div id="header">
+        <?php include './components/header.php';?>
+    </div>
 
-        <!-- Navigation bar -->
-        <div id="navbar"></div>
+    <!-- Navigation bar -->
+    <div id="navbar">
+        <?php include './components/navbar.php';?>
+    </div>
 
 
     <!-- BODY -->
@@ -44,7 +36,9 @@
 
         
     <!-- Footer -->
-    <div id="footer"></div>
+    <div id="footer">
+        <?php include './components/footer.php';?>
+    </div>
 
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
@@ -52,8 +46,6 @@
     <script src="../scripts/fixed_navbar.js"></script>
     <!-- Handle menu bar -->
     <script src="../scripts/handle_menu.js"></script>
-    <!-- Adding script for slider change -->
-    <script src="../scripts/for_slider.js"></script>
     <!-- Handle sign in-up -->
     <script src="../scripts/user_data/handle_sign.js"></script>
     <!-- Search -->

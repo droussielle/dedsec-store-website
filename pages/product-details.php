@@ -10,36 +10,28 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- My css -->
-    <link rel="stylesheet" href="../css/product-details.css">
-    <!-- jQuery -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            $("#header").load("header.html");
-            $("#navbar").load("navbar.html");
-            $("#footer").load("footer.html");
-
-        });
-    </script>
-
-
+    <link rel="stylesheet" href="../css/style.css">
     <title>Products</title>
+
 </head>
 <body class="bg-light">
 
-        <!-- header -->
-        <div id="header"></div>
+    <!-- header -->
+    <div id="header">
+        <?php include './components/header.php';?>
+    </div>
 
-        <!-- Navigation bar -->
-        <div id="navbar"></div>
+    <!-- Navigation bar -->
+    <div id="navbar">
+        <?php include './components/navbar.php';?>
+    </div>
 
 
     <!-- BODY -->
     <div class="bg-light row p-md-5" >
         <div class="container ps-md-5 pe-md-5 bg-light" >
             <div class="row">
-                <a class="" href="../product/index.html"><img src="../images/product-details_back_icon.png" alt="back_icon"> Back to products</a>
+                <a class="" href="../index.php"><img src="../images/product-details_back_icon.png" alt="back_icon"> Back to products</a>
             </div>
             <br>
 
@@ -100,7 +92,7 @@
                     <!-- End of slide -->
                 </div>
             
-        </div>
+            </div>
         
             <!-- Page navigation -->
             <div class="d-flex pg-nav align-content-center justify-content-center bg-light">
@@ -301,7 +293,9 @@
 
         
     <!-- Footer -->
-    <div id="footer"></div>
+    <div id="footer">
+        <?php include './components/footer.php';?>
+    </div>
 
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
