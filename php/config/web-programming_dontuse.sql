@@ -11,7 +11,7 @@
  Target Server Version : 80033 (8.0.33)
  File Encoding         : 65001
 
- Date: 10/08/2023 15:36:43
+ Date: 10/08/2023 16:39:33
 */
 
 SET NAMES utf8mb4;
@@ -46,10 +46,8 @@ CREATE TABLE `blog_comment`  (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `blog_id`(`blog_id` ASC) USING BTREE,
-  INDEX `user_id`(`user_id` ASC) USING BTREE,
-  CONSTRAINT `blog_comment_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `blog_comment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_info` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  INDEX `user_id`(`user_id` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for cart
@@ -79,9 +77,7 @@ CREATE TABLE `cart_item`  (
   `quantity` int NOT NULL DEFAULT 0,
   `total_price` decimal(10, 2) NOT NULL DEFAULT 0.00,
   INDEX `cart_id`(`cart_id` ASC) USING BTREE,
-  INDEX `product_id`(`product_id` ASC) USING BTREE,
-  CONSTRAINT `cart_item_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `cart_item_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+  INDEX `product_id`(`product_id` ASC) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -92,9 +88,7 @@ CREATE TABLE `cart_promotion`  (
   `cart_id` int NOT NULL,
   `promotion_code` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`cart_id`, `promotion_code`) USING BTREE,
-  INDEX `promotion_code`(`promotion_code` ASC) USING BTREE,
-  CONSTRAINT `cart_promotion_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `cart_promotion_ibfk_2` FOREIGN KEY (`promotion_code`) REFERENCES `promotion` (`code`) ON DELETE CASCADE ON UPDATE RESTRICT
+  INDEX `promotion_code`(`promotion_code` ASC) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -120,6 +114,7 @@ CREATE TABLE `product`  (
   `image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `quantity` int NOT NULL DEFAULT 0,
   `short_description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `specs` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `product_name_unique`(`name` ASC) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
@@ -132,9 +127,7 @@ CREATE TABLE `product_category`  (
   `product_id` int NOT NULL,
   `category_id` int NOT NULL,
   PRIMARY KEY (`product_id`, `category_id`) USING BTREE,
-  INDEX `category_id`(`category_id` ASC) USING BTREE,
-  CONSTRAINT `product_category_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `product_category_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+  INDEX `category_id`(`category_id` ASC) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -149,10 +142,8 @@ CREATE TABLE `product_comment`  (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `product_id`(`product_id` ASC) USING BTREE,
-  INDEX `user_id`(`user_id` ASC) USING BTREE,
-  CONSTRAINT `product_comment_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `product_comment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  INDEX `user_id`(`user_id` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for product_rating
@@ -163,10 +154,7 @@ CREATE TABLE `product_rating`  (
   `product_id` int NOT NULL,
   `rating` decimal(3, 1) NOT NULL,
   PRIMARY KEY (`user_id`, `product_id`) USING BTREE,
-  INDEX `product_id`(`product_id` ASC) USING BTREE,
-  CONSTRAINT `product_rating_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `product_rating_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `product_rating_chk_1` CHECK ((`rating` >= 0) and (`rating` <= 5) and ((`rating` % 0.5) = 0))
+  INDEX `product_id`(`product_id` ASC) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -179,9 +167,7 @@ CREATE TABLE `promotion`  (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `status` enum('INACTIVE','ACTIVE','EXPIRE') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT 'INACTIVE',
-  PRIMARY KEY (`code`) USING BTREE,
-  CONSTRAINT `promotion_chk_1` CHECK ((`discount` < 100) and (`discount` > 0)),
-  CONSTRAINT `promotion_date_check` CHECK (`start_date` < `end_date`)
+  PRIMARY KEY (`code`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------

@@ -27,7 +27,7 @@ class ProductController
             $result = $product->get(
                 $queryParams,
                 ['name', 'max_price', 'min_price', 'category_id'],
-                ['id', 'name', 'image_url', 'price', 'short_description', 'quantity']
+                ['id', 'name', 'image_url', 'price', 'short_description', 'quantity', 'specs']
             );
 
             $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -112,7 +112,7 @@ class ProductController
             // Create product
             $result = $product->create(
                 $data,
-                ['name', 'short_description', 'description', 'image_url', 'price', 'quantity']
+                ['name', 'short_description', 'description', 'image_url', 'price', 'quantity', 'specs']
             );
 
             http_response_code(200);
@@ -150,7 +150,7 @@ class ProductController
             $result = $product->update(
                 $param['id'],
                 $data,
-                ['name', 'short_description', 'description', 'image_url', 'price', 'quantity']
+                ['name', 'short_description', 'description', 'image_url', 'price', 'quantity', 'specs']
             );
 
             http_response_code(200);

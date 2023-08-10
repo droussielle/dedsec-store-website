@@ -430,7 +430,7 @@
 						"product"
 					]
 				},
-				"description": "Description: Add product\n\nConstraint: Admin only\n\nField:\n\n- name: String (required)\n- short_description: String (required)\n- description: String (required)\n- price: Float (required)\n- quantity: int (required)\n- image_url: URL\n    \n\nQueries: None\n\nExample: No need"
+				"description": "Description: Add product\n\nConstraint: Admin only\n\nField:\n\n- name: String (required)\n- short_description: String (required)\n- description: String (required)\n- price: Float (required)\n- quantity: int (required)\n- image_url: URL\n- specs: String\n    \n\nQueries: None\n\nExample: No need"
 			},
 			"response": []
 		},
@@ -441,7 +441,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"short_description\": \"Ipad ipad ipad\"\r\n}",
+					"raw": "{\r\n    \"short_description\": \"Ipad ipad\",\r\n    \"specs\": \"test specs\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -459,7 +459,7 @@
 						"6"
 					]
 				},
-				"description": "Description: Update product\n\nConstraint: Admin only\n\nField:\n\n- name: String\n- short_description: String\n- description: String\n- price: Float\n- quantity: int\n- image_url: URL\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/product/5"
+				"description": "Description: Update product\n\nConstraint: Admin only\n\nField:\n\n- name: String\n- short_description: String\n- description: String\n- price: Float\n- quantity: int\n- image_url: URL\n- specs: String\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/product/5"
 			},
 			"response": []
 		},
