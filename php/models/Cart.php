@@ -107,4 +107,20 @@ class Cart
             echo "Unknown error in CART::delete: " . $e->getMessage();
         }
     }
+
+    public function checkout($id) {
+        global $connection;
+
+        $query = "CALL checkout('$id')";
+
+        try {
+            $result = $connection->prepare($query);
+
+            $result->execute();
+
+            return $result;
+        } catch (PDOException $e) {
+            echo "Unknown error in CART::delete: " . $e->getMessage();
+        }
+    }
 }

@@ -74,6 +74,12 @@ class PromotionController
                 echo json_encode(['message' => 'Promotion does not exist']);
                 return;
             }
+            $row = $result->fetch(PDO::FETCH_ASSOC);
+            if ($row['status'] != 'INACTIVE') {
+                http_response_code(400);
+                echo json_encode(['message' => 'Cant delete activated promotion, that is just wrong, legally']);
+                return;
+            }
             // Delete the promotion
             $result = $promotion->delete($param['code']);
 

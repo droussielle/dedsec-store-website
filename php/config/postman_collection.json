@@ -373,23 +373,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/product?name=new&max_price=500.50",
+					"raw": "localhost:8000/product",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"product"
-					],
-					"query": [
-						{
-							"key": "name",
-							"value": "new"
-						},
-						{
-							"key": "max_price",
-							"value": "500.50"
-						}
 					]
 				},
 				"description": "Description: Get product list\n\nConstraint: Must be admin\n\nField: None\n\nQueries:\n\n- name: String\n- max_price: Float\n- min_price: Float\n- category_id: int\n    \n\nExample:\n\nlocalhost:8000/product?name=new&&max_price=500.50\n\nlocalhost:8000/product?min_price=200\n\nlocalhost:8000/product?category_id=1"
@@ -402,14 +392,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/product/1",
+					"raw": "localhost:8000/product/6",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"product",
-						"1"
+						"6"
 					]
 				},
 				"description": "Description: Get single product detail\n\nConstraint: None\n\nField: None\n\nQueries: None\n\nExample: No need"
@@ -423,7 +413,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Ipad\",\r\n    \"description\": \"Whole new ipad\",\r\n    \"price\": \"999.99\",\r\n    \"quantity\": \"15\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Ipad\",\r\n    \"short_description\": \"New new new\",\r\n    \"description\": \"Whole new ipad\",\r\n    \"price\": \"999.99\",\r\n    \"quantity\": \"15\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -440,7 +430,7 @@
 						"product"
 					]
 				},
-				"description": "Description: Add product\n\nConstraint: Admin only\n\nField:\n\n- name: String (required)\n- description: String (required)\n- price: Float (required)\n- quantity: int (required)\n- image_url: URL\n    \n\nQueries: None\n\nExample: No need"
+				"description": "Description: Add product\n\nConstraint: Admin only\n\nField:\n\n- name: String (required)\n- short_description: String (required)\n- description: String (required)\n- price: Float (required)\n- quantity: int (required)\n- image_url: URL\n    \n\nQueries: None\n\nExample: No need"
 			},
 			"response": []
 		},
@@ -451,7 +441,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"image_url\": \"https://images.unsplash.com/photo-1683129384918-684af5f77d6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80\"\r\n}",
+					"raw": "{\r\n    \"short_description\": \"Ipad ipad ipad\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -459,17 +449,17 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8000/product/5",
+					"raw": "localhost:8000/product/6",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"product",
-						"5"
+						"6"
 					]
 				},
-				"description": "Description: Update product\n\nConstraint: Admin only\n\nField:\n\n- name: String\n- description: String\n- price: Float\n- quantity: int\n- image_url: URL\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/product/5"
+				"description": "Description: Update product\n\nConstraint: Admin only\n\nField:\n\n- name: String\n- short_description: String\n- description: String\n- price: Float\n- quantity: int\n- image_url: URL\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/product/5"
 			},
 			"response": []
 		},
@@ -687,7 +677,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"code\": \"RANDOMSALE\",\r\n    \"discount\": \"20\",\r\n    \"start_date\": \"2023-07-06\",\r\n    \"end_date\": \"2024-07-06\"\r\n}",
+					"raw": "{\r\n    \"code\": \"RANDOMSALE\",\r\n    \"discount\": \"20\",\r\n    \"start_date\": \"2023-07-06\",\r\n    \"end_date\": \"2023-07-07\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -724,7 +714,7 @@
 						"RANDOMSALE"
 					]
 				},
-				"description": "Description: Delete promotion\n\nConstraint: Admin only, carefull\n\nField: None\n\nQueries: None\n\nExample:\n\n- localhost:8000/promotion/RANDOMSALE"
+				"description": "Description: Delete promotion\n\nConstraint: Admin only, can only delete INACTIVE promotion\n\nField: None\n\nQueries: None\n\nExample:\n\n- localhost:8000/promotion/RANDOMSALE"
 			},
 			"response": []
 		},
@@ -795,7 +785,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"quantity\": 1\r\n}",
+					"raw": "{\r\n    \"quantity\": 5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -803,7 +793,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8000/cart/product/1",
+					"raw": "localhost:8000/cart/product/2",
 					"host": [
 						"localhost"
 					],
@@ -811,7 +801,7 @@
 					"path": [
 						"cart",
 						"product",
-						"1"
+						"2"
 					]
 				},
 				"description": "Description: Add product to current cart, if product already exist, increase its quantity\n\nConstraint: Must be login\n\nField:\n\n- quantity: int (required)\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/cart/product/1"
@@ -894,7 +884,7 @@
 						"promotion"
 					]
 				},
-				"description": "Description: Apply promotion to cart\n\nConstraint: Must be login\n\nField:\n\n- code: String (required)\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/cart/promotion"
+				"description": "Description: Apply promotion to cart\n\nConstraint: Must be login, can only add ACTIVE promotion\n\nField:\n\n- code: String (required)\n    \n\nQueries: None\n\nExample:\n\n- localhost:8000/cart/promotion"
 			},
 			"response": []
 		},
