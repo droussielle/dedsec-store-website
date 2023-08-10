@@ -9,7 +9,7 @@
 
     <!--Log-->
     <div class="header-content col-md-1 col-6 text-end text-md-start">
-        <a id="log" class="text-decoration-none header-content" href=""></a>
+        <a id="log" class="text-decoration-none header-content" href="#"></a>
     </div> 
 
 </div>
@@ -49,17 +49,17 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-5">
                     <!-- Home -->
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+                        <a class="nav-link" aria-current="page" href="./index.php">Home</a>
                     </li>
 
                     <!-- Products -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./pages/product.html">Products</a>
+                        <a class="nav-link" href="./pages/product.php">Products</a>
                     </li>
 
                     <!-- News -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./pages/news.html">News</a>
+                        <a class="nav-link" href="./pages/news.php">News</a>
                     </li>
                     
                     <!-- Support -->
@@ -69,7 +69,7 @@
 
                     <!-- About -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./pages/about.html">About</a>
+                        <a class="nav-link" href="./pages/about.php">About</a>
                     </li>
 
                     <!-- Search icon -->
