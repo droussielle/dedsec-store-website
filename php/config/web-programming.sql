@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2023 at 11:42 AM
+-- Generation Time: Aug 11, 2023 at 10:19 AM
 -- Server version: 8.0.33
 -- PHP Version: 8.2.4
 
@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `web-programming`
@@ -108,12 +108,12 @@ DROP TABLE IF EXISTS `blog`;
 CREATE TABLE `blog` (
   `id` int NOT NULL,
   `author_id` int DEFAULT NULL,
-  `title` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `image_url` varchar(255) DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_general_ci NOT NULL,
+  `content` text COLLATE utf8_general_ci NOT NULL,
+  `image_url` varchar(255) COLLATE utf8_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -126,9 +126,9 @@ CREATE TABLE `blog_comment` (
   `id` int NOT NULL,
   `blog_id` int NOT NULL,
   `user_id` int DEFAULT NULL,
-  `content` text NOT NULL,
+  `content` text COLLATE utf8_general_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -141,12 +141,12 @@ CREATE TABLE `cart` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
   `total` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `status` enum('BUYING','ORDERED','SHIPPING','DELIVERED','REJECTED') NOT NULL DEFAULT 'BUYING',
-  `ship_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `note` text,
+  `status` enum('BUYING','ORDERED','SHIPPING','DELIVERED','REJECTED') COLLATE utf8_general_ci NOT NULL DEFAULT 'BUYING',
+  `ship_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `note` text COLLATE utf8_general_ci,
   `ordered_at` timestamp NULL DEFAULT NULL,
   `shipped_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -160,7 +160,7 @@ CREATE TABLE `cart_item` (
   `product_id` int NOT NULL,
   `quantity` int NOT NULL DEFAULT '0',
   `total_price` decimal(10,2) NOT NULL DEFAULT '0.00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Triggers `cart_item`
@@ -215,8 +215,8 @@ DELIMITER ;
 DROP TABLE IF EXISTS `cart_promotion`;
 CREATE TABLE `cart_promotion` (
   `cart_id` int NOT NULL,
-  `promotion_code` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `promotion_code` varchar(20) COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -227,8 +227,8 @@ CREATE TABLE `cart_promotion` (
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `id` int NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `name` varchar(255) COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -239,14 +239,14 @@ CREATE TABLE `category` (
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `id` int NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` text NOT NULL,
+  `name` varchar(255) COLLATE utf8_general_ci NOT NULL,
+  `description` text COLLATE utf8_general_ci NOT NULL,
   `price` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `image_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `quantity` int NOT NULL DEFAULT '0',
-  `short_description` text NOT NULL,
-  `specs` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `short_description` text COLLATE utf8_general_ci NOT NULL,
+  `specs` text COLLATE utf8_general_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Triggers `product`
@@ -289,7 +289,7 @@ DROP TABLE IF EXISTS `product_category`;
 CREATE TABLE `product_category` (
   `product_id` int NOT NULL,
   `category_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -302,9 +302,9 @@ CREATE TABLE `product_comment` (
   `id` int NOT NULL,
   `product_id` int NOT NULL,
   `user_id` int DEFAULT NULL,
-  `content` text NOT NULL,
+  `content` text COLLATE utf8_general_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -317,7 +317,7 @@ CREATE TABLE `product_rating` (
   `user_id` int NOT NULL,
   `product_id` int NOT NULL,
   `rating` decimal(3,1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -327,12 +327,12 @@ CREATE TABLE `product_rating` (
 
 DROP TABLE IF EXISTS `promotion`;
 CREATE TABLE `promotion` (
-  `code` varchar(20) NOT NULL,
+  `code` varchar(20) COLLATE utf8_general_ci NOT NULL,
   `discount` decimal(5,2) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  `status` enum('INACTIVE','ACTIVE','EXPIRE') DEFAULT 'INACTIVE'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `status` enum('INACTIVE','ACTIVE','EXPIRE') COLLATE utf8_general_ci DEFAULT 'INACTIVE'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -343,10 +343,10 @@ CREATE TABLE `promotion` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role` enum('ADMIN','USER') NOT NULL DEFAULT 'USER'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `email` varchar(255) COLLATE utf8_general_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_general_ci NOT NULL,
+  `role` enum('ADMIN','USER') COLLATE utf8_general_ci NOT NULL DEFAULT 'USER'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -357,12 +357,12 @@ CREATE TABLE `user` (
 DROP TABLE IF EXISTS `user_info`;
 CREATE TABLE `user_info` (
   `id` int NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `image_url` varchar(255) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_general_ci NOT NULL,
+  `image_url` varchar(255) COLLATE utf8_general_ci DEFAULT NULL,
   `birth_date` date DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `phone` varchar(20) COLLATE utf8_general_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Indexes for dumped tables
