@@ -10,32 +10,23 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- My css -->
-    <link rel="stylesheet" href="./css/home.css">
-    <!-- jQuery -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            $("#header").load("pages/header.html");
-            $("#navbar").load("pages/navbar.html");
-            $("#footer").load("pages/footer.html");
-
-        });
-    </script>
-
-    
+    <link rel="stylesheet" href="./css/style.css">
     <title>Home Page</title>
 </head>
 <body class="bg-light">
 
     <!-- Header -->
-    <div id="header"></div>
+    <div id="header">
+        <?php include './pages/components/header-index.php';?>
+    </div>
 
     <!-- Navbar -->
-    <div id="navbar"></div>
+    <div id="navbar">
+        <?php include './pages/components/navbar-index.php';?>
+    </div>
 
+    <!-- BODY -->
     <div>
-
 
         <!-- Slider -->
         <div id="mySlider" class="carousel slide" data-bs-ride="carousel">
@@ -252,7 +243,7 @@
         <!-- Latest news -->
         <div class="px-5 py-5" style="background: #DDD;">
 
-            <a href="../news/news.html">
+            <a href="./pages/news.php">
                 <div class="latest-news-content mb-5">Latest news ></div>
             </a>
             
@@ -303,9 +294,12 @@
 
 
     </div>
+    <!-- END OF BODY -->
 
     <!-- Footer -->
-    <div id="footer"></div>
+    <div id="footer">
+        <?php include './pages/components/footer.php';?>
+    </div>
 
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

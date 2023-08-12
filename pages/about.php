@@ -10,32 +10,25 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- My css -->
-    <link rel="stylesheet" href="../css/about.css">
-    <!-- jQuery -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            $("#header").load("header.html");
-            $("#navbar").load("navbar.html");
-            $("#footer").load("footer.html");
-
-        });
-    </script>
+    <link rel="stylesheet" href="../css/style.css">
 
     <title>About us</title>
 </head>
-<body class="bg-light">
+<body class="bg-light body-theme-fw">
 
 
     <!-- header -->
-    <div id="header"></div>
+    <div id="header">
+        <?php include './components/header.php';?>
+    </div>
 
     <!-- Navigation bar -->
-    <div id="navbar"></div>
+    <div id="navbar">
+        <?php include './components/navbar.php';?>
+    </div>
 
     <!-- BODY -->
-    <div class="bg-black row p-5">
+    <div class="bg-black row p-5 m-0">
         <!-- ABOUT US paragraph 1--> 
         <!-- align-self-lg-start -->
         <div class="bg-black col-lg-5 order-lg-0 order-sm-1 order-1 d-flex align-items-center" id="about-us-paragraph-1">
@@ -68,7 +61,7 @@
 
 
     <!-- HELPING HANDS -->
-    <div class="bg-black row p-5">
+    <div class="bg-black row p-5 m-0">
         <div class="row">
             <h3 style="font-weight: bolder;">DEDSEC Helping Hands</h3>
         </div>
@@ -87,7 +80,7 @@
 
     <!-- CHARITIES WE SUPPORT -->
 
-    <div class="bg-black row p-5">
+    <div class="bg-black row p-5 m-0">
         <h3 style="font-weight: bolder;">Charities we support</h3>
         <div class="row ">
             <div class="col-lg-4 col-md-6 pb-4">
@@ -148,7 +141,9 @@
     <!-- END OF BODY -->
 
     <!-- Footer -->
-    <div id="footer"></div>
+    <div id="footer">
+        <?php include './components/footer.php';?>
+    </div>
 
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
@@ -156,8 +151,6 @@
     <script src="../scripts/fixed_navbar.js"></script>
     <!-- Handle menu bar -->
     <script src="../scripts/handle_menu.js"></script>
-    <!-- Adding script for slider change -->
-    <script src="../scripts/for_slider.js"></script>
     <!-- Handle sign in-up -->
     <script src="../scripts/user_data/handle_sign.js"></script>
 

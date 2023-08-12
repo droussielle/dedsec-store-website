@@ -95,7 +95,7 @@ logInLink.addEventListener('click', function(event) {
     }
     
     // Redirect to the new target page
-    window.location.href = '../sign-in-up/sign.html';
+    window.location.href = '../pages/sign.php';
   
 });
 
@@ -136,7 +136,7 @@ document.getElementsByClassName('sign-in-form')[0].addEventListener('submit', (e
     const successful = login(email, password);
     if(successful){
         alert("Log in successfully");
-        window.location.href = '../home/index.html';
+        window.location.href = '../index.php';
         return;
     }
 
