@@ -402,3 +402,12 @@
         padding: 50px 20px;
     }
   }
+
+/* Hover img for products */
+#Products-Container img {
+    transition: 0.5s ease;
+}
+
+#Products-Container img:hover{
+    transform: scale(1.1);
+}

@@ -96,25 +96,24 @@
         <div class="col col-lg-9">
 
             <!-- Header -->
-            <div class="d-flex flex-column align-items-md-start align-items-center">
+            <div class="d-flex flex-column align-items-md-start align-items-center mb-2">
                 <!-- Results -->
-                <div class="fb">20 results</div>
+                <div class="fb" id="product-results"></div>
             </div>
 
             <!-- Loading Products -->
             <div id="Products-Container">
-                <button type="button" class="btn btn-primary my-3" onclick="generateItem()">Generate Items for testing purposes</button>
+                <!-- <button type="button" class="btn btn-primary my-3" onclick="generateItem()">Generate Items for testing purposes</button> -->
 
                 <!-- Template -->
-                <div class="col-lg-10 col-sm-12 card border-0 border-bottom border-dark rounded-0 bg-light mb-3" id="laptop14">
+                <!-- <div class="col-lg-10 col-sm-12 card border-0 border-bottom border-dark rounded-0 bg-light mb-3" id="laptop14">
                     <div class="row">
 
-                        <!-- Product's img -->
+                        
                         <div class="col-md-2 col-4">
                             <img src='../images/product_Laptop13.png' alt="img" class="rounded">
                         </div>
 
-                        <!-- Product's content -->
                         <div class="col-md-10 col-8">
                             <div class="card-body pt-0">
                                 <div class="d-md-flex justify-content-md-between">
@@ -133,9 +132,8 @@
                     </div>
 
                     <div class="align-self-end  align-content-end p-0 m-0"><button type="button" class="btn btn-primary m-0 mb-3 align-content-end align-self-end">Add to cart</button></div>
-                    <!-- <hr> -->
-                </div>
-
+                </div> -->
+                <!-- End of template -->
 
             </div>
 

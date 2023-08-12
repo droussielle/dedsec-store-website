@@ -102,7 +102,7 @@
                 <br>
                 <br>
                 <div class="float-end">
-                    <button type="button" class="btn btn-primary">Continue to checkout ⟶</button>
+                    <button type="button" class="btn btn-primary" id="cart-continue">Continue to checkout ⟶</button>
                 </div>
                 
                 <br>
@@ -136,6 +136,8 @@
     <script src="../scripts/handle_menu.js"></script>
     <!-- Handle sign in-up -->
     <script src="../scripts/user_data/handle_sign.js"></script>
+    <!-- Handle cart -->
+    <script src="../scripts/handle_cart.js"></script>
     
 </body>
 </html>
