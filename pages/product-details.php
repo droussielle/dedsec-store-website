@@ -10,43 +10,35 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- My css -->
-    <link rel="stylesheet" href="../css/product-details.css">
-    <!-- jQuery -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            $("#header").load("header.html");
-            $("#navbar").load("navbar.html");
-            $("#footer").load("footer.html");
-
-        });
-    </script>
-
-
+    <link rel="stylesheet" href="../css/style.css">
     <title>Products</title>
+
 </head>
 <body class="bg-light">
 
-        <!-- header -->
-        <div id="header"></div>
+    <!-- header -->
+    <div id="header">
+        <?php include './components/header.php';?>
+    </div>
 
-        <!-- Navigation bar -->
-        <div id="navbar"></div>
+    <!-- Navigation bar -->
+    <div id="navbar">
+        <?php include './components/navbar.php';?>
+    </div>
 
 
     <!-- BODY -->
     <div class="bg-light row p-md-5" >
         <div class="container ps-md-5 pe-md-5 bg-light" >
             <div class="row">
-                <a class="" href="../product/index.html"><img src="../images/product-details_back_icon.png" alt="back_icon"> Back to products</a>
+                <a class="" href="../index.php"><img src="../images/product-details_back_icon.png" alt="back_icon"> Back to products</a>
             </div>
             <br>
 
             <!-- Slider -->
             <div id="mySlider" class="carousel slide" data-bs-ride="carousel">
                 <!-- Product name and Add to card button--> 
-                <div class="row">
+                <div class="row align-content-center">
                     <div class="col">
                         <h4 id="product-name">Product name</h4>
                     </div>
@@ -56,7 +48,7 @@
                 </div>
 
                 <!-- Price -->
-                <div class="row">
+                <div class="row  align-content-center">
                     <h4 id="price">$$$</h4>
                 </div>
                 <!-- Slide inner -->
@@ -100,7 +92,7 @@
                     <!-- End of slide -->
                 </div>
             
-        </div>
+            </div>
         
             <!-- Page navigation -->
             <div class="d-flex pg-nav align-content-center justify-content-center bg-light">
@@ -131,7 +123,7 @@
 
 
             <!-- Menu bar -->
-            <div class="row border-0 border-top border-bottom border-black justify-content-center fw-bolder pt-2 pb-2">
+            <div class="row border-0 border-top border-bottom border-black justify-content-center fw-bolder pt-2 pb-2  align-content-center">
                 <div class="col text-center">
                     <a href="#scrollspyHeading1" style="text-decoration: none; color: black;">Overview</a>
                 </div>
@@ -147,15 +139,15 @@
             </div>
 
             <!-- Main content -->
-            <div data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smoot="true" class="scrollspy-example bg-body-tertiary p-md-3 rounded-2 bg-light" tabindex="0">
+            <div data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" data-bs-smoot="true" class="scrollspy-example bg-body-tertiary p-md-3 rounded-2 bg-light  align-content-center" tabindex="0">
                 <!-- Overview -->
-                <div class="container row border-0 border-bottom border-dark">
+                <div class="container row border-0 border-bottom border-dark ">
                     
                     <div class="col-md-2 col-12"><h4 id="scrollspyHeading1" class="fw-bolder">Overview</h4></div>
 
                     <div class="col-md-10 col-12">
                         <!-- Truly personal computing -->
-                        <div class="row">
+                        <div class="row ">
                             <div class="col-md-8 col-12 text-end">
                                 <img src="../images/product-details_overview-image-1.png" alt="overview-image-1" class="img-fluid pe-md-5">
                             </div>
@@ -301,7 +293,9 @@
 
         
     <!-- Footer -->
-    <div id="footer"></div>
+    <div id="footer">
+        <?php include './components/footer.php';?>
+    </div>
 
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

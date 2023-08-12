@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Font API -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- My css -->
-    <link rel="stylesheet" href="style.css">
-    <!-- jQuery -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.js"></script>
-
-
-</head>
-<body>
-    
-
-
-
 <!-- Navigation bar -->
 <div class="big-navigation">
     <div class="navigation nav navbar navbar-expand-lg p-0 navbar-dark">
@@ -53,20 +30,20 @@
             <!-- Collapse items -->
             <div class="collapse navbar-collapse d-lg-flex justify-content-lg-around" id="navbarSupportedContent">
 
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-5">
                     <!-- Home -->
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../home/index.html">Home</a>
+                        <a class="nav-link" aria-current="page" href="./index.php">Home</a>
                     </li>
 
                     <!-- Products -->
                     <li class="nav-item">
-                        <a class="nav-link" href="../products/product.html">Products</a>
+                        <a class="nav-link" href="./pages/product.php">Products</a>
                     </li>
 
                     <!-- News -->
                     <li class="nav-item">
-                        <a class="nav-link" href="../news/news.html">News</a>
+                        <a class="nav-link" href="./pages/news.php">News</a>
                     </li>
                     
                     <!-- Support -->
@@ -76,7 +53,7 @@
 
                     <!-- About -->
                     <li class="nav-item">
-                        <a class="nav-link" href="../about/about.html">About</a>
+                        <a class="nav-link" href="./pages/about.php">About</a>
                     </li>
 
                     <!-- Search icon -->
@@ -110,6 +87,11 @@
         </div>
     </div>
 
+    <!-- header -->
+    <div class="header d-flex align-items-center justify-content-center p-2 d-md-none">
+        <div class="header-content d-md-none">Free shipping on orders above 200$ (US only)</div>
+    </div>
+
     <!-- Search fields -->
     <div class="search-fields collapse my-0 mx-auto position-relative" id="search-fields">
         <input class="w-100 bg-black border-0 p-3" type="text" placeholder="Searching on my website..." >
@@ -121,6 +103,3 @@
     </div>
 
 </div>
-
-</body>
-</html>

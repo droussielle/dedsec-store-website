@@ -10,28 +10,22 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- My css -->
-    <link rel="stylesheet" href="../css/checkout.css">
-    <!-- jQuery -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            $("#header").load("header.html");
-            $("#navbar").load("navbar.html");
-            $("#footer").load("footer.html");
-
-        });
-    </script>
+    <link rel="stylesheet" href="../css/style.css">
     <title>Checkout</title>
+
 </head>
 <body class="bg-light">
 
 
     <!-- header -->
-    <div id="header"></div>
+    <div id="header">
+        <?php include './components/header.php';?>
+    </div>
 
     <!-- Navigation bar -->
-    <div id="navbar"></div>
+    <div id="navbar">
+        <?php include './components/navbar.php';?>
+    </div>
 
     <!-- BODY OF CHECKOUT -->
     <div class="checkout-container p-5">
@@ -53,7 +47,7 @@
                         <!-- Header remain -->
                         <h2 class="fw-bolder fb">Customer information</h2>
                         <!-- Logged or not -->
-                        <div class="mb-2">Already have an account? <a class="fb" href="../sign-in-up/sign.html">Sign in instead</a></div>
+                        <div class="mb-2">Already have an account? <a class="fb" href="./sign.php">Sign in instead</a></div>
 
                         <!-- Email -->
                         <div class="w-100">
@@ -84,24 +78,14 @@
                         <!-- State/Province -->
                         <div class="w-100">
                             <label class="d-block" for="customer-infor-state-province">State/Province</label>
-                            <select class="form-select p-1" name="state-province" id="customer-infor-state-province" required>
-                                <option disabled selected>Choose your State/Province</option>
-                                <option value="1">Binh Dinh</option>
-                                <option value="2">Khanh Hoa</option>
-                                <option value="3">Quang Ngai</option>
-                            </select>
+                            <input class="form-control p-1" type="text" name="state-province" id="customer-infor-state-province" placeholder="Your state / province" required>
                             <hr class="m-0">
                         </div>
 
                         <!-- City -->
                         <div class="w-100">
                             <label class="d-block" for="customer-infor-city">City</label>
-                            <select class="form-select p-1" name="city" id="customer-infor-city" required>
-                                <option disabled selected>Choose your City</option>
-                                <option value="1">Ho Chi Minh</option>
-                                <option value="2">Hai Phong</option>
-                                <option value="3">Nha Trang</option>
-                            </select>
+                            <input class="form-control p-1" type="text" name="city" id="customer-infor-city" placeholder="Your city" required>
                             <hr class="m-0">
                         </div>
 
@@ -168,7 +152,7 @@
 
                                         <!-- Expiration date -->
                                         <div class="w-100">
-                                            <label class="d-block" for="payment-form-exp">Card number</label>
+                                            <label class="d-block" for="payment-form-exp">Expiration date</label>
                                             <input class="form-control p-1" type="text" id="payment-form-exp" placeholder="Expiration date" required>
                                             <hr class="m-0">
                                         </div>
@@ -333,7 +317,7 @@
                     </div>
 
                     <!-- Button for payment -->
-                    <button class="w-100 btn btn-primary mt-4" id="place-order-btn">Place order -></button>
+                    <button class="w-100 btn btn-primary mt-4" id="place-order-btn">Place order ⟶</button>
                 </div>
 
             </div>
@@ -343,7 +327,9 @@
     <!-- END OF BODY -->
 
     <!-- Footer -->
-    <div id="footer"></div>
+    <div id="footer">
+        <?php include './components/footer.php';?>
+    </div>
 
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -352,8 +338,6 @@
     <script src="../scripts/fixed_navbar.js"></script>
     <!-- Handle menu bar -->
     <script src="../scripts/handle_menu.js"></script>
-    <!-- Adding script for slider change -->
-    <script src="../scripts/for_slider.js"></script>
     <!-- Handle sign in-up -->
     <script src="../scripts/user_data/handle_sign.js"></script>
 
