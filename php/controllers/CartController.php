@@ -1,6 +1,7 @@
 <?php
 
 require_once './models/Cart.php';
+require_once './models/Product.php';
 require_once './models/CartItem.php';
 require_once './models/Promotion.php';
 require_once './models/CartPromotion.php';
@@ -49,8 +50,13 @@ class CartController
             );
             $cart['promotions'] = $result->fetchAll(PDO::FETCH_ASSOC);
 
+            $responseMessage = 'Cart retrieved successfully';
+            if (in_array('EXPIRE', array_column($cart['promotions'], 'status'))) {
+                $responseMessage .= ", warning: some promotions are expired and technically have no use in this cart's price, you can delete it or just let it be for research purpose";
+            }
+
             http_response_code(200);
-            echo json_encode(['message' => 'Cart retrieved successfully', 'data' => $cart]);
+            echo json_encode(['message' => $responseMessage, 'data' => $cart]);
         } catch (PDOException $e) {
             echo "Unknown error in CART::getCart: " . $e->getMessage();
         }
@@ -93,7 +99,7 @@ class CartController
             $cartItem = new CartItem();
             $cartPromotion = new CartPromotion();
 
-            // Get orders
+            // Get order
             $result = $cart->get(
                 ['id' => $param['id'], 'status!' => 'BUYING'],
                 ['user_id', 'status'],
@@ -104,8 +110,13 @@ class CartController
                 echo json_encode(['message' => 'Order not found']);
                 return;
             }
-
             $cart = $result->fetch(PDO::FETCH_ASSOC);
+
+            if ($cart['user_id'] != $param['user']['id']) {
+                http_response_code(403);
+                echo json_encode(['message' => 'You are not allowed to access this order']);
+                return;
+            }
 
             // Get cart items
             $result = $cartItem->getGeneralList(
@@ -161,14 +172,37 @@ class CartController
             }
             $cart = $result->fetch(PDO::FETCH_ASSOC);
 
-            // Check if product already in cart
+            // Check if product exists
+            $product = new Product();
+            $result = $product->get(
+                ['id' => $param['product_id']],
+                ['id'],
+                ['id', 'quantity']
+            );
+            if ($result->rowCount() == 0) {
+                http_response_code(404);
+                echo json_encode([
+                    "message" => "Product not found"
+                ]);
+                die();
+            }
+            $productQuantity = $result->fetch(PDO::FETCH_ASSOC)['quantity'];
+
+            // Check if product already in cart, then check its quantity before adding
             $result = $cartItem->get(
                 ['cart_id' => $cart['id'], 'product_id' => $param['product_id']],
                 ['cart_id', 'product_id'],
                 []
             );
             if ($result->rowCount() == 0) {
-                // Add new product to cart
+                if ($productQuantity < intval($data['quantity'])) {
+                    http_response_code(400);
+                    echo json_encode([
+                        "message" => "Product quantity is not enough, try to reduce the amount you want to buy"
+                    ]);
+                    die();
+                }
+
                 $result = $cartItem->create(
                     [
                         'cart_id' => $cart['id'],
@@ -180,8 +214,17 @@ class CartController
             } else {
                 // Update product quantity in cart
                 $cartComponent = $result->fetch(PDO::FETCH_ASSOC);
+                if ($productQuantity < $cartComponent['quantity'] + intval($data['quantity'])) {
+                    http_response_code(400);
+                    echo json_encode([
+                        "message" => "Product quantity is not enough, try to reduce the amount you want to buy"
+                    ]);
+                    die();
+                }
+
                 $result = $cartItem->update(
-                    $cartComponent['cart_id'], $cartComponent['product_id'],
+                    $cartComponent['cart_id'],
+                    $cartComponent['product_id'],
                     ['quantity' => $cartComponent['quantity'] + intval($data['quantity'])],
                     ['quantity']
                 );
@@ -224,6 +267,29 @@ class CartController
             }
             $cart = $result->fetch(PDO::FETCH_ASSOC);
 
+            // Check if product exists
+            $product = new Product();
+            $result = $product->get(
+                ['id' => $param['product_id']],
+                ['id'],
+                ['id', 'quantity']
+            );
+            if ($result->rowCount() == 0) {
+                http_response_code(404);
+                echo json_encode([
+                    "message" => "Product not found"
+                ]);
+                die();
+            }
+            $productQuantity = $result->fetch(PDO::FETCH_ASSOC)['quantity'];
+            if ($productQuantity < intval($data['quantity'])) {
+                http_response_code(400);
+                echo json_encode([
+                    "message" => "Product quantity is not enough, try to reduce the amount you want to buy"
+                ]);
+                die();
+            }
+
             // Check if product already in cart
             $result = $cartItem->get(
                 ['cart_id' => $cart['id'], 'product_id' => $param['product_id']],
@@ -241,7 +307,8 @@ class CartController
             // Update product quantity in cart
             $cartComponent = $result->fetch(PDO::FETCH_ASSOC);
             $result = $cartItem->update(
-                $cartComponent['cart_id'], $cartComponent['product_id'],
+                $cartComponent['cart_id'],
+                $cartComponent['product_id'],
                 ['quantity' => $data['quantity']],
                 ['quantity']
             );
@@ -306,8 +373,6 @@ class CartController
         }
     }
 
-
-
     /////////////////////////////////////////////////////////////////////////////////////
     // Add Promotion to Cart
     /////////////////////////////////////////////////////////////////////////////////////
@@ -341,13 +406,14 @@ class CartController
 
             // Get promotion
             $result = $promotion->get(
-                ['code' => $data['code']],
+                ['code' => $data['code'], 'status' => 'ACTIVE'],
+                ['code', 'status'],
                 []
             );
             if ($result->rowCount() == 0) {
                 http_response_code(404);
                 echo json_encode([
-                    "message" => "Promotion not found, try another"
+                    "message" => "Promotion not exist or already expired, try another"
                 ]);
                 die();
             }
@@ -491,6 +557,9 @@ class CartController
                 $data,
                 ['status', 'ship_address', 'note']
             );
+            
+            // Product quantity reduction function is called in the stored procedure
+            $result = $cart->checkout($row['id']);
 
             http_response_code(200);
             echo json_encode([

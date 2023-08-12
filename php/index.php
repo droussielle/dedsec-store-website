@@ -21,7 +21,7 @@ if ($httpMethod == "OPTIONS") {
 // Load composer (PHP third party package manager)
 require './vendor/autoload.php';
 
-require_once './config/database.php';
+require_once './config/Database.php';
 
 // Load .env variable
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);

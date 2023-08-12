@@ -24,7 +24,11 @@ class ProductController
             $product = new Product();
 
             // Get product by name if exist
-            $result = $product->get($queryParams, ['name', 'max_price', 'min_price', 'category_id'], ['id', 'name', 'image_url', 'price', 'description']);
+            $result = $product->get(
+                $queryParams,
+                ['name', 'max_price', 'min_price', 'category_id'],
+                ['id', 'name', 'image_url', 'price', 'short_description', 'quantity', 'specs']
+            );
 
             $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -86,12 +90,13 @@ class ProductController
         // Checking body data
         if (
             !isset($data['name'])
+            || !isset($data['short_description'])
             || !isset($data['description'])
             || !isset($data['price'])
             || !isset($data['quantity'])
         ) {
             http_response_code(400);
-            echo json_encode(["message" => "Missing name, desciption, price, or quantity"]);
+            echo json_encode(["message" => "Missing name, short/detail desciption, price, or quantity"]);
             return;
         }
 
@@ -107,7 +112,7 @@ class ProductController
             // Create product
             $result = $product->create(
                 $data,
-                ['name', 'description', 'image_url', 'price', 'quantity']
+                ['name', 'short_description', 'description', 'image_url', 'price', 'quantity', 'specs']
             );
 
             http_response_code(200);
@@ -145,7 +150,7 @@ class ProductController
             $result = $product->update(
                 $param['id'],
                 $data,
-                ['name', 'description', 'image_url', 'price', 'quantity']
+                ['name', 'short_description', 'description', 'image_url', 'price', 'quantity', 'specs']
             );
 
             http_response_code(200);
