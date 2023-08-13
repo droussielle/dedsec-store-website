@@ -44,8 +44,27 @@ function generateItem(id, name, image_url, price, short_description){
         </div>
 
     </div>
-    <div class="align-self-end  align-content-end p-0 m-0"><button type="button" class="btn btn-primary m-0 mb-3 align-content-end align-self-end" id="product-${id}-btn">Add to cart</button></div>
+    <div class="mb-3 mt-0 col-md-10 offset-md-2">
+
+        <div class="float-start d-none">
+            <span>Qty: </span>
+            <button id="down-${id}" class="btn btn-primary m-0 py-0" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
+
+            <input id="quantity-${id}" style="width: 50px;" min="0" name="quantity" value="1" type="number"/>
+            
+            <button id="up-${id}" class="btn btn-primary m-0 py-0" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
+        </div>
+        
+
+        <div class="float-end p-0 m-0">
+            <button type="button" class="btn btn-primary m-0 align-content-end align-self-end" id="product-${id}-btn">Add to cart</button>
+        </div>
+
+    </div>
     `
+    
+    // <div class="align-self-end  align-content-end p-0 m-0"><button type="button" class="btn btn-primary m-0 mb-3 align-content-end align-self-end" id="product-${id}-btn">Add to cart</button></div>
+    // `
     product_template.innerHTML = product_body;
 
     return product_template;
@@ -99,8 +118,6 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     const childrens = product_container.children;
 
     for (let i = 0; i < childrens.length; i++){
-
-        console.log(childrens[i])
 
         let id = childrens[i].id;
         // let img = childrens[i].getElementById(`product-${id}-img`);

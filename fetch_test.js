@@ -1,5 +1,5 @@
 async function test(){
-    const res = await fetch('http://localhost:8000/product/')
+    const res = await fetch('http://localhost:8000/product')
     let body = await res.json()
     // body = body['data']
 
@@ -18,4 +18,23 @@ async function test(){
     // console.log(body.length)
     console.log(body)
 }
-test()
+// test()
+async function logout(){
+
+    const data = {
+       "quantity": 1
+    }
+    const res = await fetch('http://localhost:8000/cart',
+        {
+            method: 'GET',
+            headers: {
+                "Authorization": `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZW1haWwiOiJjbGllbnQyQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiJ9.XTLrx5QwtPdIOdLAH6klcqCmlCsclci7RbxJ-F5cvk4`
+            },
+            // body: JSON.stringify(data)
+        }
+    );
+    const body = await res.json();
+    console.log(body);
+}
+
+logout();

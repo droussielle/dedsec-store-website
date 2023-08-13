@@ -66,9 +66,25 @@
 
                 <!-- Qty + btn -->
                 <div class="my-3 col-md-10 offset-md-2">
-                    <span class="float-start" id="quantity">Qty: 1</span>
+
+                    <div class="float-start">
+                        <span>Qty: </span>
+                        <button id="down-id" class="btn btn-primary m-0 py-0" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
+
+                        <input id="quantity-id" style="width: 50px;" min="0" name="quantity" value="1" type="number"/>
+                        
+                        <button id="up-id" class="btn btn-primary m-0 py-0" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
+                    </div>
+                    
+
                     <a href="#" onclick="" style="float:right;" id="bin-icon">
-                    <img src="../images/cart_bin-icon.png" alt="bin-icon"></a>
+                        <button class="btn btn-primary me-2">Update</button>
+                    </a>
+
+                    <a href="#" onclick="" style="float:right;" id="bin-icon">
+                        <img src="../images/cart_bin-icon.png" alt="bin-icon">
+                    </a>
+
                 </div>
             </div>
             <!-- End of Product template -->
