@@ -115,7 +115,7 @@ var sign_in=document.querySelector("#sign-up-button").addEventListener('click', 
         if (data.token){
             //login processes
             localStorage.setItem("user",JSON.stringify(data));
-            window.location.href = '../index.php';
+            window.location.href = '/index.php';
             
         }   else{
             alert(data.message);       

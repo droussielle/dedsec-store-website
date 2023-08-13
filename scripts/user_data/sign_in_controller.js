@@ -29,7 +29,7 @@ var sign_in=document.querySelector("#sign-in-button").addEventListener('click', 
 
             localStorage.setItem("user",JSON.stringify(data));
 
-            window.location.href = '../index.php';
+            window.location.href = '/index.php';
 
             
         }   else{

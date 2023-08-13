@@ -1,7 +1,7 @@
 //navigate to login site if user's not logged in
 if(!(localStorage.getItem('user'))){
     alert("Please login to use this features");
-    window.location.href='../pages/sign.php'
+    window.location.href='/pages/sign.php'
 }
 
 //Email
@@ -55,5 +55,5 @@ var save=document.querySelector('#save-button').addEventListener('click',(event)
 });
 
 var cancel=document.querySelector('#cancel-button').addEventListener('click',(event)=>{
-    window.location.href='../../index.php';
+    window.location.href='/index.php';
 });
