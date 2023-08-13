@@ -40,10 +40,10 @@
 
                 <!-- label and input -->
                 <label class="sign-title-font d-block" for="sign-in-email">Email</label>
-                <input class="sign-input-layout" type="email" id="sign-in-email" name="sign-in-email" placeholder="Placeholder text">
+                <input class="sign-input-layout" type="email" id="sign-in-email" name="sign-in-email" placeholder="Email">
 
                 <label class="sign-title-font d-block" for="sign-in-password">Password</label>
-                <input class="sign-input-layout" type="password" id="sign-in-password" name="sign-in-password" placeholder="Placeholder text">
+                <input class="sign-input-layout" type="password" id="sign-in-password" name="sign-in-password" placeholder="Password">
                 
                 <!-- button submit -->
                 <div>
@@ -60,16 +60,22 @@
                 <!-- label and input -->
 
                 <label class="sign-title-font d-block" for="sign-up-name">Name</label>
-                <input class="sign-input-layout" type="text" id="sign-up-name" name="sign-up-name" placeholder="Placeholder text">
+                <input class="sign-input-layout" type="text" id="sign-up-name" name="sign-up-name" placeholder="More than 1 character">
+
+                <label class="sign-title-font d-block" for="sign-up-phone">Phone number</label>
+                <input class="sign-input-layout" type="text" id="sign-up-phone" name="sign-up-phone" placeholder="Exact 10 characters">
+
+                <label class="sign-title-font d-block" for="sign-up-address">Address</label>
+                <input class="sign-input-layout" type="text" id="sign-up-address" name="sign-up-address" placeholder="Address">
 
                 <label class="sign-title-font d-block" for="sign-up-email">Email</label>
-                <input class="sign-input-layout" type="email" id="sign-up-email" name="sign-up-email" placeholder="Placeholder text">
+                <input class="sign-input-layout" type="email" id="sign-up-email" name="sign-up-email" placeholder="Email">
 
                 <label class="sign-title-font d-block" for="sign-up-password">Password</label>
-                <input class="sign-input-layout" type="password" id="sign-up-password" name="sign-up-password" placeholder="Placeholder text">
+                <input class="sign-input-layout" type="password" id="sign-up-password" name="sign-up-password" placeholder="More than 5 characters">
                 
                 <label class="sign-title-font d-block" for="sign-up-password-confirm">Password confirmation</label>
-                <input class="sign-input-layout" type="password" id="sign-up-password-confirm" name="sign-up-password-confirm" placeholder="Placeholder text">
+                <input class="sign-input-layout" type="password" id="sign-up-password-confirm" name="sign-up-password-confirm" placeholder="Confirm your password">
 
                 <!-- Terms and Policy -->
                 <div class="sign-footer-font">
@@ -91,7 +97,7 @@
 
                 <!-- label and input -->
                 <label class="sign-title-font d-block" for="sign-forgot-email">Type your email to get started</label>
-                <input class="sign-input-layout" type="email" id="sign-forgot-email" name="sign-forgot-email" placeholder="Placeholder text">
+                <input class="sign-input-layout" type="email" id="sign-forgot-email" name="sign-forgot-email" placeholder="Email">
 
                 <!-- button submit -->
                 <div>

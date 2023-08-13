@@ -1,7 +1,7 @@
 
 // // Function to check if the user is logged in
 function isLoggedIn() {
-    const status = localStorage.getItem('user');;
+    const status = localStorage.getItem('user');
 
     return status;
 }
@@ -174,7 +174,8 @@ const log = document.getElementById('log');
 if(!isLoggedIn()){
     user_name.textContent = ''
     log.textContent = 'Log in'
-    log.href="./pages/sign.php"
+    
+    // log.href="./pages/sign.php"
 
 
 } else{

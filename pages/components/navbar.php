@@ -10,7 +10,7 @@
             </button>
             
             <!-- Navigation bar brand -->
-            <a class="navbar-brand nav-img" href="#">
+            <a class="navbar-brand nav-img" href="../../index.php">
                 <img src="../images/nav-img.png" height="100%" width="100%" alt="">
             </a>
 

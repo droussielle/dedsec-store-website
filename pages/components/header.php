@@ -9,7 +9,7 @@
 
     <!--Log-->
     <div class="header-content col-md-1 col-6 text-end text-md-start">
-        <a id="log" class="text-decoration-none header-content" href="#" style="color:white;"></a>
+        <a id="log" class="text-decoration-none header-content" href="sign.php" style="color:white;"></a>
     </div> 
 
 </div>
