@@ -201,7 +201,7 @@ logInLink.addEventListener('click', function(event) {
     }
     
     // Redirect to the new target page
-    // window.location.href = '../pages/sign.php';
+    window.location.href = '/pages/sign.php';
   
 });
 

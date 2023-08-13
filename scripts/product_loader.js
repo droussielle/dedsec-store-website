@@ -8,8 +8,16 @@ async function Get_Product_List(){
     return data;
 }
 
+function get_token(){
+    const data = JSON.stringify(localStorage.getItem('user')).data;
+    if (data){
+        return data.token;
+    }
+    return '';
+}
 
-function generateItem(id, name, image_url, price, short_description){
+
+function generateItem(id, name, image_url, price, short_description, quantity = 5){
     
     image_url = '/images/product_Laptop13.png' //Static img for testing purpose
     // Init list features
@@ -46,11 +54,11 @@ function generateItem(id, name, image_url, price, short_description){
     </div>
     <div class="mb-3 mt-0 col-md-10 offset-md-2">
 
-        <div class="float-start d-none">
+        <div class="float-end d-none" id="quantity-${id}-container">
             <span>Qty: </span>
             <button id="down-${id}" class="btn btn-primary m-0 py-0" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
 
-            <input id="quantity-${id}" style="width: 50px;" min="0" name="quantity" value="1" type="number"/>
+            <input id="quantity-${id}" style="width: 50px;" min="0" max="${quantity}" name="quantity" value="1" type="number"/>
             
             <button id="up-${id}" class="btn btn-primary m-0 py-0" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
         </div>
@@ -120,10 +128,10 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     for (let i = 0; i < childrens.length; i++){
 
         let id = childrens[i].id;
-        // let img = childrens[i].getElementById(`product-${id}-img`);
-        // let btn = childrens[i].getElementById(`product-${id}-btn`);
         let img = childrens[i].querySelector(`#product-${id}-img`);
         let btn = childrens[i].querySelector(`#product-${id}-btn`);
+        let qty_label = childrens[i].querySelector(`#quantity-${id}`);
+        let qty_container = childrens[i].querySelector(`#quantity-${id}-container`);
 
         img.addEventListener('click', ()=>{
 
@@ -132,15 +140,46 @@ document.addEventListener('DOMContentLoaded', async ()=>{
 
         });
 
-        // btn.addEventListener('click', async ()=>{
-        //     // add to cart
-        //     // const res = await fetch(`http://localhost:8000/product/${id}`)
-        //     // let data = await res.json();
-        //     // let qty = data['quantity'];
+        // If add to cart is clicked
+        btn.addEventListener('click', async ()=>{
 
-        //     // Update qty
-        //     // childrens[i].getElementById(`product-${id}-qty`) = qty;
-        // });
+            if(btn.classList.contains('d-none')) return;
+
+            // // add to cart
+            // const res = await fetch(`http://localhost:8000/product/${id}`,{
+            //     headers: {
+            //         'Authorization': `Bearer ${get_token()}`
+            //     },
+            //     body: `{
+            //         "quantity": 1
+            //     }
+            //     `
+            // })
+
+            // let data = await res.json(); //Fix later
+            
+            // Exchange btn
+            btn.classList.add('d-none');
+            qty_container.classList.remove('d-none');
+        });
+
+        qty_container.addEventListener('click', async (event)=>{
+            
+            if(qty_container.classList.contains('d-none')) return;
+            if(event.target.tagName !== 'BUTTON' && event.target.tagName !== 'INPUT') return;
+
+            let current_qty = parseInt(qty_label.value);
+
+
+            if (current_qty === 0){
+                // Exchange btn
+                qty_container.classList.add('d-none');
+                btn.classList.remove('d-none');
+                qty_label.value = '1';
+            }
+        });
+        
+        
 
     }
 

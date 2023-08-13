@@ -28,7 +28,7 @@
 
 
     <!-- BODY -->
-    <div class="bg-light row p-md-5" id="detail-body">
+    <div class="bg-light row p-md-5 m-0" id="detail-body">
         <div class="container ps-md-5 pe-md-5 bg-light">
             
             <div class="row">

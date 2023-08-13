@@ -28,7 +28,7 @@ async function logout(){
         {
             method: 'GET',
             headers: {
-                "Authorization": `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZW1haWwiOiJjbGllbnQyQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiJ9.XTLrx5QwtPdIOdLAH6klcqCmlCsclci7RbxJ-F5cvk4`
+                "Authorization": `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MywiZW1haWwiOiJjbGllbnQyQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIn0.BESBofcyOcQP0YNL0YN9lCb6J5PbgSizv4d3sy_fW4I`
             },
             // body: JSON.stringify(data)
         }
