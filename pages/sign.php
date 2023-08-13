@@ -47,7 +47,7 @@
                 
                 <!-- button submit -->
                 <div>
-                    <button class="btn btn-primary sign-btn-font" type="submit">Sign in</button>
+                    <button class="btn btn-primary sign-btn-font" type="button" id="sign-in-button">Sign in</button>
                 </div>
             </form>
 
@@ -79,11 +79,11 @@
                 </div>
                 <!-- button submit -->
                 <div>
-                    <button class="btn btn-primary sign-btn-font" type="submit">Sign up</button>
+                    <button class="btn btn-primary sign-btn-font" id="sign-up-button" type="button">Sign up</button>
                 </div>
             </form>
 
-            <!-- Sign in section -->
+            <!-- Forgot password section -->
             <form class="sign-forgot-form d-flex flex-column align-items-start gap-3 mb-4 p-4 shadow rounded-3" action="">
                 
                 <!-- Header form -->
@@ -95,7 +95,7 @@
 
                 <!-- button submit -->
                 <div>
-                    <button class="btn btn-primary sign-btn-font" type="submit">Submit</button>
+                    <button class="btn btn-primary sign-btn-font" type="button" id="forgot-password-button">Submit</button>
                 </div>
             </form>
         </div>
@@ -114,8 +114,13 @@
     <script src="../scripts/fixed_navbar.js"></script>
     <!-- Handle menu bar -->
     <script src="../scripts/handle_menu.js"></script>
-    <!-- Handle sign in-up -->
-    <script src="../scripts/user_data/handle_sign.js"></script>
+    <!-- Handle sign in -->
+    <script src="../scripts/user_data/sign_in_controller.js"></script>
+    <!-- Handle sign up -->
+    <script src="../scripts/user_data/sign_up_controller.js"></script>
+    <!-- Handle forgot password button -->
+    <script src="../scripts/user_data/forgot_password_controller.js"></script>
+
     
 </body>
 </html>
