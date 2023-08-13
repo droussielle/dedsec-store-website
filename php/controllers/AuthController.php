@@ -51,8 +51,9 @@ class AuthController
             $user->create(['email' => $email, 'password' => $password]);
             $newUserId = $user->get(['email' => $email], ['email'], ['id', 'role'])
                 ->fetch(PDO::FETCH_ASSOC);
+            $data['id'] = $newUserId['id'];
             $userInfo->create(
-                ['id' => $newUserId['id'], 'name' => $name, 'image_url' => $image_url],
+                $data,
                 ['id', 'name', 'image_url', 'birth_date', 'phone', 'address']
             );
 
