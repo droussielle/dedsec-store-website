@@ -26,7 +26,6 @@ class AuthController
             filter_var($email, FILTER_VALIDATE_EMAIL) === false
             || strlen($password) < 6
             || isset($data['phone']) && strlen($data['phone']) > 10
-            || isset($data['image_url']) && !filter_var($data['image_url'], FILTER_VALIDATE_URL)
         ) {
             http_response_code(400);
             echo json_encode(["message" => "Invalid email or password or image url"]);
@@ -143,15 +142,6 @@ class AuthController
     /////////////////////////////////////////////////////////////////////////////////////
     public function changeProfile($param, $data)
     {
-        // Checking body data
-        if (
-            isset($data['image_url']) && !filter_var($data['image_url'], FILTER_VALIDATE_URL)
-        ) {
-            http_response_code(400);
-            echo json_encode(["message" => "Invalid password or image_url"]);
-            return;
-        }
-
         try {
             $user = new User();
             $userInfo = new UserInfo();
