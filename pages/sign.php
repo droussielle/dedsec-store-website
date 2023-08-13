@@ -120,6 +120,8 @@
     <script src="../scripts/user_data/sign_up_controller.js"></script>
     <!-- Handle forgot password button -->
     <script src="../scripts/user_data/forgot_password_controller.js"></script>
+    <!-- Handle sign -->
+    <script src="../scripts/user_data/handle_sign.js"></script>
 
     
 </body>

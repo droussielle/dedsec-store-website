@@ -1,9 +1,9 @@
 
 // // Function to check if the user is logged in
 function isLoggedIn() {
-    // const status = localStorage.getItem('token');
+    const status = localStorage.getItem('user');;
 
-    return JSON.parse(localStorage.getItem('user')).token;
+    return status;
 }
 
 // Check if an item is existed
@@ -174,6 +174,9 @@ const log = document.getElementById('log');
 if(!isLoggedIn()){
     user_name.textContent = ''
     log.textContent = 'Log in'
+    log.href="./pages/sign.php"
+
+
 } else{
     
     const global_email = get_global_email();
@@ -193,10 +196,11 @@ logInLink.addEventListener('click', function(event) {
         logout();
         user_name.textContent = ''
         log.textContent = 'Log in'
+        
     }
     
     // Redirect to the new target page
-    window.location.href = '../pages/sign.php';
+    // window.location.href = '../pages/sign.php';
   
 });
 
