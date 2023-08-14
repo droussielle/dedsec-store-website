@@ -35,7 +35,7 @@
 
             <div style="width: 200px;">
                 <!-- Categories -->
-                <div class="mb-lg-5 mb-1">
+                <div class="mb-lg-3 mb-3">
 
                     <!-- Header + Button dropdown -->
                     <div class="pb-1 border-bottom border-dark d-flex justify-content-between">
@@ -49,14 +49,14 @@
 
                     <!-- Content -->
                     <div>
-                        <ul class="p-0 m-0 list-group list-group-flush d-lg-flex collapse gap-3 mb-4" id="categories-dropdown">
+                        <ul class="p-0 m-0 list-group list-group-flush d-lg-flex collapse gap-3" id="categories-dropdown">
                             <!-- <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb fw-bolder text-decoration-none" href="#">All</a></li>
                             <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Laptops</a></li>
                             <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Pentesting</a></li>
                             <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Microcontrollers</a></li>
                             <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Tiny computers</a></li> -->
 
-                            <li class="form-check bg-light ps-0">
+                            <li class="form-check bg-light ps-0 mt-3">
                                 <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="all" checked>
                                 <label class="form-check-label fb" for="all">All</label>
                             </li>
@@ -109,6 +109,8 @@
 
                 </div>
 
+                <!-- Applying filter btn -->
+                <div class="btn btn-primary w-100 mt-4" id="filter-btn">Filter</div>
             </div>
             
         </div>
