@@ -49,12 +49,33 @@
 
                     <!-- Content -->
                     <div>
-                        <ul class="p-0 m-0 list-group list-group-flush d-lg-flex collapse" id="categories-dropdown">
-                            <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb fw-bolder text-decoration-none" href="#">All</a></li>
+                        <ul class="p-0 m-0 list-group list-group-flush d-lg-flex collapse gap-3 mb-4" id="categories-dropdown">
+                            <!-- <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb fw-bolder text-decoration-none" href="#">All</a></li>
                             <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Laptops</a></li>
                             <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Pentesting</a></li>
                             <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Microcontrollers</a></li>
-                            <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Tiny computers</a></li>
+                            <li class="list-group-item border-0 fb ps-0 bg-light"><a class="fb text-decoration-none" href="">Tiny computers</a></li> -->
+
+                            <li class="form-check bg-light ps-0">
+                                <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="all" checked>
+                                <label class="form-check-label fb" for="all">All</label>
+                            </li>
+                            <li class="form-check bg-light ps-0" >
+                                <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="laptops">
+                                <label class="form-check-label fb" for="laptops">Laptops</label>
+                            </li>
+                            <li class="form-check bg-light ps-0" >
+                                <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="pentesting">
+                                <label class="form-check-label fb" for="pentesting">Pentesting</label>
+                            </li>
+                            <li class="form-check bg-light ps-0" >
+                                <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="microcontrollers">
+                                <label class="form-check-label fb" for="microcontrollers">Microcontrollers</label>
+                            </li>
+                            <li class="form-check bg-light ps-0" >
+                                <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="tiny-computers">
+                                <label class="form-check-label fb" for="tiny-computers">Tiny computers</label>
+                            </li>
                         </ul>
                     </div>
                 </div>
