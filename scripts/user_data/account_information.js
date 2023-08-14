@@ -19,8 +19,6 @@ if(!(localStorage.getItem('user'))){
 //Fetch user detail phone & address
 const myToken = JSON.parse(localStorage.getItem('user')).token;
 const myID = JSON.parse(localStorage.getItem('user')).data.id;
-console.log(myToken);
-console.log(myID);
 fetch(`http://localhost:8000/user/${myID}`,{method:'GET',
     headers:{
         "Authorization": `Bearer ${myToken}`,
