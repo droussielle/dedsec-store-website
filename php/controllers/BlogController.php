@@ -92,12 +92,6 @@ class BlogController
             return;
         }
 
-        // Validate data
-        if (isset($data['image_url']) && !filter_var($data['image_url'], FILTER_VALIDATE_URL)) {
-            http_response_code(400);
-            echo json_encode(["message" => "Invalid image url"]);
-            return;
-        }
         try {
             $blog = new Blog();
             $userInfo = new UserInfo();
@@ -127,12 +121,6 @@ class BlogController
     /////////////////////////////////////////////////////////////////////////////////////
     public function updateBlog($param, $data)
     {
-        // Validate data
-        if (isset($data['image_url']) && !filter_var($data['image_url'], FILTER_VALIDATE_URL)) {
-            http_response_code(400);
-            echo json_encode(["message" => "Invalid image url"]);
-            return;
-        }
         try {
             $blog = new Blog();
 

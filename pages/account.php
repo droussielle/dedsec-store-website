@@ -164,7 +164,7 @@
                 <h4 class="fw-bolder">Password</h4>
             </div>
             <div class="col-md-9 col-12">
-                <button class="btn btn-secondary align-self-start ms-3" onclick="">Change password</button>
+                <button class="btn btn-secondary align-self-start ms-3" onclick="" id="change-password-button" type="button">Change password</button>
                 <br>
                 <br>
                 <div class="d-flex align-items-start border-0 mb-3">
@@ -218,7 +218,9 @@
     <!-- Handle sign in-up -->
     <script src="../scripts/user_data/handle_sign.js"></script>
     <!-- Handle account info -->
-    <script src="../scripts/account_information.js"></script>
+    <script src="../scripts/user_data/account_information.js"></script>
+    <!-- Handle change password -->
+    <script src="../scripts/user_data/change_password.js"></script>
 
 </body>
 </html>
