@@ -1,5 +1,5 @@
 async function test(){
-    const res = await fetch('http://localhost:8000/product')
+    const res = await fetch('http://localhost:8000/product/2')
     let body = await res.json()
     // body = body['data']
 
@@ -16,9 +16,20 @@ async function test(){
     // console.log(specs['Graphics'])
 
     // console.log(body.length)
-    console.log(body)
+
+    body = body['data'];
+    let specs = JSON.parse(body.specs);
+    const optionKeys = Object.keys(specs);
+    console.log(optionKeys.length);
+    console.log(optionKeys);
+    console.log(specs);
+
+    let this_specs = specs[`${optionKeys[1]}`];
+    for(const i in this_specs){
+        console.log(this_specs[i]);
+    }
 }
-// test()
+test()
 async function logout(){
 
     const data = {
@@ -37,4 +48,4 @@ async function logout(){
     console.log(body);
 }
 
-logout();
+// logout();

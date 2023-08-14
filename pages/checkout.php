@@ -206,64 +206,24 @@
                         <h4 class="fw-bolder">Order summary</h4>
 
                         <!-- Product's ordered -container -->
-                        <div class="product-order-container border-bottom border-dark">
+                        <div class="product-order-container border-bottom border-dark" id="Products-container">
 
                             <!-- template -->
-                            <div class="row mb-4">
+                            <div class="row mb-4" id="${id}">
                                 <!-- img -->
                                 <div class="col-md-3 col-4">
-                                    <img src="../images/checkout_Laptop13.png" alt="" class="rounded img-fluid">
+                                    <img id="product-${id}-img" src="../images/checkout_Laptop13.png" alt="" class="rounded img-fluid">
                                 </div>
 
                                 <!-- Content -->
                                 <div class="col-md-9 col-8 d-flex justify-content-between">
                                     <!-- Name -->
-                                    <div class="fw-bolder">
+                                    <div id="product-${id}-name" class="fw-bolder">
                                         DEDSEC Laptop 13 (DMA Ryzen™ 7040 Series)
                                     </div>
 
                                     <!-- price -->
-                                    <div class="fw-bolder">$2499.00</div>
-                                </div>
-                            </div>
-                            <!-- end of template -->
-
-                            <!-- template -->
-                            <div class="row mb-4">
-                                <!-- img -->
-                                <div class="col-md-3 col-4">
-                                    <img src="../images/checkout_Laptop13.png" alt="" class="rounded img-fluid">
-                                </div>
-
-                                <!-- Content -->
-                                <div class="col-md-9 col-8 d-flex justify-content-between">
-                                    <!-- Name -->
-                                    <div class="fw-bolder">
-                                        DEDSEC Laptop 13 (DMA Ryzen™ 7040 Series)
-                                    </div>
-
-                                    <!-- price -->
-                                    <div class="fw-bolder">$2499.00</div>
-                                </div>
-                            </div>
-                            <!-- end of template -->
-
-                            <!-- template -->
-                            <div class="row mb-4">
-                                <!-- img -->
-                                <div class="col-md-3 col-4">
-                                    <img src="../images/checkout_Laptop13.png" alt="" class="rounded img-fluid">
-                                </div>
-
-                                <!-- Content -->
-                                <div class="col-md-9 col-8 d-flex justify-content-between">
-                                    <!-- Name -->
-                                    <div class="fw-bolder">
-                                        DEDSEC Laptop 13 (DMA Ryzen™ 7040 Series)
-                                    </div>
-
-                                    <!-- price -->
-                                    <div class="fw-bolder">$2499.00</div>
+                                    <div id="product-${id}-price" class="fw-bolder">$2499.00</div>
                                 </div>
                             </div>
                             <!-- end of template -->
@@ -275,26 +235,26 @@
 
                             <!-- Delivery -->
                             <div class="d-flex justify-content-between my-3">
-                                <div id="checkout-result-delivery">Delivery</div>
-                                <div>Aug 20-Sep 3</div>
+                                <div>Delivery</div>
+                                <div id="checkout-result-delivery">Aug 20-Sep 3</div>
                             </div>
 
                             <!-- Subtotal -->
                             <div class="d-flex justify-content-between mb-3">
-                                <div id="checkout-result-subtotal">Subtotal</div>
-                                <div>$7,497.00</div>
+                                <div>Subtotal</div>
+                                <div id="checkout-result-subtotal">$7,497.00</div>
                             </div>
 
                             <!-- Estimated tax -->
                             <div class="d-flex justify-content-between mb-3">
-                                <div id="checkout-result-estimated">Estimated tax</div>
-                                <div>$0.00</div>
+                                <div>Estimated tax</div>
+                                <div id="checkout-result-estimated">$0.00</div>
                             </div>
 
                             <!-- Shipping -->
                             <div class="d-flex justify-content-between mb-3">
-                                <div id="checkout-result-shipping">Shipping</div>
-                                <div>$0.00</div>
+                                <div>Shipping</div>
+                                <div id="checkout-result-shipping">$0.00</div>
                             </div>
                         </div>
 
@@ -303,8 +263,8 @@
 
                             <!-- Total -->
                             <div class="d-flex justify-content-between my-3">
-                                <div class="fw-bolder" id="total-result-total">Total</div>
-                                <div class="fw-bolder">$7,497.00</div>
+                                <div class="fw-bolder">Total</div>
+                                <div class="fw-bolder" id="total-result-total">$7,497.00</div>
                             </div>
 
                             <!-- Warning -->

@@ -65,16 +65,16 @@
                                 <label class="form-check-label fb" for="laptops">Laptops</label>
                             </li>
                             <li class="form-check bg-light ps-0" >
-                                <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="pentesting">
-                                <label class="form-check-label fb" for="pentesting">Pentesting</label>
+                                <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="tablets">
+                                <label class="form-check-label fb" for="tablets">Tablets</label>
                             </li>
                             <li class="form-check bg-light ps-0" >
-                                <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="microcontrollers">
-                                <label class="form-check-label fb" for="microcontrollers">Microcontrollers</label>
+                                <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="accessories">
+                                <label class="form-check-label fb" for="accessories">Accessories</label>
                             </li>
                             <li class="form-check bg-light ps-0" >
-                                <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="tiny-computers">
-                                <label class="form-check-label fb" for="tiny-computers">Tiny computers</label>
+                                <input class="form-check-input rounded-0 shadow-none d-none" type="radio" name="flexCheck-categories" id="raspberry-pis">
+                                <label class="form-check-label fb" for="raspberry-pis">Raspberry Pis</label>
                             </li>
                         </ul>
                     </div>

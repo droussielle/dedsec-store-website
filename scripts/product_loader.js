@@ -1,7 +1,16 @@
+const category_id_list = {
+    'all': '',
+    "laptops": '?category_id=1',
+    "tablets": '?category_id=2',
+    "accessories": '?category_id=3',
+    "raspberry-pis": '?category_id=4'
+}
 
 // Fetch list of products
-async function Get_Product_List(){
-    const res = await fetch('http://localhost:8000/product');
+async function Get_Product_List(category_id = ''){
+    const res = await fetch(`http://localhost:8000/product${category_id}`,{
+        method: 'GET'
+    });
     let data = await res.json();
     data = data['data'];
 
@@ -9,17 +18,88 @@ async function Get_Product_List(){
 }
 
 function get_token(){
-    const data = JSON.stringify(localStorage.getItem('user')).data;
-    if (data){
-        return data.token;
+
+    if(!(localStorage.getItem('user'))){
+        alert("Please login to use this features");
+        window.location.href='/pages/sign.php'
+        return '';
     }
-    return '';
+    return JSON.parse(localStorage.getItem('user')).token;
+}
+
+async function access_current_cart(myToken){
+
+    const res = await fetch(`http://localhost:8000/cart`,{
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${myToken}`
+        },
+    });
+
+    let data = await res.json();
+
+    return {status: res.ok, message: data.message};
+}
+
+async function update_current_cart(myToken, id, quantity){
+
+    const res = await fetch(`http://localhost:8000/cart/product/${id}`,{
+        method: 'PATCH',
+        headers: {
+            'Authorization': `Bearer ${myToken}`
+        },
+        body: `{
+            "quantity": "${quantity}"
+        }
+        `
+    });
+
+    let data = await res.json();
+
+    return {status: res.ok, message: data.message};
+}
+
+async function add_to_cart(myToken, id, quantity = 1){
+
+    const res = await fetch(`http://localhost:8000/cart/product/${id}`,{
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${myToken}`
+        },
+        body: `{
+            "quantity": ${quantity}
+        }
+        `
+    });
+
+    let data = await res.json();
+    return {status: res.ok, message: data.message};
+}
+
+async function delete_from_cart(myToken, id){
+
+    const res = await fetch(`http://localhost:8000/cart/product/${id}`,{
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${myToken}`
+        },
+    });
+
+    let data = await res.json();
+    return {status: res.ok, message: data.message};
 }
 
 
-function generateItem(id, name, image_url, price, short_description, quantity = 5){
+
+function get_label_quantity(i, id){
+    let qty_label = childrens[i].querySelector(`#quantity-${id}`);
+    return parseInt(qty_label.value);
+}
+
+////////////////// FORMAT PRODUCT ////////////////////
+function generateItem(id, name, image_url, price, short_description, quantity){
     
-    image_url = '/images/product_Laptop13.png' //Static img for testing purpose
+    // image_url = '/images/product_Laptop13.png' //Static img for testing purpose
     // Init list features
     var list_features = ''
     for (i in short_description){
@@ -35,7 +115,7 @@ function generateItem(id, name, image_url, price, short_description, quantity = 
     <div class="row">
 
         <div class="col-md-2 col-4">
-            <img src=${image_url} alt="img" class="rounded" id="product-${id}-img">
+            <img src=${image_url} alt="img" class="rounded img-fluid" id="product-${id}-img">
         </div>
 
         <div class="col-md-10 col-8">
@@ -54,15 +134,21 @@ function generateItem(id, name, image_url, price, short_description, quantity = 
     </div>
     <div class="mb-3 mt-0 col-md-10 offset-md-2">
 
-        <div class="float-end d-none" id="quantity-${id}-container">
-            <span>Qty: </span>
+        <div class="float-end ms-4 d-none" id="quantity-${id}-container">
+            <!-- <span>Qty: </span> -->
             <button id="down-${id}" class="btn btn-primary m-0 py-0" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
 
             <input id="quantity-${id}" style="width: 50px;" min="0" max="${quantity}" name="quantity" value="1" type="number"/>
             
             <button id="up-${id}" class="btn btn-primary m-0 py-0" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
+            
+            <button id="update-${id}" class="btn btn-success m-0 ms-3 py-1 px-2 d-inline-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                </svg>
+            </button>
+
         </div>
-        
 
         <div class="float-end p-0 m-0">
             <button type="button" class="btn btn-primary m-0 align-content-end align-self-end" id="product-${id}-btn">Add to cart</button>
@@ -83,10 +169,11 @@ function generateItem(id, name, image_url, price, short_description, quantity = 
 
 }
 
-async function Load_Product_List(){
+async function Load_Product_List(category_id){
 
-    let products = await Get_Product_List();
+    let products = await Get_Product_List(category_id);
     let product_container = document.getElementById('Products-Container');
+    product_container.innerHTML = '';
 
     for(let i = 0; i < products.length; i++){
 
@@ -110,9 +197,9 @@ async function Load_Product_List(){
     return products;
 }
 
-document.addEventListener('DOMContentLoaded', async ()=>{
-    
-    let products = await Load_Product_List();
+async function Page_load_with_filer(category_id){
+
+    let products = await Load_Product_List(category_id);
     let product_results = document.getElementById('product-results');
 
     if (products.length <= 1){
@@ -127,11 +214,13 @@ document.addEventListener('DOMContentLoaded', async ()=>{
 
     for (let i = 0; i < childrens.length; i++){
 
+        // Get product html element's infor
         let id = childrens[i].id;
         let img = childrens[i].querySelector(`#product-${id}-img`);
         let btn = childrens[i].querySelector(`#product-${id}-btn`);
         let qty_label = childrens[i].querySelector(`#quantity-${id}`);
         let qty_container = childrens[i].querySelector(`#quantity-${id}-container`);
+        let update_cart = childrens[i].querySelector(`#update-${id}`);
 
         img.addEventListener('click', ()=>{
 
@@ -143,35 +232,63 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         // If add to cart is clicked
         btn.addEventListener('click', async ()=>{
 
+            // Add to cart button is not displaying!
             if(btn.classList.contains('d-none')) return;
 
-            // // add to cart
-            // const res = await fetch(`http://localhost:8000/product/${id}`,{
-            //     headers: {
-            //         'Authorization': `Bearer ${get_token()}`
-            //     },
-            //     body: `{
-            //         "quantity": 1
-            //     }
-            //     `
-            // })
+            //Checking logged in
+            const myToken = get_token(); 
 
-            // let data = await res.json(); //Fix later
+            //Access to cart first
+            const access_to_cart = await access_current_cart(myToken); 
+            //--> Failed to access
+            if(!(access_to_cart.status)){
+                alert(access_to_cart.message);
+                return;
+            }
+
+            // Add to cart
+            const add_cart = await add_to_cart(myToken, id, 1); //Can adjust quantity
+            alert(add_cart.message);
+            //--> Failed to add to cart
+            //if(!(add_cart.status)) return;
+
             
             // Exchange btn
             btn.classList.add('d-none');
             qty_container.classList.remove('d-none');
         });
 
-        qty_container.addEventListener('click', async (event)=>{
+        // Update product in cart
+        update_cart.addEventListener('click', async ()=>{
             
+            // Add to cart button is not clicked
             if(qty_container.classList.contains('d-none')) return;
-            if(event.target.tagName !== 'BUTTON' && event.target.tagName !== 'INPUT') return;
-
+            
             let current_qty = parseInt(qty_label.value);
 
+            //Checking logged in
+            const myToken = get_token(); 
+
+            //Access to cart first
+            const access_to_cart = await access_current_cart(myToken); 
+            //--> Failed to access
+            if(!(access_to_cart.status)){
+                alert(access_to_cart.message);
+                return;
+            }
+
+            //Update user's cart
+            const update_cart = await update_current_cart(myToken, id, current_qty);
+            alert(update_cart.message);
+            //--> Failed to update cart
+            //if(!(update_cart.status)) return;
 
             if (current_qty === 0){
+
+                // Delete from cart
+                const del_cart = await delete_from_cart(myToken, id);
+                alert(del_cart.message);
+
                 // Exchange btn
                 qty_container.classList.add('d-none');
                 btn.classList.remove('d-none');
@@ -179,8 +296,44 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             }
         });
         
-        
+    }
+}
+
+function change_checked_radio(radio_id){
+    document.getElementById(radio_id).checked = true;
+}
+
+document.addEventListener('DOMContentLoaded', async ()=>{
+    
+    let category_id;
+    if(!localStorage.getItem('filter-products')){
+        category_id = '';
+    }
+    else{
+        category_id = JSON.parse(localStorage.getItem('filter-products')).category_id;
+        change_checked_radio(category_id);
+        category_id = category_id_list[category_id];
 
     }
-
+    let loading = await Page_load_with_filer(category_id);
 });
+
+
+
+document.querySelector('#filter-btn').addEventListener('click', async()=>{
+
+    // Get all the radio buttons
+    const radioButtons = document.querySelectorAll('#categories-dropdown input[type="radio"]');
+
+    // Add event listeners to each radio button
+    radioButtons.forEach(async (radioButton) => {
+
+        if (radioButton.checked) {
+            let category_id = category_id_list[radioButton.id];
+            localStorage.setItem('filter-products', JSON.stringify({category_id: radioButton.id}));
+
+            let loading = await Page_load_with_filer(category_id);
+        }
+
+    });
+})
