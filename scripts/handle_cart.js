@@ -338,6 +338,21 @@ document.addEventListener('DOMContentLoaded', async ()=>{
 
 });
 
-document.getElementById('cart-continue').addEventListener('click', ()=>{
-    window.location.href = '/pages/checkout.php';
+document.getElementById('cart-continue').addEventListener('click', async()=>{
+
+    const myToken = get_token();
+    let current_cart = await get_current_cart(myToken);
+    if(current_cart.status && current_cart.data.items.length > 0){
+        window.location.href = '/pages/checkout.php';
+    } else {
+
+        if(current_cart.status && current_cart.data.items.length <= 0){
+            alert('No items in your cart, go shopping now');
+        } else {
+            alert(current_cart.message);
+        }
+    }
+
+    return;
+    
 });
