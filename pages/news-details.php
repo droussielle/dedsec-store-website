@@ -28,25 +28,30 @@
     </div>
 
     <!-- BODY -->
-    <div class="container bg-light p-5">
+    <div class="container bg-light p-5" id="news-container">
 
         <!-- IMAGE -->
         <div class="row bg-light align-content-center">
-            <img src="../images/news-details_news-images.png" alt="news image" class="img-fluid align-self-center">
+            <img id="news-img" src="" alt="news image" class="img-fluid align-self-center">
         </div>
 
         <!-- Content -->
         <div class="row bg-light align-content-center pt-3">
             <!-- News header -->
-            <h4 id="news-header" class="fw-bolder">Phone news</h4>
+            <h4 id="news-header" class="fw-bolder"></h4>
             <br>
-            <!-- Date posted -->
-            <p id="posted-date" class="fs-6">Posted 2022/10/20</p>
+            
+            <div class="d-flex justify-content-between">
+                <!-- Date posted -->
+                <p id="posted-date" class="fs-6 fw-bold">Posted 2022/10/20</p>
+                <!-- Date posted -->
+                <p id="updated-date" class="fs-6 fw-bold">Updated 2022/10/20</p>
+            </div>
             <br>
 
             <!-- Paragraphs -->
-            <div id="paragraphs">
-                <p id="paragraph-1">
+            <div id="news-content">
+                <!-- <p id="paragraph-1">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales dolor quis diam volutpat, et fermentum mauris maximus. Phasellus a cursus justo, vel vulputate diam. Cras posuere, elit id commodo consequat, eros ligula mattis justo, vitae maximus libero quam eu massa. Fusce vel vehicula nisi, eu convallis nibh. Mauris rutrum in dui a aliquet. Vestibulum eros lacus, pretium sit amet nisl ac, laoreet tempor diam. Quisque tellus tortor, consequat vel est in, eleifend eleifend tortor. Praesent lorem neque, auctor eget condimentum sit amet, posuere eget neque.
                 </p>
                 <p id="paragraph-2">
@@ -54,7 +59,7 @@
                 </p>
                 <p id="paragraph-3">
                     Vestibulum viverra faucibus nisi. Donec sed rutrum ipsum. Duis a mollis purus, eu pretium magna. Proin blandit eleifend lacus. Quisque tellus dolor, convallis at nisl in, varius dapibus nibh. Vestibulum eu mauris luctus, ullamcorper justo aliquam, porttitor augue. Vivamus sem nulla, condimentum eget urna sed, lacinia finibus lectus. Duis ac commodo risus, nec scelerisque velit. Maecenas sollicitudin dui ac pulvinar posuere. Nulla finibus malesuada ex. Nunc pharetra posuere tellus, id consectetur turpis bibendum sit amet. Morbi ornare felis nec leo vestibulum volutpat. Fusce vel ante varius, finibus ipsum non, lobortis enim. Aenean nec consequat velit, nec gravida metus. Duis in lorem sit amet nunc rhoncus consectetur a at leo.
-                </p>
+                </p> -->
             </div>
 
         </div>
@@ -75,6 +80,8 @@
     <script src="../scripts/handle_menu.js"></script>
     <!-- Handle sign in-up -->
     <script src="../scripts/user_data/handle_sign.js"></script>
+    <!-- Handle news-details -->
+    <script src="/scripts/news-details.js"></script>
 
 </body>
 </html>

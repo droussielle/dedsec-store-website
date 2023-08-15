@@ -1,5 +1,5 @@
 async function test(){
-    const res = await fetch('http://localhost:8000/product/17')
+    const res = await fetch('http://localhost:8000/blog')
     let body = await res.json()
     body = body['data']
 
@@ -16,9 +16,9 @@ async function test(){
     // console.log(specs['Graphics'])
 
     // console.log(body.length)
-    let des = body.description;
-    des = JSON.parse(des);
-    console.log(des);
+    // let des = body.description;
+    // des = JSON.parse(des);
+    console.log(body);
     
 
 }
