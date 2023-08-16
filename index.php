@@ -49,7 +49,7 @@
                                     It's fully open-source and customizable, so you can extend it in whatever way you like.
                                 </div>
         
-                                <a href="#">
+                                <a href="/pages/product.php">
                                     <div class="my-href">Buy now ></div>
                                 </a>
                             </div>
@@ -74,7 +74,7 @@
                                     It's fully open-source and customizable, so you can extend it in whatever way you like.
                                 </div>
         
-                                <a href="#">
+                                <a href="/pages/product.php">
                                     <div class="my-href">Buy now ></div>
                                 </a>
                             </div>
@@ -98,7 +98,7 @@
                                     It's fully open-source and customizable, so you can extend it in whatever way you like.
                                 </div>
         
-                                <a href="#">
+                                <a href="/pages/product.php">
                                     <div class="my-href">Buy now ></div>
                                 </a>
                             </div>
@@ -122,7 +122,7 @@
                                     It's fully open-source and customizable, so you can extend it in whatever way you like.
                                 </div>
         
-                                <a href="#">
+                                <a href="/pages/product.php">
                                     <div class="my-href">Buy now ></div>
                                 </a>
                             </div>
@@ -175,7 +175,7 @@
                         Available from $25.
                     </div>
 
-                    <a href="#">
+                    <a href="/pages/product.php">
                         <div class="my-href">Buy now ></div>
                     </a>
                 </div>
@@ -203,7 +203,7 @@
                         ENTEL® Core™
                     </div>
 
-                    <a href="#">
+                    <a href="/pages/product.php">
                         <div class="my-href">Choose yours now ></div>
                     </a>
                     
@@ -220,7 +220,7 @@
                     and get 10% off on selected products
                 </div>
 
-                <a href="#">
+                <a href="/pages/product.php">
                     <div class="my-href-type-3">Shop now ></div>
                 </a>
                 
@@ -247,7 +247,7 @@
                 <div class="latest-news-content mb-5">Latest news ></div>
             </a>
             
-            <div class="d-flex justify-content-between row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+            <div class="d-flex justify-content-between row row-cols-lg-3 row-cols-md-2 row-cols-sm-1" id="news-container">
 
                 <!-- Card 1 -->
                 <div class="card pe-5 mb-5 border-0" style="background: #DDD;">
