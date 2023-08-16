@@ -10,7 +10,7 @@
                 <div class="footer-font-1-header">Company</div>
                 <div class="footer-font-1-inside">About us</div>
                 <div class="footer-font-1-inside">Blog</div>
-                <div class="footer-font-1-inside">We’re hiring!</div>
+                <div class="footer-font-1-inside">We're hiring!</div>
                 <div class="footer-font-1-inside">Contact us</div>
             </div>
 
@@ -63,7 +63,7 @@
                 <select class="btn bg-primary form-select form-select-lg footer-font-3-ending">
                     <option selected>USD</option>
                     <option value="1">VND</option>
-                    <option value="2">ER</option>
+                    <option value="2">EUR</option>
                     <option value="3">JPN</option>
                 </select>
             </div>
