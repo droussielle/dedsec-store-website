@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- My css -->
     <link rel="stylesheet" href="../css/style.css">
-    <title>Latest news</title>
+    <title>404 Not Found</title>
 
 </head>
 <body class="bg-light">
@@ -26,37 +26,32 @@
         <?php include './components/navbar.php';?>
     </div>
 
-    
-    <!-- Latest news -->
-    <div class="px-5 py-5" style="background: #DDD;">
-
-        <a href="./news.php">
-            <div class="latest-news-content mb-5">Latest news ></div>
-        </a>
-        
-        <!-- <div class="d-flex justify-content-between row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 latest-news"> -->
-        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 latest-news" id="news-container">
-            <!-- Card 1 -->
-            <!-- <div class="card pe-5 mb-5 border-0" style="background: #DDD;">
-                <img src="./img/products-img.jfif" class="card-img-top" alt="...">
-                <div class="card-body p-0">
-                    <div class="card-head my-2">Phone news</div>
-                    <div class="card-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Nam id rhoncus augue, id bibendum magna. Nulla urna nibh, 
-                        ornare sit amet lacinia vel, accumsan non diam.
-                    </div>
-                </div>
-            </div> -->
-
-            
+    <!-- BODY ERROR -->
+    <div class="px-lg-5 pb-3 bg-light d-flex flex-column">
+        <!-- image -->
+        <div class="mb-2 w-100">
+            <img class="w-100" src="../images/404_img.png" alt="404 not found">
         </div>
+
+        <div class="px-lg-0 px-5">
+            <!-- Content -->
+            <h1 class="fw-bolder">Page not found</h1>
+            <p>The requested page cannot be found. 
+                Make sure the URL is correct, or 
+                head back to our Home page.
+            </p>
+
+            <!-- Button -->
+            <div>
+                <a class="btn btn-primary" href="/index.php">Back to Home</a>
+            </div>
+        </div>
+        
     </div>
-
-
+    <!-- END OF BODY -->
 
     <!-- Footer -->
-    <div id="footer">
+    <div class="bottom-0 position-absolute w-100" id="footer">
         <?php include './components/footer.php';?>
     </div>
 
@@ -69,8 +64,6 @@
     <script src="../scripts/handle_menu.js"></script>
     <!-- Handle sign in-up -->
     <script src="../scripts/user_data/handle_sign.js"></script>
-    <!-- News loader -->
-    <script src="../scripts/news_loader.js"></script>
     
 </body>
 </html>

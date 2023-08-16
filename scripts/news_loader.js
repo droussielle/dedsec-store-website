@@ -1,53 +1,70 @@
-function create_news_card(img_link, header_new, description) {
-    // Create a new card element
-    const card = document.createElement('div');
-    card.classList.add('card', 'pe-5', 'mb-5', 'border-0');
+async function Get_Blog_List(){
+
+    const res = await fetch(`http://localhost:8000/blog`);
+    let data = await res.json();
+    
+    return {status: res.ok, message: data.message, data: data.data};
+}
+
+function formatText(inputText) {
+    const paragraphs = inputText.split('\r\n\r\n');
+    const formattedText = paragraphs.map(paragraph => `<p>${paragraph.replace(/\r\n/g, ' ')}</p>`).join('\n');
+    return formattedText;
+}
+
+function formatAndTruncate(inputText, maxWords) {
+    const words = inputText.split(/\s+/);
+    const truncatedWords = words.slice(0, maxWords);
+    const formattedAndTruncated = `<p>${truncatedWords.join(' ')}...</p>`;
+    return formattedAndTruncated;
+}
+
+function create_news_card(id, img_link, title, description){
+
+    let card = document.createElement('div');
+    card.classList = 'card pe-5 mb-5 border-0';
     card.style.background = '#DDD';
+    card.id = `${id}`;
 
-    // Create the card image element
-    const img = document.createElement('img');
-    img.src = img_link;
-    img.classList.add('card-img-top');
-    img.alt = '...';
-    card.appendChild(img);
+    description = formatAndTruncate(description, 28);
 
-    // Create the card body element
-    const cardBody = document.createElement('div');
-    cardBody.classList.add('card-body', 'p-0');
+    let card_body = `
+        <img src="${img_link}" class="card-img-top" alt="news-img" id="news-img-${id}">
+        <div class="card-body p-0">
+            <div class="card-head my-2" id="news-title-${id}">${title}</div>
+            <div class="card-description" id="news-content-${id}">${description}</div>
+        </div>
+    `;
 
-    // Create the card header element
-    const cardHead = document.createElement('div');
-    cardHead.classList.add('card-head', 'my-2');
-    cardHead.textContent = header_new;
-    cardBody.appendChild(cardHead);
-
-    // Create the card description element
-    const cardDescription = document.createElement('div');
-    cardDescription.classList.add('card-description');
-    cardDescription.textContent = description;
-    cardBody.appendChild(cardDescription);
-
-    // Append the card body to the card
-    card.appendChild(cardBody);
-
+    card.innerHTML = card_body;
     return card;
 }
 
-let img_link = '../images/news_products-img.jfif' //The path must be suitable for the html not the js file
-let header_new = 'Phone news'
-let description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id rhoncus augue, id bibendum magna. Nulla urna nibh, ornare sit amet lacinia vel, accumsan non diam."
-const news_container = document.getElementsByClassName('latest-news')[0]
-const num_news = 10
+document.addEventListener('DOMContentLoaded', async ()=>{
 
-// Render all the card
-function render_all_news(){
-    for(let i = 0; i < num_news; i++){
-        // Create the news card
-        const card = create_news_card(img_link, header_new, description)
+    let news = await Get_Blog_List();
+    let news_container = document.getElementById('news-container');
 
-        // Append the card to the news_container
-        news_container.appendChild(card)
+    if(!(news.status)){
+        news_container.innerHTML = 'There is no latest news!';
+        return;
     }
-}
 
-render_all_news()
+    let news_cards = news.data;
+    for(let i = 0; i < news_cards.length; i++){
+        let card = news_cards[i];
+        let card_child = create_news_card(card.id, card.image_url, card.title, card.content);
+        news_container.appendChild(card_child);
+    }
+
+    let childs = news_container.children;
+    for(let i = 0; i < childs.length; i++){
+        let id = childs[i].id;
+        
+        childs[i].addEventListener('click', ()=>{
+            localStorage.setItem('news_detail', `${id}`);
+            window.location.href = '/pages/news-details.php';
+        });
+    }
+
+});
