@@ -251,39 +251,39 @@
 
                 <!-- Card 1 -->
                 <div class="card pe-5 mb-5 border-0" style="background: #DDD;">
-                    <img src="./images/home_products-img.jfif" class="card-img-top" alt="...">
+                    <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/08/refurb-steam-deck-800x500.jpg" class="card-img-top" alt="...">
                     <div class="card-body p-0">
-                        <div class="card-head my-2">Phone news</div>
+                        <div class="card-head my-2">Valve starts selling refurbished Steam Decks for up to $130 less than new models</div>
                         <div class="card-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Nam id rhoncus augue, id bibendum magna. Nulla urna nibh, 
-                            ornare sit amet lacinia vel, accumsan non diam.
+                        Valve's Steam Deck hardware has been consistently available to buy for over a year now, but if the price has put you off, Valve has a new option for you. The company is now selling official, certified-refurbished Steam Decks with the same one-year warranty as new models at prices that are between $80 and $130 lower, depending on the configuration you want.
+
+                        A basic Steam Deck with 64GB of eMMC sto...
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="card pe-5 mb-5 border-0" style="background: #DDD;">
-                    <img src="./images/home_products-img.jfif" class="card-img-top" alt="...">
+                    <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/08/GettyImages-1174561644-800x533.jpg" class="card-img-top" alt="...">
                     <div class="card-body p-0">
-                        <div class="card-head my-2">Phone news</div>
+                        <div class="card-head my-2">AI researchers claim 93% accuracy in detecting keystrokes over Zoom audio</div>
                         <div class="card-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Nam id rhoncus augue, id bibendum magna. Nulla urna nibh, 
-                            ornare sit amet lacinia vel, accumsan non diam.
+                        By recording keystrokes and training a deep learning model, three researchers claim to have achieved upwards of 90 percent accuracy in interpreting remote keystrokes, based on the sound profiles of individual keys.
+
+                        In their paper A Practical Deep Learning-Based Acoustic Side Channel Attack on Keyboards (full PDF), UK researchers Joshua Harrison, Ehsan Toreini, and Marhyam Mehrnezhad claim that th...
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="card pe-5 mb-5 border-0" style="background: #DDD;">
-                    <img src="./images/home_products-img.jfif" class="card-img-top" alt="...">
+                    <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/07/slabtop2-800x533.jpg" class="card-img-top" alt="...">
                     <div class="card-body p-0">
-                        <div class="card-head my-2">Phone news</div>
+                        <div class="card-head my-2">Turning my Framework laptop into a tiny desktop was fun. Now it needs a job.</div>
                         <div class="card-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Nam id rhoncus augue, id bibendum magna. Nulla urna nibh, 
-                            ornare sit amet lacinia vel, accumsan non diam.
+                        Many industry pundits were skeptical when the new laptop company Framework announced a repair-friendly, upgrade-ready laptop in 2021. Could you really swap parts between laptops—reasonably thin and lightweight laptops—year over year? Would that even work as a business model?
+
+                        Framework released the first edition of its machine, and we found that it lived up to its promises. The company followed th...
                         </div>
                     </div>
                 </div>

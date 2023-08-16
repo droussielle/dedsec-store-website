@@ -33,27 +33,27 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-5">
                     <!-- Home -->
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../index.php">Home</a>
+                        <a class="nav-link fw-bold fs-4 text-light" aria-current="page" href="../index.php">Home</a>
                     </li>
 
                     <!-- Products -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./product.php">Products</a>
+                        <a class="nav-link fw-bold fs-4 text-light" href="./product.php">Products</a>
                     </li>
 
                     <!-- News -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./news.php">News</a>
+                        <a class="nav-link fw-bold fs-4 text-light" href="./news.php">News</a>
                     </li>
                     
                     <!-- Support -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#support">Support</a>
+                        <a class="nav-link fw-bold fs-4 text-light" href="#support">Support</a>
                     </li>
 
                     <!-- About -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./about.php">About</a>
+                        <a class="nav-link fw-bold fs-4 text-light" href="./about.php">About</a>
                     </li>
 
                     <!-- Search icon -->
