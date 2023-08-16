@@ -85,17 +85,16 @@ function editProduct(){
     var newQuantity = prompt("Quantity (Cannot be empty, integer value)",JSON.parse(localStorage.getItem("product-temporary-data")).data.quantity);
     var newImageURL = prompt("Image URL",JSON.parse(localStorage.getItem("product-temporary-data")).data.image_url);
     var newSpecs = prompt("Specs", JSON.parse(localStorage.getItem("product-temporary-data")).data.specs);
-    newSpecs=JSON.stringify(JSON.parse(newSpecs));
 
     var changes=`
         {
             "name": "${newName}",
             "short_description": "${newShortDescription}",
-            "description": "${newDescription}",
+            "description": ${JSON.stringify(newDescription.replace("'","\\'"))},
             "price": "${newPrice}",
             "quantity": "${newQuantity}",
             "image_url": "${newImageURL}",
-            "specs": "${newSpecs}"
+            "specs": ${JSON.stringify(newSpecs.replace("'","\\'"))}
         }
     `
     // alert(changes);
