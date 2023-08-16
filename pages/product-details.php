@@ -153,7 +153,7 @@
                             <div class="col-md-8 col-12 text-end">
                                 <img id="overview-img-1" src="" alt="truly-img" class="img-fluid pe-md-5">
                             </div>
-                            <div class="col-md-4 col-12 text-center align-self-center">
+                            <div class="col-md-4 col-12 text-start align-self-center">
                                 <h5 class="fw-bolder" id='overview-head-1'></h5>
                                 <p id='overview-content-1'></p>
                             </div>
@@ -178,8 +178,10 @@
                         <div class="row justify-content-center">
                             <img id="overview-img-3" src="" alt="overview-image-3" class="img-fluid">
                             
-                            <h5 id="overview-head-3" class="fw-bolder pt-3"></h5>
-                            <p id="overview-content-3"></p>
+                            <div class="text-center">
+                                <h5 id="overview-head-3" class="fw-bolder pt-3"></h5>
+                                <p id="overview-content-3"></p>
+                            </div>
                         </div>
                     </div>
 
