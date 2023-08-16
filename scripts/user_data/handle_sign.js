@@ -170,25 +170,27 @@ function get_global_email(){
 
 // Handling header display information
 
-const user_name = document.getElementById('user');
-const log = document.getElementById('log');
+document.addEventListener('DOMContentLoaded', ()=>{
+    let user_name = document.getElementById('user');
+    let log = document.getElementById('log');
 
-if(!isLoggedIn()){
-    user_name.textContent = ''
-    log.textContent = 'Log in'
-    
-    // log.href="./pages/sign.php"
+    if(!isLoggedIn()){
+        user_name.textContent = ''
+        log.textContent = 'Log in'
+        
+        // log.href="./pages/sign.php"
 
 
-} else{
-    
-    const global_email = get_global_email();
-    const userDataString = localStorage.getItem(global_email);
-    const userData = JSON.parse(userDataString);
+    } else{
+        
+        const global_email = get_global_email();
+        const userDataString = localStorage.getItem(global_email);
+        const userData = JSON.parse(userDataString);
 
-    user_name.textContent = JSON.parse(localStorage.getItem('user')).data.name;
-    log.textContent = 'Log out'
-}
+        user_name.textContent = JSON.parse(localStorage.getItem('user')).data.name;
+        log.textContent = 'Log out'
+    }
+});
 
 
 const logInLink = document.getElementById('log');

@@ -168,7 +168,7 @@
                 <br>
                 <br>
                 <div class="d-flex align-items-start border-0 mb-3">
-                    <form class="sign-up-form col-11 d-flex flex-column flex-grow-1 align-items-start gap-3 mb-4 ps-4" id="customer-infor" action="">
+                    <form class="sign-up-form col-11 d-flex flex-column flex-grow-1 align-items-start gap-3 mb-4 ps-4" id="customer-infor-change_pass" action="">
                         <!-- Old password-->
                         <div class="w-100">
                             <label class="d-block" for="old-password">Old password</label>

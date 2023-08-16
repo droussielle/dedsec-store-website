@@ -28,7 +28,7 @@ fetch(`http://localhost:8000/user/${myID}`,{method:'GET',
     .then((response) => response.json())
     .then((data) => {
         console.log("Response from backend:", data);
-        // localStorage.setItem('user_data',JSON.stringify(data));
+
         _name.value=data.data.info.name;
         _address.value=data.data.info.address;
         _phone.value=data.data.info.phone;
@@ -41,7 +41,7 @@ fetch(`http://localhost:8000/user/${myID}`,{method:'GET',
 
 
 //User hit save button
-var save=document.querySelector('#save-button').addEventListener('click',(event)=>{
+var save=document.querySelector('#save-button').addEventListener('click', async (event)=>{
 
     let changes=`
         {
@@ -51,17 +51,25 @@ var save=document.querySelector('#save-button').addEventListener('click',(event)
         }
     `
     const myToken = JSON.parse(localStorage.getItem('user')).token;
-    fetch("http://localhost:8000/auth/profile",{method:'PATCH',
+    let submit_infor = await fetch("http://localhost:8000/auth/profile",{method:'PATCH',
         headers:{
             "Authorization": `Bearer ${myToken}`,
             "Content-Type":"application/json"
         },
         body: changes,
-})
+    })
         .then((response) => response.json())
         .then((data) => {
             console.log("Response from backend:", data);
             window.alert("Your information has been changed");
+
+            // Update localStorage
+            var old_user = JSON.parse(localStorage.getItem('user'));
+            old_user.data.name = _name.value;
+            old_user.data.address = _address.value;
+            old_user.data.phone = _phone.value;
+            localStorage.setItem('user',JSON.stringify(old_user));
+
             window.location.reload();
         })
         .catch((error) => {
