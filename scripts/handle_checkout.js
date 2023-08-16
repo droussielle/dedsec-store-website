@@ -276,7 +276,27 @@ expDateInput.addEventListener('input', (event) => {
     }
 });
 
-document.getElementById('place-order-btn').addEventListener('click', (event)=>{
+async function Order_Cart(myToken, myAddress){
+
+    const res = await fetch(`http://localhost:8000/cart/checkout`,{
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${myToken}`
+        },
+
+        body:`{
+            "ship_address": "${myAddress}",
+            "note": "ship faster !!"
+        }
+        `
+    });
+
+    let data = await res.json();
+
+    return {status: res.ok, message: data.message};
+}
+
+document.getElementById('place-order-btn').addEventListener('click', async (event)=>{
 
     event.preventDefault();
     const selectedMethod = document.querySelector('input[name="flexCheckIndeterminate"]:checked').id;
@@ -296,9 +316,13 @@ document.getElementById('place-order-btn').addEventListener('click', (event)=>{
 
     // Process or send customerFormData and paymentFormData as needed
 
+    const myToken = get_token();
+    const myAddress = document.getElementById('customer-infor-address').value;
+    let order = await Order_Cart(myToken, myAddress);
+    alert(order.message);
+
     customerForm.reset(); // Reset the customer form
     paymentForm.reset(); // Reset the payment form
 
-    alert('Your order is being prepaired now!');
     window.location.href = '/index.php';
 });
