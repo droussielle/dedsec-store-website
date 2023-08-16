@@ -32,7 +32,7 @@
         <div class="container ps-md-5 pe-md-5 bg-light">
             
             <div class="row">
-                <a class="" href="./product.php"><img src="../images/product-details_back_icon.png" alt="back_icon"> Back to products</a>
+                <a class="fb fw-bold" href="./product.php"><img src="../images/product-details_back_icon.png" alt="back_icon"> Back to products</a>
             </div>
             <br>
 
@@ -57,7 +57,7 @@
                     <!-- Slide 1 -->
                     <div class="carousel-item active">
                         <div class="row justify-content-center m-0">
-                            <img id='product-slide1-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid">
+                            <img id='product-slide1-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid p-0 rounded-2">
                             <!-- <img id='product-slide1-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;"> -->
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                     <div class="carousel-item">
                         <!-- Image -->
                         <div class="row justify-content-center m-0">
-                            <img id='product-slide2-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid">
+                            <img id='product-slide2-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid p-0 rounded-2">
                             <!-- <img id='product-slide2-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;"> -->
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                     <div class="carousel-item">
                         <!-- Image -->
                         <div class="row justify-content-center m-0">
-                            <img id='product-slide3-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid">
+                            <img id='product-slide3-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid p-0 rounded-2">
                             <!-- <img id='product-slide3-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;"> -->
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                     <div class="carousel-item">
                         <!-- Image -->
                         <div class="row justify-content-center m-0">
-                            <img id='product-slide4-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid">
+                            <img id='product-slide4-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid p-0 rounded-2">
                             <!-- <img id='product-slide4-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;"> -->
                         </div>
 
