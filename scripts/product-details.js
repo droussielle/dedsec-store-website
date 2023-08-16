@@ -1,35 +1,39 @@
 /*-----------------------------ADMIN PRODUCT DETAIL MANAGEMENT-----------------------------*/
-const myToken = JSON.parse(localStorage.getItem('user')).token;
-const myID = JSON.parse(localStorage.getItem('user')).data.id;
-fetch(`http://localhost:8000/user/${myID}`,{method:'GET',
-headers:{
-    "Authorization": `Bearer ${myToken}`,
-    "Content-Type":"application/json"
-},
-})
-.then((response) => response.json())
-.then((data) => {
-    console.log("Response from backend:", data);
-    if(data.data.role === "ADMIN" ){
-        const id = localStorage.getItem('get_detail');
-        fetch(`http://localhost:8000/product/${id}`,{method: 'GET'})
-        .then ((response)=>response.json())
-        .then((data)=>{
-            console.log("Response from backend:",data);
-            localStorage.setItem("product-temporary-data",JSON.stringify(data));
-        })
-        .catch((error)=>{
-            console.error("Error:",error);
-            alert(error);
-        });
 
-        generateAdminButton();
-    }  
-})
-.catch((error) => {
-    console.error("Error:", error);
-    alert(error);
-});
+if(localStorage.getItem('user')){
+    const myToken = JSON.parse(localStorage.getItem('user')).token;
+    const myID = JSON.parse(localStorage.getItem('user')).data.id;
+
+    fetch(`http://localhost:8000/user/${myID}`,{method:'GET',
+    headers:{
+        "Authorization": `Bearer ${myToken}`,
+        "Content-Type":"application/json"
+    },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log("Response from backend:", data);
+        if(data.data.role === "ADMIN" ){
+            const id = localStorage.getItem('get_detail');
+            fetch(`http://localhost:8000/product/${id}`,{method: 'GET'})
+            .then ((response)=>response.json())
+            .then((data)=>{
+                console.log("Response from backend:",data);
+                localStorage.setItem("product-temporary-data",JSON.stringify(data));
+            })
+            .catch((error)=>{
+                console.error("Error:",error);
+                alert(error);
+            });
+
+            generateAdminButton();
+        }  
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+        alert(error);
+    });
+}
 
 function generateAdminButton(){
     var editButtons = document.getElementById("admin-button-row");

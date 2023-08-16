@@ -410,6 +410,7 @@
 
 #Products-Container img:hover{
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 #news-container .card {

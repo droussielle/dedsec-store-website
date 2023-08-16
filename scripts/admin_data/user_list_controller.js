@@ -19,7 +19,7 @@ headers:{
 function generateItem(name,id,email,role,phone,address){
     var list=document.getElementById("user-list");
     var item = document.createElement("row");
-    item.className="p-5 border border-black";
+    item.className="p-5";
     item.innerHTML=`
         <p>User id: ${id}</p>
         <p>Email: ${email}</p>
