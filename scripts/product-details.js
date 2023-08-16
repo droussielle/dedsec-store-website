@@ -1,4 +1,4 @@
-//ADMIN PRODUCT DETAIL MANAGEMENT
+/*-----------------------------ADMIN PRODUCT DETAIL MANAGEMENT-----------------------------*/
 const myToken = JSON.parse(localStorage.getItem('user')).token;
 const myID = JSON.parse(localStorage.getItem('user')).data.id;
 fetch(`http://localhost:8000/user/${myID}`,{method:'GET',
@@ -30,8 +30,6 @@ headers:{
     console.error("Error:", error);
     alert(error);
 });
-
-
 
 function generateAdminButton(){
     var editButtons = document.getElementById("admin-button-row");
@@ -76,7 +74,7 @@ function generateAdminButton(){
 
 }
 
-//USER HIT EDIT PRODUCT BUTTON
+//ADMIN HIT EDIT PRODUCT BUTTON
 function editProduct(){
     const myToken = JSON.parse(localStorage.getItem('user')).token;
     const id = localStorage.getItem('get_detail');
@@ -100,7 +98,7 @@ function editProduct(){
             "specs": "${newSpecs}"
         }
     `
-    alert(changes);
+    // alert(changes);
 
     fetch(`http://localhost:8000/product/${id}`,{method:"PATCH",
         headers:{
@@ -123,7 +121,7 @@ function editProduct(){
 
 }   
 
-
+//ADMIN HIT DELETE PRODUCT BUTTON
 function deleteProduct(){
     const myToken = JSON.parse(localStorage.getItem('user')).token;
     const id = localStorage.getItem('get_detail');
@@ -152,6 +150,7 @@ function deleteProduct(){
 
 }
 
+//ADMIN HIT ADD TO CATEGORY BUTTON
 function addToCategory(){
     const myToken = JSON.parse(localStorage.getItem('user')).token;
     const id = localStorage.getItem('get_detail');
@@ -180,6 +179,7 @@ function addToCategory(){
 
 }
 
+//ADMIN HIT DELETE FROM CATEGORY BUTTON
 function deleteFromCategory(){
     const myToken = JSON.parse(localStorage.getItem('user')).token;
     const id = localStorage.getItem('get_detail');
@@ -214,8 +214,7 @@ function deleteFromCategory(){
 }
 
 
-
-//END OF ADMIN PRODUCT DETAIL MANAGEMENT
+/*--------------------------END OF ADMIN PRODUCT DETAIL MANAGEMENT--------------------------*/
 
 
 function get_token(){
