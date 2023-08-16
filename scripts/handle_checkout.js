@@ -300,4 +300,5 @@ document.getElementById('place-order-btn').addEventListener('click', (event)=>{
     paymentForm.reset(); // Reset the payment form
 
     alert('Your order is being prepaired now!');
+    window.location.href = '/index.php';
 });

@@ -18,7 +18,9 @@ function isExist(key) {
 // Function to handle logout
 function logout() {
     // Clear the login status
-    localStorage.removeItem('user');
+    // localStorage.removeItem('user');
+    // localStorage.removeItem('user-list');
+    localStorage.clear();
 }
 
 // Function to get the global email
