@@ -10,8 +10,8 @@
             </button>
             
             <!-- Navigation bar brand -->
-            <a class="navbar-brand nav-img" href="./">
-                <img src="../images/nav-img.png" height="100%" width="100%" alt="">
+            <a class="navbar-brand nav-img" href="../../index.php">
+                <img src="../../images/nav-img.png" height="100%" width="100%" alt="">
             </a>
 
             <!-- Other icons -->
@@ -33,17 +33,17 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-5">
                     <!-- Home -->
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./index.php">Home</a>
+                        <a class="nav-link" aria-current="page" href="../../index.php">Home</a>
                     </li>
 
                     <!-- Products -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./pages/product.php">Products</a>
+                        <a class="nav-link" href="../product.php">Products</a>
                     </li>
 
                     <!-- News -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./pages/news.php">News</a>
+                        <a class="nav-link" href="../news.php">News</a>
                     </li>
                     
                     <!-- Support -->
@@ -53,7 +53,7 @@
 
                     <!-- About -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./pages/about.php">About</a>
+                        <a class="nav-link" href="../about.php">About</a>
                     </li>
 
                     <!-- Search icon -->

@@ -100,12 +100,6 @@ class ProductController
             return;
         }
 
-        // Validate data
-        if (isset($data['image_url']) && !filter_var($data['image_url'], FILTER_VALIDATE_URL)) {
-            http_response_code(400);
-            echo json_encode(["message" => "Invalid image url"]);
-            return;
-        }
         try {
             $product = new Product();
 
@@ -128,12 +122,6 @@ class ProductController
     /////////////////////////////////////////////////////////////////////////////////////
     public function updateProduct($param, $data)
     {
-        // Validate data
-        if (isset($data['image_url']) && !filter_var($data['image_url'], FILTER_VALIDATE_URL)) {
-            http_response_code(400);
-            echo json_encode(["message" => "Invalid image url"]);
-            return;
-        }
         try {
             // Check if product exist
             $product = new Product();

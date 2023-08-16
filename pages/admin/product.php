@@ -10,7 +10,7 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- My css -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <title>Products</title>
 
 </head>
@@ -19,12 +19,12 @@
 
     <!-- header -->
     <div id="header">
-        <?php include './components/header.php';?>
+        <?php include '../components/header-admin.php';?>
     </div>
 
     <!-- Navigation bar -->
     <div id="navbar">
-        <?php include './components/navbar.php';?>
+        <?php include '../components/navbar-admin.php';?>
     </div>
 
     <!-- BODY -->
@@ -42,7 +42,7 @@
                         <div class="fw-bolder fb bg-light">Categories</div>
                         <span class="d-lg-none">
                             <a class="btn p-0 m-0" data-bs-toggle="collapse" href="#categories-dropdown" aria-expanded="false" aria-controls="categories-dropdown" >
-                                <img src="../images/product_dropdown_icon.png" alt="dropdown-icon">
+                                <img src="../../images/product_dropdown_icon.png" alt="dropdown-icon">
                             </a>
                         </span>
                     </div>
@@ -87,7 +87,7 @@
                         <div class="fw-bolder fb">Sort by</div>
                         <span class="d-lg-none">
                             <a class="btn p-0 m-0" data-bs-toggle="collapse" href="#sortby-dropdown" aria-expanded="false" aria-controls="categories-dropdown" >
-                                <img src="../images/product_dropdown_icon.png" alt="dropdown-icon">
+                                <img src="../../images/product_dropdown_icon.png" alt="dropdown-icon">
                             </a>
                         </span>
                     </div>
@@ -118,6 +118,15 @@
         <!-- Products displayment -->
         <div class="col col-lg-9">
 
+            <!-- Edit button for admin -->
+            <div class="row">
+                <div class="col"><button class="btn btn-primary" id="add-product-button" type="button">Add Product</button></div>
+                <div class="col"><button class="btn btn-primary" id="add-catergory-button"type="button">Add Category</button></div>
+                <div class="col"><button class="btn btn-primary" id="edit-product-button" type="button">Edit Product</button></div>
+                <div class="col"><button class="btn btn-danger" id="delete-product-button" type="button">Delete Product</button></div>
+
+            </div>
+
             <!-- Header -->
             <div class="d-flex flex-column align-items-md-start align-items-center mb-2">
                 <!-- Results -->
@@ -126,37 +135,6 @@
 
             <!-- Loading Products -->
             <div id="Products-Container">
-                <!-- <button type="button" class="btn btn-primary my-3" onclick="generateItem()">Generate Items for testing purposes</button> -->
-
-                <!-- Template -->
-                <!-- <div class="col-lg-10 col-sm-12 card border-0 border-bottom border-dark rounded-0 bg-light mb-3" id="laptop14">
-                    <div class="row">
-
-                        
-                        <div class="col-md-2 col-4">
-                            <img src='../images/product_Laptop13.png' alt="img" class="rounded">
-                        </div>
-
-                        <div class="col-md-10 col-8">
-                            <div class="card-body pt-0">
-                                <div class="d-md-flex justify-content-md-between">
-                                    <h5 class="card-titles fb" id="product-name-price">DEDSEC Laptop 13 (DMA Ryzen™ 7040 Series)</h5>
-                                    <span class="fb fw-bolder">$9999.00</span>
-                                </div>
-                                
-                                <ul class="features">
-                                    <li class="fb">Extremely modular design with upgradable components</li>
-                                    <li class="fb">Comes with DMA Ryzen™ 7040 Series and 13th Gen ENTEL®</li>
-                                    <li class="fb">Out-of-box compatibility with most Linux distros</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="align-self-end  align-content-end p-0 m-0"><button type="button" class="btn btn-primary m-0 mb-3 align-content-end align-self-end">Add to cart</button></div>
-                </div> -->
-                <!-- End of template -->
 
             </div>
 
@@ -167,20 +145,24 @@
 
     <!-- Footer -->
     <div id="footer">
-        <?php include './components/footer.php';?>
+        <?php include '../components/footer.php';?>
     </div>
 
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <!-- Script for fixed navbar -->
-    <script src="../scripts/fixed_navbar.js"></script>
+    <script src="../../scripts/fixed_navbar.js"></script>
     <!-- Handle menu bar -->
-    <script src="../scripts/handle_menu.js"></script>
+    <script src="../../scripts/handle_menu.js"></script>
     <!-- Handle sign in-up -->
-    <script src="../scripts/user_data/handle_sign.js"></script>
+    <script src="../../scripts/user_data/handle_sign.js"></script>
     <!-- Product loader -->
-    <script src="../scripts/product_loader.js"></script>
+    <script src="../../scripts/product_loader.js"></script>
+    <!-- Admin controller  -->
+    <script src="../../scripts/admin_data/admin_controller.js"></script>
+    <!-- Product page for admin controller -->
+    <script src="../../scripts/admin_data/product_controller.js"></script>
 
 </body>
 </html>

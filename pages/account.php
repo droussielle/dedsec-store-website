@@ -32,7 +32,7 @@
         <div class="row align-content-center">
             <div class="col-12">
                 <h1 class="fw-bolder" style="float:left;">My account</h1>
-                <button class="btn btn-primary" onclick="" style="float:right;">Edit</button>
+                <!-- <button class="btn btn-primary" onclick="" style="float:right;">Edit</button> -->
             </div>
         </div>
 
@@ -47,11 +47,11 @@
 
                     <form class="sign-up-form col-11 d-flex flex-column flex-grow-1 align-items-start gap-3 mb-4 ps-4" id="customer-infor" action="">
                         <!-- Email -->
-                        <div class="w-100">
+                        <!-- <div class="w-100">
                             <label class="d-block" for="customer-infor-email">Email</label>
                             <input class="form-control p-1" type="email" name="email" id="customer-infor-email" placeholder="example@gmail.com" required>
                             <hr class="m-0">
-                        </div>
+                        </div> -->
 
                         <!-- Name -->
                         <div class="w-100">
@@ -61,7 +61,7 @@
                         </div>
 
                         <!-- Country -->
-                        <div class="w-100">
+                        <!-- <div class="w-100">
                             <label class="d-block" for="customer-infor-country">Country</label>
                             <select class="form-select p-1" name="country" id="customer-infor-country" required>
                                 <option disabled selected>Choose your Country</option>
@@ -70,28 +70,28 @@
                                 <option value="3">America</option>
                             </select>
                             <hr class="m-0">
-                        </div>
+                        </div> -->
 
                         <!-- State/Province -->
-                        <div class="w-100">
+                        <!-- <div class="w-100">
                             <label class="d-block" for="customer-infor-state-province">State/Province</label>
                             <input class="form-control p-1" type="text" name="state-province" id="customer-infor-state-province" placeholder="Your state / province" required>
                             <hr class="m-0">
-                        </div>
+                        </div> -->
 
                         <!-- City -->
-                        <div class="w-100">
+                        <!-- <div class="w-100">
                             <label class="d-block" for="customer-infor-city">City</label>
                             <input class="form-control p-1" type="text" name="city" id="customer-infor-city" placeholder="Your city" required>
                             <hr class="m-0">
-                        </div>
+                        </div> -->
 
                         <!-- Zip code -->
-                        <div class="w-100">
+                        <!-- <div class="w-100">
                             <label class="d-block" for="customer-infor-zip">Zip code</label>
                             <input class="form-control p-1" type="text" name="zip" id="customer-infor-zip" placeholder="Your zip code" required>
                             <hr class="m-0">
-                        </div>
+                        </div> -->
 
                         <!-- Address -->
                         <div class="w-100">
@@ -115,7 +115,7 @@
     
     </div>
         <!-- PAYMENT METHOD FORM -->
-        <div class="row align-content-center pt-5 border-bottom border-dark ">
+        <!-- <div class="row align-content-center pt-5 border-bottom border-dark ">
             <div class="col-md-3 col-12">
                 <h4 class="fw-bolder">Payment method</h4>
             </div>
@@ -129,28 +129,24 @@
 
                         </div>
 
-                        <!-- Name on card-->
                         <div class="w-100">
                             <label class="d-block" for="name-on-card">Name on card</label>
                             <input class="form-control p-1" type="text" name="name" id="name-on-card" placeholder="Name on card" required>
                             <hr class="m-0">
                         </div>
 
-                        <!-- Card number -->
                         <div class="w-100">
                             <label class="d-block" for="card-number">Card number</label>
                             <input class="form-control p-1" type="text" name="name" id="card-number" placeholder="Card number" required>
                             <hr class="m-0">
                         </div>
 
-                        <!-- Expiration date -->
                         <div class="w-100">
                             <label class="d-block" for="expiration-date">Expiration date</label>
                             <input class="form-control p-1" type="text" name="name" id="expiration-date" placeholder="Expiration date" required>
                             <hr class="m-0">
                         </div>
 
-                        <!-- CVV -->
                         <div class="w-100">
                             <label class="d-block" for="cvv">CVV</label>
                             <input class="form-control p-1" type="text" name="name" id="cvv" placeholder="CVV" required>
@@ -160,7 +156,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- CHANGE PASSWORD FORM -->
         <div class="row align-content-center pt-5 ">
@@ -168,7 +164,7 @@
                 <h4 class="fw-bolder">Password</h4>
             </div>
             <div class="col-md-9 col-12">
-                <button class="btn btn-secondary align-self-start ms-3" onclick="">Change password</button>
+                <button class="btn btn-secondary align-self-start ms-3" onclick="" id="change-password-button" type="button">Change password</button>
                 <br>
                 <br>
                 <div class="d-flex align-items-start border-0 mb-3">
@@ -198,10 +194,10 @@
         <!-- Save and Cancel button -->
         <div class="row">
             <div class="col-md-1 col-3">
-                <button class="btn btn-primary" onclick="">Save</button>
+                <button class="btn btn-primary" onclick="" id="save-button" type="button">Save</button>
             </div>
             <div class="col-md-1 col-3">
-                <button class="btn btn-secondary" onclick="">Cancel</button>
+                <button class="btn btn-secondary" onclick="" id="cancel-button" type="button">Cancel</button>
 
             </div>
         </div>
@@ -221,6 +217,10 @@
     <script src="../scripts/handle_menu.js"></script>
     <!-- Handle sign in-up -->
     <script src="../scripts/user_data/handle_sign.js"></script>
+    <!-- Handle account info -->
+    <script src="../scripts/user_data/account_information.js"></script>
+    <!-- Handle change password -->
+    <script src="../scripts/user_data/change_password.js"></script>
 
 </body>
 </html>
