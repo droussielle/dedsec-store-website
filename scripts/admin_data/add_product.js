@@ -37,6 +37,7 @@ var save=document.querySelector('#save-button').addEventListener('click',(event)
             "specs": "${_specifications.value}"
         }
     `
+    // console.log(added);
     const myToken = JSON.parse(localStorage.getItem('user')).token;
     fetch("http://localhost:8000/product",{method:'POST',
         headers:{

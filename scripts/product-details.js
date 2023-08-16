@@ -11,6 +11,18 @@ headers:{
 .then((data) => {
     console.log("Response from backend:", data);
     if(data.data.role === "ADMIN" ){
+        const id = localStorage.getItem('get_detail');
+        fetch(`http://localhost:8000/product/${id}`,{method: 'GET'})
+        .then ((response)=>response.json())
+        .then((data)=>{
+            console.log("Response from backend:",data);
+            localStorage.setItem("product-temporary-data",JSON.stringify(data));
+        })
+        .catch((error)=>{
+            console.error("Error:",error);
+            alert(error);
+        });
+
         generateAdminButton();
     }  
 })
@@ -32,26 +44,173 @@ function generateAdminButton(){
     editProductButton.className="btn btn-primary col-2 m-3";
     editProductButton.id="edit-product-button";
     editProductButton.innerHTML="Edit product";
+    editProductButton.type="button";
+    editProductButton.setAttribute('onclick','editProduct()');
 
     //Create delete product button
     deleteProductButton.className="btn btn-danger col-2 m-3";
     deleteProductButton.id="delete-product-button";
     deleteProductButton.innerHTML="Delete product";
+    deleteProductButton.type="button";
+    deleteProductButton.setAttribute('onclick','deleteProduct()');
 
     //Create add to category button
     addToCategoryButton.className="btn btn-primary col-2 m-3";
     addToCategoryButton.id="add-to-category-button";
     addToCategoryButton.innerHTML="Add to category";
+    addToCategoryButton.type="button";
+    addToCategoryButton.setAttribute('onclick','addToCategory()');
 
     //Create delete from category button
     deleteFromCategoryButton.className="btn btn-danger col-2 m-3";
     deleteFromCategoryButton.id="delete-from-category-button";
     deleteFromCategoryButton.innerHTML="Delete from category";
+    deleteFromCategoryButton.type="button";
+    deleteFromCategoryButton.setAttribute('onclick','deleteFromCategory()');
 
+    //Append to page
     editButtons.appendChild(editProductButton);
     editButtons.appendChild(deleteProductButton);
     editButtons.appendChild(addToCategoryButton);
     editButtons.appendChild(deleteFromCategoryButton);
+
+}
+
+//USER HIT EDIT PRODUCT BUTTON
+function editProduct(){
+    const myToken = JSON.parse(localStorage.getItem('user')).token;
+    const id = localStorage.getItem('get_detail');
+    var newName = prompt("Name (Cannot be empty)",JSON.parse(localStorage.getItem("product-temporary-data")).data.name);
+    var newShortDescription = prompt("Short Description (Cannot be empty)",JSON.parse(localStorage.getItem("product-temporary-data")).data.short_description);
+    var newDescription = prompt("Description (Cannot be empty)",JSON.parse(localStorage.getItem("product-temporary-data")).data.description);
+    var newPrice = prompt("Price (Cannot be empty, float number value)",JSON.parse(localStorage.getItem("product-temporary-data")).data.price);
+    var newQuantity = prompt("Quantity (Cannot be empty, integer value)",JSON.parse(localStorage.getItem("product-temporary-data")).data.quantity);
+    var newImageURL = prompt("Image URL",JSON.parse(localStorage.getItem("product-temporary-data")).data.image_url);
+    var newSpecs = prompt("Specs", JSON.parse(localStorage.getItem("product-temporary-data")).data.specs);
+    newSpecs=JSON.stringify(JSON.parse(newSpecs));
+
+    var changes=`
+        {
+            "name": "${newName}",
+            "short_description": "${newShortDescription}",
+            "description": "${newDescription}",
+            "price": "${newPrice}",
+            "quantity": "${newQuantity}",
+            "image_url": "${newImageURL}",
+            "specs": "${newSpecs}"
+        }
+    `
+    alert(changes);
+
+    fetch(`http://localhost:8000/product/${id}`,{method:"PATCH",
+        headers:{
+            "Authorization": `Bearer ${myToken}`,
+            "Content-Type":"application/json"
+        },
+        body: changes,
+})
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("Response from backend:", data);
+            alert(data.message);
+            window.location.reload();
+
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            alert(error);
+        });
+
+}   
+
+
+function deleteProduct(){
+    const myToken = JSON.parse(localStorage.getItem('user')).token;
+    const id = localStorage.getItem('get_detail');
+    var confirmation = prompt("This action cannot be undone, type YES to confirm:",);
+    if (confirmation !== "YES"){
+        return;
+    }
+    fetch(`http://localhost:8000/product/${id}`,{method:'DELETE',
+    headers:{
+        "Authorization": `Bearer ${myToken}`,
+        "Content-Type":"application/json"
+    },
+})
+    .then((response) => response.json())
+    .then((data) => {
+        console.log("Response from backend:", data);
+        alert(data.message);
+        window.location.href="/pages/admin/product.php";
+
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+        alert(error);
+    });
+    
+
+}
+
+function addToCategory(){
+    const myToken = JSON.parse(localStorage.getItem('user')).token;
+    const id = localStorage.getItem('get_detail');
+    var category_id=prompt("Category id to be added to: ",);
+
+    fetch(`http://localhost:8000/product/${id}/category`,{method:'POST',
+        headers:{
+            "Authorization": `Bearer ${myToken}`,
+            "Content-Type":"application/json"
+        },
+        body: `{
+            "category_id":"${category_id}"
+        }`,
+})
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("Response from backend:", data);
+            alert(data.message);
+            window.location.reload();
+
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            alert(error);
+        });
+
+}
+
+function deleteFromCategory(){
+    const myToken = JSON.parse(localStorage.getItem('user')).token;
+    const id = localStorage.getItem('get_detail');
+    var deleteCategory = prompt("Category of product to be deleted from:",);
+    var confirmation = prompt("This action cannot be undone, type YES to confirm:",);
+    if (confirmation !== "YES"){
+        return;
+    }
+    fetch(`http://localhost:8000/product/${id}/category`,{method:'DELETE',
+    headers:{
+        "Authorization": `Bearer ${myToken}`,
+        "Content-Type":"application/json"
+    },
+    body: `
+        {
+            "category_id":"${deleteCategory}"
+        }
+    `
+})
+    .then((response) => response.json())
+    .then((data) => {
+        console.log("Response from backend:", data);
+        alert(data.message);
+        window.location.reload();
+
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+        alert(error);
+    });
+    
 }
 
 
