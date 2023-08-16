@@ -1,3 +1,64 @@
+//ADMIN PRODUCT DETAIL MANAGEMENT
+const myToken = JSON.parse(localStorage.getItem('user')).token;
+const myID = JSON.parse(localStorage.getItem('user')).data.id;
+fetch(`http://localhost:8000/user/${myID}`,{method:'GET',
+headers:{
+    "Authorization": `Bearer ${myToken}`,
+    "Content-Type":"application/json"
+},
+})
+.then((response) => response.json())
+.then((data) => {
+    console.log("Response from backend:", data);
+    if(data.data.role === "ADMIN" ){
+        generateAdminButton();
+    }  
+})
+.catch((error) => {
+    console.error("Error:", error);
+    alert(error);
+});
+
+
+
+function generateAdminButton(){
+    var editButtons = document.getElementById("admin-button-row");
+    var editProductButton = document.createElement("button");
+    var deleteProductButton = document.createElement("button");
+    var addToCategoryButton = document.createElement("button");
+    var deleteFromCategoryButton = document.createElement("button");
+
+    //Create edit product button
+    editProductButton.className="btn btn-primary col-2 m-3";
+    editProductButton.id="edit-product-button";
+    editProductButton.innerHTML="Edit product";
+
+    //Create delete product button
+    deleteProductButton.className="btn btn-danger col-2 m-3";
+    deleteProductButton.id="delete-product-button";
+    deleteProductButton.innerHTML="Delete product";
+
+    //Create add to category button
+    addToCategoryButton.className="btn btn-primary col-2 m-3";
+    addToCategoryButton.id="add-to-category-button";
+    addToCategoryButton.innerHTML="Add to category";
+
+    //Create delete from category button
+    deleteFromCategoryButton.className="btn btn-danger col-2 m-3";
+    deleteFromCategoryButton.id="delete-from-category-button";
+    deleteFromCategoryButton.innerHTML="Delete from category";
+
+    editButtons.appendChild(editProductButton);
+    editButtons.appendChild(deleteProductButton);
+    editButtons.appendChild(addToCategoryButton);
+    editButtons.appendChild(deleteFromCategoryButton);
+}
+
+
+
+//END OF ADMIN PRODUCT DETAIL MANAGEMENT
+
+
 function get_token(){
 
     if(!(localStorage.getItem('user'))){
