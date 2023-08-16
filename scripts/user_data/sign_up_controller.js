@@ -98,7 +98,7 @@ var sign_in=document.querySelector("#sign-up-button").addEventListener('click', 
             "image_url": "https://images.unsplash.com/photo-1683129384918-684af5f77d6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHVtYmF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
             "phone": "${phoneNumber}",
             "address":"${address}",
-            "birth_date": null
+            "birth_date": "2000-01-01"
         }
     `;
 
