@@ -312,6 +312,8 @@
     <script src="./scripts/for_slider.js"></script>
     <!-- Handle sign in-up -->
     <script src="./scripts/user_data/handle_sign.js"></script>
+    <!-- Navigate to User list page if user role = admin -->
+    <script src="./scripts/redirect_to_admin_user_list_page.js"></script>
 
 </body>
 </html>
