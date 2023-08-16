@@ -121,9 +121,9 @@
             <!-- Edit button for admin -->
             <div class="row">
                 <div class="col"><button class="btn btn-primary" id="add-product-button" type="button">Add Product</button></div>
-                <div class="col"><button class="btn btn-primary" id="add-catergory-button"type="button">Add Category</button></div>
+                <!-- <div class="col"><button class="btn btn-primary" id="add-catergory-button"type="button">Add Category</button></div>
                 <div class="col"><button class="btn btn-primary" id="edit-product-button" type="button">Edit Product</button></div>
-                <div class="col"><button class="btn btn-danger" id="delete-product-button" type="button">Delete Product</button></div>
+                <div class="col"><button class="btn btn-danger" id="delete-product-button" type="button">Delete Product</button></div> -->
 
             </div>
 

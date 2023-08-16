@@ -31,7 +31,7 @@
     <div class="bg-light row p-md-5 m-0" id="detail-body">
         <div class="container ps-md-5 pe-md-5 bg-light">
             
-            <div class="row">
+            <div class="row" id="admin-button-row">
                 <a class="fb fw-bold" href="./product.php"><img src="../images/product-details_back_icon.png" alt="back_icon"> Back to products</a>
             </div>
             <br>

@@ -181,6 +181,8 @@
     <script src="../scripts/user_data/handle_sign.js"></script>
     <!-- Product loader -->
     <script src="../scripts/product_loader.js"></script>
+    <!-- Redirect to admin's product page  if user is admin-->
+    <script src="../scripts/redirect_to_admin_product_page.js"></script>
 
 </body>
 </html>

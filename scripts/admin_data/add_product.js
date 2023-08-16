@@ -26,22 +26,23 @@ var save=document.querySelector('#save-button').addEventListener('click',(event)
         return;
     }
 
-    let added=`
+    let added=` 
         {
             "name": "${_productName.value}",
             "short_description": "${_shortDescription.value}",
-            "description": "${_detailedDescription.value}",
+            "description": ${JSON.stringify(_detailedDescription.value.replace("'","\\'"))},
             "price": "${_productPrice.value}",
             "quantity": "${_productStock.value}",
             "image_url": "${_imageLink.value}",
-            "specs": "${_specifications.value}"
+            "specs": ${JSON.stringify(_specifications.value.replace("'","\\'"))}
         }
     `
+
     const myToken = JSON.parse(localStorage.getItem('user')).token;
     fetch("http://localhost:8000/product",{method:'POST',
         headers:{
             "Authorization": `Bearer ${myToken}`,
-            "Content-Type":"application/json"
+            "Content-Type":"application/json",
         },
         body: added,
 })
