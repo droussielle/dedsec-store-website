@@ -132,9 +132,15 @@ document.addEventListener('DOMContentLoaded', async() =>{
     box_img.src = in_the_box.img;
 
     box_list.innerHTML = '';
-    for(let i = 0; i < in_the_box.description.length; i++){
+    if(Array.isArray(in_the_box.description)){
+        for(let i = 0; i < in_the_box.description.length; i++){
+            let box_li = document.createElement('li');
+            box_li.innerText = in_the_box.description[i];
+            box_list.appendChild(box_li);
+        }
+    } else{
         let box_li = document.createElement('li');
-        box_li.innerText = in_the_box.description[i];
+        box_li.innerText = in_the_box.description;
         box_list.appendChild(box_li);
     }
 
