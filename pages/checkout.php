@@ -42,7 +42,7 @@
                     <!-- Header -->
                     <h2 class="fw-bolder fb">1</h2>
 
-                    <form class="sign-up-form col-11 d-flex flex-column flex-grow-1 align-items-start gap-3 mb-4 ps-4" id="customer-infor" action="">
+                    <form class="sign-up-form col-11 d-flex flex-column flex-grow-1 align-items-start gap-3 mb-4 ps-4" id="customer-infor">
 
                         <!-- Header remain -->
                         <h2 class="fw-bolder fb">Customer information</h2>
@@ -146,21 +146,21 @@
                                         <!-- Card number -->
                                         <div class="w-100">
                                             <label class="d-block" for="payment-form-number">Card number</label>
-                                            <input class="form-control p-1" type="number" id="payment-form-name" placeholder="Your Card number" required>
+                                            <input class="form-control p-1" type="number" id="payment-form-number" placeholder="Your Card number" required>
                                             <hr class="m-0">
                                         </div>
 
                                         <!-- Expiration date -->
                                         <div class="w-100">
                                             <label class="d-block" for="payment-form-exp">Expiration date</label>
-                                            <input class="form-control p-1" type="text" id="payment-form-exp" placeholder="Expiration date" required>
+                                            <input class="form-control p-1" type="text" id="payment-form-exp" placeholder="Expiration date mm-yy" required>
                                             <hr class="m-0">
                                         </div>
 
                                         <!-- CVV -->
                                         <div class="w-100">
                                             <label class="d-block" for="payment-form-cvv">CVV</label>
-                                            <input class="form-control p-1" type="number" id="payment-form-cvv" placeholder="CVV" required>
+                                            <input class="form-control p-1" type="number" id="payment-form-cvv" placeholder="CVV (3 numbers)" required>
                                             <hr class="m-0">
                                         </div>
                     
@@ -206,26 +206,32 @@
                         <h4 class="fw-bolder">Order summary</h4>
 
                         <!-- Product's ordered -container -->
-                        <div class="product-order-container border-bottom border-dark" id="Products-container">
+                        <div class="product-order-container border-bottom border-dark" id="Products-Container">
 
                             <!-- template -->
-                            <div class="row mb-4" id="${id}">
-                                <!-- img -->
+                            <!-- <div class="row mb-4" id="${id}">
+                                img
                                 <div class="col-md-3 col-4">
-                                    <img id="product-${id}-img" src="../images/checkout_Laptop13.png" alt="" class="rounded img-fluid">
+                                    <img id="product-${id}-img" src="/images/products/dedsec-laptop-13.png" alt="" class="rounded img-fluid">
                                 </div>
 
-                                <!-- Content -->
+                                Content
                                 <div class="col-md-9 col-8 d-flex justify-content-between">
-                                    <!-- Name -->
-                                    <div id="product-${id}-name" class="fw-bolder">
-                                        DEDSEC Laptop 13 (DMA Ryzen™ 7040 Series)
+
+                                    <div class="d-flex flex-column justify-content-between">
+                                        Name
+                                        <div id="product-${id}-name" class="fw-bolder">
+                                            DEDSEC Laptop 13 (DMA Ryzen™ 7040 Series)
+                                        </div>
+                                        qty
+                                        <div id="product-${id}-qty">Qty: 1</div>
                                     </div>
 
-                                    <!-- price -->
+                                    price
                                     <div id="product-${id}-price" class="fw-bolder">$2499.00</div>
+
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- end of template -->
 
                         </div>
@@ -236,25 +242,25 @@
                             <!-- Delivery -->
                             <div class="d-flex justify-content-between my-3">
                                 <div>Delivery</div>
-                                <div id="checkout-result-delivery">Aug 20-Sep 3</div>
+                                <div id="checkout-result-delivery"></div>
                             </div>
 
                             <!-- Subtotal -->
                             <div class="d-flex justify-content-between mb-3">
                                 <div>Subtotal</div>
-                                <div id="checkout-result-subtotal">$7,497.00</div>
+                                <div id="checkout-result-subtotal"></div>
                             </div>
 
                             <!-- Estimated tax -->
                             <div class="d-flex justify-content-between mb-3">
                                 <div>Estimated tax</div>
-                                <div id="checkout-result-estimated">$0.00</div>
+                                <div id="checkout-result-estimated"></div>
                             </div>
 
                             <!-- Shipping -->
                             <div class="d-flex justify-content-between mb-3">
                                 <div>Shipping</div>
-                                <div id="checkout-result-shipping">$0.00</div>
+                                <div id="checkout-result-shipping"></div>
                             </div>
                         </div>
 
@@ -264,7 +270,7 @@
                             <!-- Total -->
                             <div class="d-flex justify-content-between my-3">
                                 <div class="fw-bolder">Total</div>
-                                <div class="fw-bolder" id="total-result-total">$7,497.00</div>
+                                <div class="fw-bolder" id="total-result-total"></div>
                             </div>
 
                             <!-- Warning -->
@@ -300,6 +306,7 @@
     <script src="../scripts/handle_menu.js"></script>
     <!-- Handle sign in-up -->
     <script src="../scripts/user_data/handle_sign.js"></script>
-
+    <!-- Handle checkout -->
+    <script src="/scripts/handle_checkout.js"></script>
 </body>
 </html>

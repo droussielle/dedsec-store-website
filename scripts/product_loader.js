@@ -17,6 +17,27 @@ async function Get_Product_List(category_id = ''){
     return data;
 }
 
+// Sort by price
+function Product_List_Sorted(products, sort_id){
+
+    if(sort_id === 'default') return products;
+
+    if(sort_id === 'price-low-high'){
+
+        products.sort((a, b) =>{
+            return parseFloat(a.price) - parseFloat(b.price);
+        });
+    }
+    else if(sort_id === 'price-high-low'){
+
+        products.sort((b, a) =>{
+            return parseFloat(a.price) - parseFloat(b.price);
+        });
+    }
+
+    return products;
+}
+
 function get_token(){
 
     if(!(localStorage.getItem('user'))){
@@ -92,7 +113,7 @@ async function delete_from_cart(myToken, id){
 
 
 function get_label_quantity(i, id){
-    let qty_label = childrens[i].querySelector(`#quantity-${id}`);
+    let qty_label = document.querySelector(`#quantity-${id}`);
     return parseInt(qty_label.value);
 }
 
@@ -169,9 +190,13 @@ function generateItem(id, name, image_url, price, short_description, quantity){
 
 }
 
-async function Load_Product_List(category_id){
+async function Load_Product_List(category_id, sort_id){
 
+    // Filter product list
     let products = await Get_Product_List(category_id);
+    products = Product_List_Sorted(products ,sort_id);
+
+    // Get the product container
     let product_container = document.getElementById('Products-Container');
     product_container.innerHTML = '';
 
@@ -197,9 +222,10 @@ async function Load_Product_List(category_id){
     return products;
 }
 
-async function Page_load_with_filer(category_id){
+// Handle cart
+async function Page_load_with_filer(category_id, sort_id){
 
-    let products = await Load_Product_List(category_id);
+    let products = await Load_Product_List(category_id, sort_id);
     let product_results = document.getElementById('product-results');
 
     if (products.length <= 1){
@@ -299,43 +325,64 @@ async function Page_load_with_filer(category_id){
     }
 }
 
-function change_checked_radio(radio_id){
+function change_checked_radio(radio_id, sort_id){
     document.getElementById(radio_id).checked = true;
+    document.getElementById(sort_id).checked = true;
 }
 
+// Page loaded
 document.addEventListener('DOMContentLoaded', async ()=>{
     
     let category_id;
+    let sort_id;
+
     if(!localStorage.getItem('filter-products')){
         category_id = '';
+        sort_id = 'default';
     }
     else{
         category_id = JSON.parse(localStorage.getItem('filter-products')).category_id;
-        change_checked_radio(category_id);
-        category_id = category_id_list[category_id];
+        sort_id = JSON.parse(localStorage.getItem('filter-products')).sort_id;
 
+        change_checked_radio(category_id, sort_id);
+        category_id = category_id_list[category_id];
     }
-    let loading = await Page_load_with_filer(category_id);
+
+    let loading = await Page_load_with_filer(category_id,sort_id);
 });
 
 
-
+// Listen to Filter button
 document.querySelector('#filter-btn').addEventListener('click', async()=>{
 
     // Get all the radio buttons
     const radioButtons = document.querySelectorAll('#categories-dropdown input[type="radio"]');
+    const sort_by = document.querySelectorAll('#sortby-dropdown input[type="radio"]');
 
+    let category_id;
+    let sort_id;
     // Add event listeners to each radio button
-    radioButtons.forEach(async (radioButton) => {
+    radioButtons.forEach((radioButton) => {
 
         if (radioButton.checked) {
-            let category_id = category_id_list[radioButton.id];
-            localStorage.setItem('filter-products', JSON.stringify({category_id: radioButton.id}));
-
-            let loading = await Page_load_with_filer(category_id);
+            category_id = radioButton.id;
+            return;
         }
-
     });
+
+    sort_by.forEach((radioButton) => {
+
+        if (radioButton.checked) {
+            sort_id = radioButton.id;
+            return;
+        }
+    });
+
+    localStorage.setItem('filter-products', JSON.stringify({category_id: category_id, sort_id: sort_id}));
+
+    category_id = category_id_list[category_id];
+    let loading = await Page_load_with_filer(category_id, sort_id);
+
 })
 
 

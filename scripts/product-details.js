@@ -126,41 +126,31 @@ document.addEventListener('DOMContentLoaded', async() =>{
         window.location.href = '/pages/cart.php';
     })
 
+    let description = JSON.parse(data.description);
+
     // Slider
+    let slides = description.slide;
     for (let slide = 1; slide <= 4; slide++){
-        for(let pic = 1; pic <= 2; pic++){
-            let current_pic = document.getElementById(`product-slide${slide}-img${pic}`);
-            current_pic.src = `../images/product-details_laptop-${pic}-image.png`;
-        }
+        // for(let pic = 1; pic <= 2; pic++){
+        //     let current_pic = document.getElementById(`product-slide${slide}-img${pic}`);
+        //     // current_pic.src = `../images/product-details_laptop-${pic}-image.png`;
+        //     current_pic.src = slides[((slide - 1)%2)*2 + (pic - 1)];
+        // }
+        let current_pic = document.getElementById(`product-slide${slide}-img${1}`);
+        current_pic.src = slides[slide - 1];
     }
 
-    //Truly personal computing
-    let truly_img = document.getElementById('truly-img');
-    let truly_head = document.getElementById('truly-head');
-    let truly_content = document.getElementById('truly-content');
+    //Overview
+    let overview = description.overview;
+    for(let i = 1; i <= 3; i++){
+        let img_i = document.getElementById(`overview-img-${i}`);
+        let head_i = document.getElementById(`overview-head-${i}`);
+        let content_i = document.getElementById(`overview-content-${i}`);
 
-    truly_img.src = '../images/product-details_overview-image-1.png';
-    truly_head.innerText = 'Truly personal computing';
-    truly_content = 'The DEDSEC Laptop 13 has an extremely modular design that gives you full control. Order the DIY Edition and build it yourself, or choose pre-built to have a system ready to go out of the box. Replace any part, upgrade key components, and customize like never before.';
-
-    //Expansion Cards
-    let expansion_img = document.getElementById('expansion-img');
-    let expansion_head = document.getElementById('expansion-head');
-    let expansion_content = document.getElementById('expansion-content');
-
-    expansion_img.src = '../images/product-details_overview-image-2.png';
-    expansion_head.innerText = 'Expansion Cards';
-    expansion_content = 'External adapters are a thing of the past. The Framework Expansion Card system lets you choose exactly the ports you want and where you want them. With four bays, you can select from USB-C, USB-A, HDMI, DisplayPort, MicroSD, Ethernet, Audio, ultra fast storage, and more.'
-
-    // Keyboard
-    let keyboard_img = document.getElementById('keyboard-img');
-    let keyboard_head = document.getElementById('keyboard-head');
-    let keyboard_content = document.getElementById('keyboard-content');
-
-    keyboard_img.src = '../images/product-details_overview-image-3.png';
-    keyboard_head.innerText = 'Keyboard';
-    keyboard_content = 'The DEDSEC Laptop has a great feeling keyboard with a toggleable backlight. While most compact notebooks have shrunk to between 0.8mm and 1.2mm travel, we’ve chosen a better balance of 1.5mm to deliver excellent feel while keeping the system highly portable. Available in 12 languages and clear and blank options. Plus, more coming soon!'
-
+        img_i.src = overview[i - 1].img;
+        head_i.innerText = overview[i - 1].header;
+        content_i.innerText = overview[i - 1].description;
+    }
 
     ///////////////////////---SPECS---///////////////////////
     let specs = JSON.parse(data['specs']);
@@ -195,21 +185,19 @@ document.addEventListener('DOMContentLoaded', async() =>{
     }
 
     ///////////////////////---BOX---///////////////////////
+    let in_the_box = description.in_the_box;
+
     let box_img = document.getElementById('box-img');
     let box_list = document.getElementById('box-list');
 
-    box_img.src = `../images/product-details_whats-in-the-box.png`;
-    box_list.innerHTML = `
-        <li>DEDSEC Laptop DIY Edition </li>
-        <li>Input Cover</li>
-        <li>Bezel</li>
-        <li>Memory (optional)</li>
-        <li>Storage (optional)</li>
-        <li>WiFi</li>
-        <li>Expansion Cards (customizable)</li>
-        <li>Power Adapter (optional)</li>
-        <li>DEDSEC Screwdriver</li>
-    `
+    box_img.src = in_the_box.img;
+
+    box_list.innerHTML = '';
+    for(let i = 0; i < in_the_box.description.length; i++){
+        let box_li = document.createElement('li');
+        box_li.innerText = in_the_box.description[i];
+        box_list.appendChild(box_li);
+    }
 
     let support_list = document.getElementById('support-list');
     support_list.innerHTML = `

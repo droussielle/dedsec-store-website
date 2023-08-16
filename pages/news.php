@@ -35,7 +35,7 @@
         </a>
         
         <!-- <div class="d-flex justify-content-between row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 latest-news"> -->
-        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 latest-news">
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 latest-news" id="news-container">
             <!-- Card 1 -->
             <!-- <div class="card pe-5 mb-5 border-0" style="background: #DDD;">
                 <img src="./img/products-img.jfif" class="card-img-top" alt="...">

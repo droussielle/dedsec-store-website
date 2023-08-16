@@ -56,9 +56,9 @@
                 <div class="carousel-inner">
                     <!-- Slide 1 -->
                     <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <img id='product-slide1-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-8 pe-2 img-fluid" style="width: max-content; height:max-content;">
-                            <img id='product-slide1-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;">
+                        <div class="row justify-content-center m-0">
+                            <img id='product-slide1-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid">
+                            <!-- <img id='product-slide1-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;"> -->
                         </div>
                     </div>
                     
@@ -66,27 +66,27 @@
                     <!-- Slide 2 -->
                     <div class="carousel-item">
                         <!-- Image -->
-                        <div class="row justify-content-center">
-                            <img id='product-slide2-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-8 pe-2 img-fluid" style="width: max-content; height:max-content;">
-                            <img id='product-slide2-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;">
+                        <div class="row justify-content-center m-0">
+                            <img id='product-slide2-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid">
+                            <!-- <img id='product-slide2-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;"> -->
                         </div>
                     </div>
         
                     <!-- Slide 3 -->
                     <div class="carousel-item">
                         <!-- Image -->
-                        <div class="row justify-content-center">
-                            <img id='product-slide3-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-8 pe-2 img-fluid" style="width: max-content; height:max-content;">
-                            <img id='product-slide3-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;">
+                        <div class="row justify-content-center m-0">
+                            <img id='product-slide3-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid">
+                            <!-- <img id='product-slide3-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;"> -->
                         </div>
                     </div>
 
                     <!-- Slide 4 -->
                     <div class="carousel-item">
                         <!-- Image -->
-                        <div class="row justify-content-center">
-                            <img id='product-slide4-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-8 pe-2 img-fluid" style="width: max-content; height:max-content;">
-                            <img id='product-slide4-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;">
+                        <div class="row justify-content-center m-0">
+                            <img id='product-slide4-img1' src="../images/product-details_laptop-1-image.png" alt="laptop-1-image" class="col-lg-5 col-8 img-fluid">
+                            <!-- <img id='product-slide4-img2' src="../images/product-details_laptop-2-image.png" alt="laptop-2-image" class="col-4 img-fluid" style="width: max-content; height: max-content;"> -->
                         </div>
 
                     </div>
@@ -146,16 +146,16 @@
                     
                     <div class="col-md-2 col-12"><h4 id="scrollspyHeading1" class="fw-bolder">Overview</h4></div>
 
-                    <div class="col-md-10 col-12">
+                    <div class="col-md-10 col-12" id='overview-container'>
 
                         <!-- Truly personal computing -->
                         <div class="row">
                             <div class="col-md-8 col-12 text-end">
-                                <img id="truly-img" src="../images/product-details_overview-image-1.png" alt="truly-img" class="img-fluid pe-md-5">
+                                <img id="overview-img-1" src="" alt="truly-img" class="img-fluid pe-md-5">
                             </div>
-                            <div class="col-md-4 col-12 text-center align-self-center" >
-                                <h5 class="fw-bolder" id='truly-head'>Truly personal computing</h5>
-                                <p id='truly-content'>The DEDSEC Laptop 13 has an extremely modular design that gives you full control. Order the DIY Edition and build it yourself, or choose pre-built to have a system ready to go out of the box. Replace any part, upgrade key components, and customize like never before.</p>
+                            <div class="col-md-4 col-12 text-center align-self-center">
+                                <h5 class="fw-bolder" id='overview-head-1'></h5>
+                                <p id='overview-content-1'></p>
                             </div>
                         </div>
                         <br>
@@ -164,11 +164,11 @@
                         <!-- Expansion Cards -->
                         <div class="row">
                             <div class="col-md-4 col-12 text-end align-self-center order-md-0 order-1">
-                                <h5 class="fw-bolder" id="expansion-head">Expansion Cards</h5>
-                                <p id="expansion-content">External adapters are a thing of the past. The Framework Expansion Card system lets you choose exactly the ports you want and where you want them. With four bays, you can select from USB-C, USB-A, HDMI, DisplayPort, MicroSD, Ethernet, Audio, ultra fast storage, and more.</p>
+                                <h5 class="fw-bolder" id="overview-head-2"></h5>
+                                <p id="overview-content-2"></p>
                             </div>
                             <div class="col-md-8 col-12 text-end order-md-1 order-0">
-                                <img id="expansion-img" src="../images/product-details_overview-image-2.png" alt="overview-image-2" class="img-fluid ps-md-5">
+                                <img id="overview-img-2" src="" alt="overview-image-2" class="img-fluid ps-md-5">
                             </div>
                         </div>
                         <br>
@@ -176,10 +176,10 @@
 
                         <!-- Keyboard -->
                         <div class="row justify-content-center">
-                            <img id="keyboard-img" src="../images/product-details_overview-image-3.png" alt="overview-image-3" class="img-fluid">
+                            <img id="overview-img-3" src="" alt="overview-image-3" class="img-fluid">
                             
-                            <h5 id="keyboard-head" class="fw-bolder pt-3">Keyboard</h5>
-                            <p id="keyboard-content">The DEDSEC Laptop has a great feeling keyboard with a toggleable backlight. While most compact notebooks have shrunk to between 0.8mm and 1.2mm travel, we’ve chosen a better balance of 1.5mm to deliver excellent feel while keeping the system highly portable. Available in 12 languages and clear and blank options. Plus, more coming soon!</p>
+                            <h5 id="overview-head-3" class="fw-bolder pt-3"></h5>
+                            <p id="overview-content-3"></p>
                         </div>
                     </div>
 
@@ -260,18 +260,9 @@
                 <div class="container row pt-3 border-0 border-bottom border-dark">
                     <div class="col-md-2 col-12"><h4 id="scrollspyHeading3" class="fw-bolder">What's in the box</h4></div>
                     <div class="col-md-10 col-12">
-                        <img id="box-img" src="../images/product-details_whats-in-the-box.png" alt="whats-in-the-box" class="img-fluid">
+                        <img id="box-img" src="" alt="whats-in-the-box" class="img-fluid">
 
-                        <ul id="box-list">
-                            <li>DEDSEC Laptop DIY Edition </li>
-                            <li>Input Cover</li>
-                            <li>Bezel</li>
-                            <li>Memory (optional)</li>
-                            <li>Storage (optional)</li>
-                            <li>WiFi</li>
-                            <li>Expansion Cards (customizable)</li>
-                            <li>Power Adapter (optional)</li>
-                            <li>DEDSEC Screwdriver</li>                           
+                        <ul id="box-list">                  
                         </ul>
                     </div>
 
