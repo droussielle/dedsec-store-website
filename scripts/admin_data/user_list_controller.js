@@ -50,7 +50,8 @@ for (var i in items ){
         console.log("Response from backend:", data);
         phone=data.data.info.phone;
         address=data.data.info.address;
-        generateItem(items[i].name,items[i].id,items[i].email,items[i].role,phone,address);
+        // generateItem(items[i].name,items[i].id,items[i].email,items[i].role,phone,address);
+        generateItem(data.data.info.name,data.data.info.id,data.data.email,data.data.role,phone,address);
     })
     .catch((error) => {
         console.error("Error:", error);

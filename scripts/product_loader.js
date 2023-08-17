@@ -209,7 +209,7 @@ async function Load_Product_List(category_id, sort_id){
         let price = current_item['price'];
 
         let short_description = current_item['short_description'];
-        short_description = short_description.split('\r\n');
+        short_description = short_description.split('\n');
         short_description = short_description.filter(feature => feature.trim() !== '');
 
         // Generate Product templates

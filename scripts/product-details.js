@@ -90,20 +90,35 @@ function editProduct(){
     var newImageURL = prompt("Image URL",JSON.parse(localStorage.getItem("product-temporary-data")).data.image_url);
     var newSpecs = prompt("Specs", JSON.parse(localStorage.getItem("product-temporary-data")).data.specs);
 
+    
+    // var changes=`
+    //     {
+    //         "name": "${newName}",
+    //         "short_description": "${newShortDescription}",
+    //         "description": ${JSON.stringify(newDescription.replace("'","\\'"))},
+    //         "price": "${newPrice}",
+    //         "quantity": "${newQuantity}",
+    //         "image_url": "${newImageURL}",
+    //         "specs": ${JSON.stringify(newSpecs.replace("'","\\'"))}
+    //     }
+    // `
+
     var changes=`
         {
             "name": "${newName}",
-            "short_description": "${newShortDescription}",
+            "short_description": ${JSON.stringify(newShortDescription.replace("'","\\'"))},
             "description": ${JSON.stringify(newDescription.replace("'","\\'"))},
             "price": "${newPrice}",
-            "quantity": "${newQuantity}",
+            "quantity": ${newQuantity},
             "image_url": "${newImageURL}",
             "specs": ${JSON.stringify(newSpecs.replace("'","\\'"))}
         }
     `
     // alert(changes);
 
-    fetch(`http://localhost:8000/product/${id}`,{method:"PATCH",
+    fetch(`http://localhost:8000/product/${id}`,{
+
+        method:"PATCH",
         headers:{
             "Authorization": `Bearer ${myToken}`,
             "Content-Type":"application/json"
